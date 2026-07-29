@@ -10,8 +10,7 @@ from src.noise_models import pauli_noise_model
 def main():
     qc = get_test_circuit(num_qubits=10)
 
-    p_error = 0.1
-    noise_model = pauli_noise_model(qc, p=p_error)
+    noise_model = pauli_noise_model(qc)
 
     shots = 10000
 
