@@ -1,10 +1,7 @@
 from qiskit_aer.noise import NoiseModel, pauli_error
 from qiskit import QuantumCircuit
 
-def pauli_noise_model(qc: QuantumCircuit, p: float = 0.01) -> NoiseModel:
-    p_x = p / 3
-    p_y = p / 3
-    p_z = p / 3
+def pauli_noise_model(qc: QuantumCircuit, p_x: float = 0.01, p_y: float = 0.01, p_z: float = 0.01) -> NoiseModel:
     p_identity = 1 - (p_x + p_y + p_z)
 
     
