@@ -65,7 +65,7 @@ def depolarizing_thermal_noise_model(
     depol_2q_err = depolarizing_error(depol_2q, 2)
     combined_2q = thermal_2q.compose(depol_2q_err)
 
-    noise_model.add_all_qubit_quantum_error(combined_1q, ["sx", "x", "rz", "id"])
+    noise_model.add_all_qubit_quantum_error(combined_1q, ["sx", "x", "id"])
     noise_model.add_all_qubit_quantum_error(combined_2q, ["cx", "ecr", "cz"])
 
     return noise_model

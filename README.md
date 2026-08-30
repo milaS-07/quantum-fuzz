@@ -17,7 +17,7 @@ Za simulaciju šuma korišćen je model koji kombinuje **termalnu relaksaciju** 
 
 **Parametri** šuma preuzeti su sa trenutne kalibracije IBM procesora (**ibm_sherbrooke**), na način kako je to urađeno u radu [Enhanced Algorithmic Perfect State Transfer on IBM Quantum Computers](docs/paper2.md).
 
-| Parametar | Vrednost |
+| | Model1 |
 | :--- | :--- |
 | **Procesor** | `ibm_sherbrooke` |
 | **Model šuma** | `Thermal Relaxation` + `Depolarizing` |
@@ -25,5 +25,5 @@ Za simulaciju šuma korišćen je model koji kombinuje **termalnu relaksaciju** 
 | **$T_2$** | $186.01\ \mu\text{s}$ |
 | **Trajanje 1Q kapije ($t_{\text{1Q}}$)** | $42.67\ \text{ns}$ |
 | **Trajanje 2Q kapije ($t_{\text{2Q}}$)** | $539.90\ \text{ns}$ |
-| **Greška 1Q kapije** | $0.042\%$ |
-| **Greška 2Q kapije** | $7.20\%$ |
+| **Greška 1Q kapije** | $0.042%$ |
+| **Greška 2Q kapije** | $7.20%$ |
