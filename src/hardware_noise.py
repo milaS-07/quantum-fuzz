@@ -1,6 +1,7 @@
 import numpy as np
 from qiskit_ibm_runtime.fake_provider import FakeSherbrooke
 
+
 def extract_chip_averages(backend) -> dict:
     props = backend.properties()
     num_qubits = backend.num_qubits
@@ -46,8 +47,15 @@ def extract_chip_averages(backend) -> dict:
         "depol_2q": avg_depol_2q,
     }
 
-backend = FakeSherbrooke()
 
-chip_props = extract_chip_averages(backend)
-print(f"Podaci za procesor {backend.name}:")
-print(chip_props)
+backend_device = FakeSherbrooke()
+
+izlaz = extract_chip_averages(backend_device)
+
+print("Izvučeni parametri za model šuma:")
+print(f"T1 prosek: {izlaz['t1'] * 1e6:.2f} us")
+print(f"T2 prosek: {izlaz['t2'] * 1e6:.2f} us")
+print(f"Trajanje 1Q kapije: {izlaz['time_1q'] * 1e9:.2f} ns")
+print(f"Trajanje 2Q kapije: {izlaz['time_2q'] * 1e9:.2f} ns")
+print(f"Greška 1Q kapije: {izlaz['depol_1q'] * 100:.3f}%")
+print(f"Greška 2Q kapije: {izlaz['depol_2q'] * 100:.3f}%")

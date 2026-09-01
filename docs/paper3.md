@@ -59,3 +59,7 @@ Varijansa gradijenta
 * kako bi PQC bio koristan mora da zadovoljava navedena tri kriterijuma (rubusnost, trenirativnost, eksresivnost)
 * problem je što tačno pronalaženje bottleneck delova raste eksponencijalno sa brojem kjubita (oni to rešavaju koristeći Pauli back propagaciju)
 * cilj rada je takođe da smanji potrebu za korekcijom već da može da je primeni samo na te bottleneck delove
+
+
+---
+[*link do rada*](https://arxiv.org/abs/2509.11307)

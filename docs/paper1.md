@@ -12,3 +12,6 @@ U oba okruženja ispitane su tri modela:
 
 
 U njihovim rezultatima 3. model daje najbolje rezultate, pa je zato i izabran u ovom istraživanju. U zaključku isto navode kako jedino simultano modeliranje grešaka kapija (`gate_error`) i toplotne relaksacije ($T_1/T_2$) (3. model) obezbeđuje fizički adekvatnu simulaciju kvantnih kola.
+
+---
+[*link do rada*](https://link.springer.com/article/10.1140/epjqt/s40507-024-00284-4)
