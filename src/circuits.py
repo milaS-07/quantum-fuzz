@@ -12,12 +12,56 @@ def get_empty_circuit(num_qubits: int = 10) -> QuantumCircuit:
     qc.measure_all()
     return qc
 
-
-def get_empty_circuit(num_qubits: int = 10) -> QuantumCircuit:
+def get_rnd_circuit_1(num_qubits: int = 4) -> QuantumCircuit:
     qc = QuantumCircuit(num_qubits)
+    qc.h(0)
+    qc.x(1)
+    qc.y(2)
+    qc.z(3)
+    qc.s(0)
+    qc.t(1)
+    qc.cx(0, 2)
+    qc.cz(1, 3)
     qc.measure_all()
     return qc
 
+def get_rnd_circuit_2(num_qubits: int = 6) -> QuantumCircuit:
+    qc = QuantumCircuit(num_qubits)
+    for i in range(num_qubits):
+        qc.h(i)
+        if i > 0:
+            qc.cx(i - 1, i)
+        qc.x(i)
+    qc.measure_all()
+    return qc
+
+def get_rnd_circuit_3(num_qubits: int = 5) -> QuantumCircuit:
+    qc = QuantumCircuit(num_qubits)
+    qc.rx(1.57, 0)
+    qc.ry(0.78, 1)
+    qc.rz(3.14, 2)
+    
+    qc.ccx(0, 1, 2)
+    
+    qc.cx(3, 4)
+    
+    qc.measure_all()
+    return qc
+
+def get_rnd_circuit_4(num_qubits: int = 8) -> QuantumCircuit:
+    qc = QuantumCircuit(num_qubits)
+    
+    for i in range(num_qubits):
+        qc.h(i)
+        
+    for i in range(num_qubits):
+        qc.cx(i, (i + 1) % num_qubits)
+        
+    qc.swap(0, 4)
+    qc.swap(2, 6)
+    
+    qc.measure_all()
+    return qc
 
 FIXED_CIRCUIT_SIZES = {
     "shor": 18,
