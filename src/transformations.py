@@ -115,27 +115,22 @@ def get_matrix_decompositions(circuit: QuantumCircuit, max_block_size: int = MAX
     return successors
 
 
-def calculate_noise_cost(circuit: QuantumCircuit) -> float:
-    ideal_circuit = circuit.remove_final_measurements(inplace=False)
-    ideal_state = Statevector(ideal_circuit)
+def calculate_noise_cost(circuit: QuantumCircuit, shots: int = 1000) -> float:
+    meas_circuit = circuit.remove_final_measurements(inplace=False)
+    meas_circuit.measure_all()
 
-    noisy_circuit = ideal_circuit.copy()
-    noisy_circuit.save_density_matrix()
-    simulator = AerSimulator(noise_model=get_sherbrooke_noise_model(), method="density_matrix")
-    result = simulator.run(noisy_circuit).result()
-    noisy_state = result.data(0)["density_matrix"]
+    sim_ideal = AerSimulator(max_parallel_threads=0)
+    sim_noisy = AerSimulator(noise_model=get_sherbrooke_noise_model(), max_parallel_threads=0)
 
-    fidelity = state_fidelity(ideal_state, noisy_state)
+    counts_ideal = sim_ideal.run(meas_circuit, shots=shots).result().get_counts()
+    counts_noisy = sim_noisy.run(meas_circuit, shots=shots).result().get_counts()
+
+    fidelity = calculate_fidelity(counts_ideal, counts_noisy, shots)
     return 1.0 - fidelity
 
 def heuristic(circuit: QuantumCircuit) -> float:
     return 0.0
 
-
-def is_equivalent(circuit_a: QuantumCircuit, circuit_b: QuantumCircuit) -> bool:
-    a = circuit_a.remove_final_measurements(inplace=False)
-    b = circuit_b.remove_final_measurements(inplace=False)
-    return Operator(a).equiv(Operator(b))
 
 
 def a_star_search(start_circuit: QuantumCircuit, max_iterations=1000):
@@ -162,8 +157,6 @@ def a_star_search(start_circuit: QuantumCircuit, max_iterations=1000):
             best_node = current_node
 
         for next_circ, action in get_matrix_decompositions(current_node.circuit):
-            if not is_equivalent(next_circ, start_circuit):
-                continue
 
             next_node = CircuitNode(
                 circuit=next_circ,
@@ -200,7 +193,7 @@ def evaluate_circuit(circuit: QuantumCircuit, shots=8192) -> dict:
     }
 
 
-def run(shots=10000, max_iterations=50):
+def run(shots=1000, max_iterations=50):
     start_circuit = get_rnd_circuit_4()
     optimal_node = a_star_search(start_circuit, max_iterations=max_iterations)
 
@@ -227,4 +220,5 @@ def run(shots=10000, max_iterations=50):
     return original_metrics, optimal_metrics
 
 
-run()
+if __name__ == "__main__":
+    run()
