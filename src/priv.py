@@ -1,154 +1,127 @@
 import json
-import os
-import statistics
-from collections import defaultdict
-
-BASE_DIR = r"D:\results_quantum"
-
-CATEGORY_DISPLAY = {
-    "Clifford": "Clifford",
-    "Non-Parametric Non-Clifford": "Non-Clifford Non-Parametric",
-    "PQC": "PQC",
-    "Control": "Control",
-}
-CATEGORY_ORDER = ["Clifford", "Non-Parametric Non-Clifford", "PQC", "Control"]
-
-DEPTH_BUCKETS = [
-    (r"$D \le 10$", 0, 10),
-    (r"$11 - 30$", 11, 30),
-    (r"$31 - 60$", 31, 60),
-    (r"$61 - 100$", 61, 100),
-    (r"$D > 100$", 101, float("inf")),
-]
-
-TARGET_QUBIT_ROWS = [2, 4, 6, 8, 10, 12, 14, 16, 18]
+import scipy.stats as stats
+from pathlib import Path
 
 
-def load_all_results(base_dir):
-    """Walk every metrics.json on disk, return {bench_name: bench_data}."""
-    results = {}
-    for root, _, files in os.walk(base_dir):
-        if "metrics.json" not in files:
+def run_aggregate_check():
+    project_root = Path.cwd()
+    results_dir = project_root / "results"
+
+    emp_path = results_dir / "depth_noise_correlation.json"
+    theo_path = results_dir / "theoretical_fidelities.json"
+    out_path = results_dir / "aggregate_correlation_check.json"
+
+    if not emp_path.exists() or not theo_path.exists():
+        print(f"Error: Could not find both JSON files in {results_dir}")
+        return
+
+    with open(emp_path, "r") as f:
+        emp_data = json.load(f)
+    with open(theo_path, "r") as f:
+        theo_data = json.load(f)
+
+    theo_lookup = {}
+    for c in theo_data.get("circuits", []):
+        key = f"{c['base_name']}__{c['num_qubits']}"
+        theo_lookup[key] = {}
+        for v in c.get("variants_tested", []):
+            theo_lookup[key][v["variant_id"]] = v
+
+    # 1. Build the same flat, per-variant lists as before (for reference/comparison)
+    flat_tot_depth, flat_2q_depth, flat_emp_fid, flat_th_raw = [], [], [], []
+
+    # 2. Also group everything by base circuit, so we can average WITHIN each
+    #    group before correlating - this collapses the ~456 (non-independent,
+    #    clustered) variant rows down to ~24 (independent) circuit-level rows.
+    groups = {}  # key -> {"tot_depth": [...], "2q_depth": [...], "emp_fid": [...], "th_raw": [...]}
+
+    for c_emp in emp_data.get("circuits", []):
+        base = c_emp["base_name"]
+        nq = c_emp["num_qubits"]
+        key = f"{base}__{nq}"
+
+        if key not in theo_lookup:
             continue
-        with open(os.path.join(root, "metrics.json"), "r", encoding="utf-8") as f:
-            data = json.load(f)
-        results[data["metadata"]["name"]] = data
-    return results
 
+        if key not in groups:
+            groups[key] = {"tot_depth": [], "2q_depth": [], "emp_fid": [], "th_raw": []}
 
-def fmt(values):
-    """Mean ± population-std, 4 decimals. 'N/A' if no data."""
-    if not values:
-        return "N/A"
-    mean = statistics.mean(values)
-    std = statistics.pstdev(values) if len(values) > 1 else 0.0
-    return f"{mean:.4f} ± {std:.4f}"
+        for v_emp in c_emp.get("variants_tested", []):
+            vid = v_emp["variant_id"]
+            if vid not in theo_lookup[key]:
+                continue
 
+            v_theo = theo_lookup[key][vid]
 
-def valid_entries(bench_data):
-    """Per-qubit entries with real simulated data — excludes the
-    'signal drowned in noise' placeholder rows (depth == -1, no counts)."""
-    return [r for r in bench_data["results_per_qubit"].values() if r.get("depth", -1) != -1]
+            tot_depth = v_emp["features"]["total_depth"]
+            depth_2q = v_emp["features"]["depth_2q"]
+            emp_fid = v_emp["metrics"]["fidelity"]
+            th_raw = v_theo["theoretical_metrics"]["fidelity_raw"]
 
+            flat_tot_depth.append(tot_depth)
+            flat_2q_depth.append(depth_2q)
+            flat_emp_fid.append(emp_fid)
+            flat_th_raw.append(th_raw)
 
-def table_by_category(all_results):
-    buckets = defaultdict(lambda: {"F": [], "TVD": [], "JSD": []})
-    for data in all_results.values():
-        cat = data["metadata"]["category"]
-        for r in valid_entries(data):
-            buckets[cat]["F"].append(r["fidelity"])
-            buckets[cat]["TVD"].append(r["tvd"])
-            buckets[cat]["JSD"].append(r["js_divergence"])
+            groups[key]["tot_depth"].append(tot_depth)
+            groups[key]["2q_depth"].append(depth_2q)
+            groups[key]["emp_fid"].append(emp_fid)
+            groups[key]["th_raw"].append(th_raw)
 
-    print("#### Rezultati svih kola\n")
-    print("| Kategorija | Fidelity ($F$) `[Mean ± Std]` | TVD `[Mean ± Std]` | JSD `[Mean ± Std]` |")
-    print("| :--- | :---: | :---: | :---: |")
-    for cat in CATEGORY_ORDER:
-        v = buckets.get(cat, {"F": [], "TVD": [], "JSD": []})
-        if not v["F"]:
-            continue
-        print(f"| **{CATEGORY_DISPLAY[cat]}** | {fmt(v['F'])} | {fmt(v['TVD'])} | {fmt(v['JSD'])} |")
-    print("\n---\n")
+    if not flat_emp_fid:
+        print("Error: No matching data points found between the two files.")
+        return
 
+    def mean(xs):
+        return sum(xs) / len(xs)
 
-def table_by_qubit_count(all_results):
-    buckets = {n: {"F": [], "TVD": [], "JSD": []} for n in TARGET_QUBIT_ROWS}
-    for data in all_results.values():
-        for r in valid_entries(data):
-            n = r["num_qubits"]
-            if n in buckets:
-                buckets[n]["F"].append(r["fidelity"])
-                buckets[n]["TVD"].append(r["tvd"])
-                buckets[n]["JSD"].append(r["js_divergence"])
+    # Collapse each group to its mean - one row per base circuit
+    agg_tot_depth = [mean(g["tot_depth"]) for g in groups.values()]
+    agg_2q_depth = [mean(g["2q_depth"]) for g in groups.values()]
+    agg_emp_fid = [mean(g["emp_fid"]) for g in groups.values()]
+    agg_th_raw = [mean(g["th_raw"]) for g in groups.values()]
 
-    print("#### Rezultati po broju kjubita\n")
-    print("| Broj kubita ($N$) | Fidelity ($F$) `[Mean ± Std]` | TVD `[Mean ± Std]` | JSD `[Mean ± Std]` |")
-    print("| :---: | :---: | :---: | :---: |")
-    for n in TARGET_QUBIT_ROWS:
-        v = buckets[n]
-        print(f"| **{n}** | {fmt(v['F'])} | {fmt(v['TVD'])} | {fmt(v['JSD'])} |")
-    print("\n---\n")
+    print("=" * 70)
+    print("AGGREGATE (CIRCUIT-LEVEL) CORRELATION CHECK")
+    print("=" * 70)
+    print(f"Flat variant-level rows : {len(flat_emp_fid)}  (pseudoreplicated - NOT independent)")
+    print(f"Aggregated circuit rows : {len(agg_emp_fid)}   (one row per base circuit - independent)")
 
+    def report(name, x_flat, x_agg):
+        r_flat, p_flat = stats.pearsonr(x_flat, flat_emp_fid)
+        rho_flat, sp_flat = stats.spearmanr(x_flat, flat_emp_fid)
+        r_agg, p_agg = stats.pearsonr(x_agg, agg_emp_fid)
+        rho_agg, sp_agg = stats.spearmanr(x_agg, agg_emp_fid)
+        print(f"\n{name}")
+        print(f"  Flat (n={len(x_flat):3d}, pseudoreplicated) : "
+              f"r={r_flat:7.4f} (p={p_flat:.3e})   rho={rho_flat:7.4f} (p={sp_flat:.3e})")
+        print(f"  Aggregated (n={len(x_agg):3d}, honest)       : "
+              f"r={r_agg:7.4f} (p={p_agg:.3e})   rho={rho_agg:7.4f} (p={sp_agg:.3e})")
+        return {
+            "flat": {"n": len(x_flat), "pearson_r": r_flat, "pearson_p": p_flat,
+                     "spearman_rho": rho_flat, "spearman_p": sp_flat},
+            "aggregated": {"n": len(x_agg), "pearson_r": r_agg, "pearson_p": p_agg,
+                           "spearman_rho": rho_agg, "spearman_p": sp_agg},
+        }
 
-def table_by_depth(all_results):
-    buckets = {label: {"F": [], "TVD": [], "JSD": []} for label, _, _ in DEPTH_BUCKETS}
-    for data in all_results.values():
-        for r in valid_entries(data):
-            d = r["depth"]
-            for label, lo, hi in DEPTH_BUCKETS:
-                if lo <= d <= hi:
-                    buckets[label]["F"].append(r["fidelity"])
-                    buckets[label]["TVD"].append(r["tvd"])
-                    buckets[label]["JSD"].append(r["js_divergence"])
-                    break
+    results = {
+        "total_depth_vs_fidelity": report("Total Depth", flat_tot_depth, agg_tot_depth),
+        "2q_depth_vs_fidelity": report("2-Qubit Depth", flat_2q_depth, agg_2q_depth),
+        "th_raw_vs_empirical": report("Paper's Raw Formula", flat_th_raw, agg_th_raw),
+    }
 
-    print("### Rezultati po dubini kola\n")
-    print("| Opseg dubine ($D$) | Fidelity ($F$) `[Mean ± Std]` | TVD `[Mean ± Std]` | JSD `[Mean ± Std]` |")
-    print("| :---: | :---: | :---: | :---: |")
-    for label, _, _ in DEPTH_BUCKETS:
-        v = buckets[label]
-        print(f"| **{label}** | {fmt(v['F'])} | {fmt(v['TVD'])} | {fmt(v['JSD'])} |")
-    print("\n---\n")
+    with open(out_path, "w") as f:
+        json.dump(results, f, indent=4)
 
-
-def table_scaling_deltas(all_results):
-    rows_by_category = defaultdict(list)
-    all_deltas = {"F": [], "TVD": [], "JSD": []}
-
-    for bench_name, data in all_results.items():
-        if not data["metadata"]["scalable"]:
-            continue
-        entries = sorted(valid_entries(data), key=lambda r: r["num_qubits"])
-        if len(entries) < 2:
-            continue
-        first, last = entries[0], entries[-1]
-        dF = last["fidelity"] - first["fidelity"]
-        dTVD = last["tvd"] - first["tvd"]
-        dJSD = last["js_divergence"] - first["js_divergence"]
-        rows_by_category[data["metadata"]["category"]].append((bench_name, dF, dTVD, dJSD))
-        all_deltas["F"].append(dF)
-        all_deltas["TVD"].append(dTVD)
-        all_deltas["JSD"].append(dJSD)
-
-    print("### Promena metrika pri skaliranju skalabilnih kola\n")
-    print(r"| Kolo | Promena Fidelity-ja ($\Delta F$) | Promena TVD-a ($\Delta \text{TVD}$) | Promena JSD-a ($\Delta \text{JSD}$) |")
-    print("| :--- | :---: | :---: | :---: |")
-    for cat in CATEGORY_ORDER:
-        rows = rows_by_category.get(cat)
-        if not rows:
-            continue
-        print(f"| **{CATEGORY_DISPLAY[cat]}** | | | |")
-        for name, dF, dTVD, dJSD in sorted(rows):
-            print(f"| {name} | {dF:+.4f} | {dTVD:+.4f} | {dJSD:+.4f} |")
-
-    if all_deltas["F"]:
-        print(f"| **Prosek svih kola** | {statistics.mean(all_deltas['F']):+.4f} | "
-              f"{statistics.mean(all_deltas['TVD']):+.4f} | {statistics.mean(all_deltas['JSD']):+.4f} |")
+    print(f"\nSaved comparison to: {out_path}")
+    print("=" * 70)
+    print("If the aggregated p-values are much larger than the flat ones (they")
+    print("almost certainly will be), that confirms the flat p-values were")
+    print("inflated by treating clustered/non-independent variants as if they")
+    print("were independent samples. The r/rho values are still meaningful either")
+    print("way - it's specifically the p-values (statistical significance) that")
+    print("were unreliable at the flat/variant level.")
 
 
 if __name__ == "__main__":
-    all_results = load_all_results(BASE_DIR)
-    table_by_category(all_results)
-    table_by_qubit_count(all_results)
-    table_by_depth(all_results)
-    table_scaling_deltas(all_results)
+    run_aggregate_check()
