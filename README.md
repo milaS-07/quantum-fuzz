@@ -53,14 +53,14 @@ Kola su podeljena u četiri kategorije:
 
 ### Rezultati
 
-[rezultati testiranja MQT benchmark-a nad šumom](results_mqtbench.md)
+[rezultati testiranja MQT benchmark-a nad šumom](docs/results_mqtbench.md)
 
 ---
 ## Korelacija različitih parametara i šuma
 
 Kako bi se proces prolaska kroz graf ubrzao, urađeni su testovi posmatranja različitih parametara po tome kolika postoji koleracija između njih i šuma.
  
-Na uzorku od ukupno **456 kola**, testirane su 3 metrike:
+Na uzorku od ukupno **456 kola**, testirane su 3 prediktora šuma:
  
 - **Ukupna dubina kola**
 - **Dubina 2q kapija**
@@ -93,17 +93,4 @@ Svih 456 varijanti je grupisano po
  
 Formula iz rada je statistički najznačajnija i dobija se najbolji rezultat u obe metrike pa je zato i korišćena u algoritmu.
  
-## Zaključak i izbor formule
- 
-Teorijska formula iz rada pokazala se kao **ubedljivo najbolji prediktor**
-empirijske vernosti — znatno bolji od prostih strukturnih metrika poput
-dubine kola. To je i očekivano, s obzirom da formula nije proizvoljna
-heuristika, već analitički izvedena iz fizičkog modela akumulacije grešaka
-(nasumični 2-kubitni gejtovi + permutacije), dok dubina kola samo posredno
-prati taj proces.
- 
-Na osnovu ovoga, formula je usvojena kao brza zamena za pravu simulaciju
-tokom pretrage/optimizacije kola — s tim da se finalni rezultat i dalje
-proverava stvarnom simulacijom, jer ni r = 0.64 ne garantuje tačnost za
-pojedinačan slučaj, već samo dobar prosečan trend.
  

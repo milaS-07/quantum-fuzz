@@ -1,0 +1,16 @@
+OPENQASM 3.0;
+include "stdgates.inc";
+bit[2] meas;
+qubit[1] eval;
+qubit[1] q;
+U(pi/2, 0.4000572963536335, -pi) eval[0];
+U(pi/2, 0, pi/4) q[0];
+cx eval[0], q[0];
+U(pi, -pi/4, pi/4) eval[0];
+U(1.7721542475852268, 2.1862760354652835, -2.186276035465283) q[0];
+cx eval[0], q[0];
+U(pi/2, -pi, 1.9708536231484999) eval[0];
+U(2.316954221185144, 1.8438050298816044, -1.1795787319872972) q[0];
+barrier eval[0], q[0];
+meas[0] = measure eval[0];
+meas[1] = measure q[0];
