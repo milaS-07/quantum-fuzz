@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
-from typing import Optional, Literal, Tuple
+from typing import Optional, Literal, Tuple, Union
 
 
 def f4_exact(alpha: float) -> float:
@@ -57,13 +57,12 @@ def delta_for_architecture(L: int, p: float, architecture: Architecture) -> floa
         return delta_dD(L, p, 2)
     if architecture == "3d":
         return delta_dD(L, p, 3)
-    raise ValueError(f"Unknown architecture {architecture!r} "
-                      "(use 'full', '1d', '2d', or '3d')")
+    raise ValueError(f"Unknown architecture {architecture!r}")
 
 
 def average_fidelity(
     L: int,
-    T: int,
+    T: float, # Changed to float to support T_eff
     p: float = 0.0,
     alpha: float = 0.0,
     architecture: Architecture = "full",
@@ -86,7 +85,7 @@ def average_fidelity(
 
 def asymptotic_fidelity(
     L: int,
-    T: int,
+    T: float, # Changed to float to support T_eff
     p: float = 0.0,
     alpha: float = 0.0,
     architecture: Architecture = "full",
@@ -115,7 +114,11 @@ class CircuitRQCParams:
     architecture: Optional[Architecture] = None
 
 
-def extract_L_T(circuit) -> Tuple[int, int]:
+def extract_circuit_metrics(circuit) -> Tuple[int, int, float]:
+    """
+    Extracts L (qubits), T_depth (original critical path depth for 2Q gates),
+    and T_eff (density-based depth for sparse circuits).
+    """
     L = circuit.num_qubits
 
     def _is_two_qubit(instr) -> bool:
@@ -124,23 +127,35 @@ def extract_L_T(circuit) -> Tuple[int, int]:
             op = instr[0]
         return getattr(op, "num_qubits", None) == 2
 
+    # 1. Calculate T_depth (Original method)
     try:
-        T = circuit.depth(filter_function=_is_two_qubit)
+        T_depth = circuit.depth(filter_function=_is_two_qubit)
     except TypeError:
         qubit_layer = {q: 0 for q in circuit.qubits}
         max_layer = 0
-        for instr in circuit.data:
+        for instr in getattr(circuit, "data", circuit):
             op = getattr(instr, "operation", instr[0])
-            qargs = getattr(instr, "qubits", None) or instr[1]
+            qargs = getattr(instr, "qubits", None)
+            if qargs is None:
+                qargs = instr[1]
             if getattr(op, "num_qubits", None) != 2:
                 continue
-            layer = max(qubit_layer[q] for q in qargs) + 1
+            layer = max(qubit_layer.get(q, 0) for q in qargs) + 1
             for q in qargs:
                 qubit_layer[q] = layer
             max_layer = max(max_layer, layer)
-        T = max_layer
+        T_depth = max_layer
 
-    return L, T
+    # 2. Calculate T_eff (New sparse method)
+    try:
+        num_2q_gates = sum(1 for instr in circuit.data if _is_two_qubit(instr))
+    except AttributeError:
+        num_2q_gates = sum(1 for instr in circuit if _is_two_qubit(instr))
+        
+    gates_per_full_layer = L / 2.0
+    T_eff = num_2q_gates / gates_per_full_layer if gates_per_full_layer > 0 else 0.0
+
+    return L, int(T_depth), float(T_eff)
 
 
 def guess_architecture(coupling_map) -> Architecture:
@@ -179,30 +194,102 @@ def fidelity_from_circuit(
     coupling_map=None,
     exact_f4: bool = True,
 ) -> dict:
-    L, T = extract_L_T(circuit)
+    # Now extracts both metrics
+    L, T_depth, T_eff = extract_circuit_metrics(circuit)
+    
     if architecture is None:
         architecture = guess_architecture(coupling_map)
 
-    F_exact = average_fidelity(L, T, p=p, alpha=alpha,
-                                architecture=architecture, exact_f4=exact_f4)
-    F_asym = asymptotic_fidelity(L, T, p=p, alpha=alpha, architecture=architecture)
+    # Theoretical fidelity based on regular Depth (Original)
+    F_exact_depth = average_fidelity(L, T_depth, p=p, alpha=alpha,
+                                     architecture=architecture, exact_f4=exact_f4)
+    F_asym_depth = asymptotic_fidelity(L, T_depth, p=p, alpha=alpha, architecture=architecture)
+
+    # Theoretical fidelity based on Effective Depth (New)
+    F_exact_eff = average_fidelity(L, T_eff, p=p, alpha=alpha,
+                                   architecture=architecture, exact_f4=exact_f4)
+    F_asym_eff = asymptotic_fidelity(L, T_eff, p=p, alpha=alpha, architecture=architecture)
 
     return {
         "L": L,
-        "T": T,
+        "T_depth": T_depth,
+        "T_eff": T_eff,
         "architecture": architecture,
         "alpha": alpha,
         "p": p,
-        "fidelity_solvable_model": F_exact,
-        "fidelity_asymptotic": F_asym,
+        "fidelity_solvable_model_depth": F_exact_depth,
+        "fidelity_asymptotic_depth": F_asym_depth,
+        "fidelity_solvable_model_eff": F_exact_eff,
+        "fidelity_asymptotic_eff": F_asym_eff,
     }
 
 
+HARDWARE_PRESETS = {
+    "ibm_sherbrooke": dict(
+        t1=289.55e-6, t2=186.01e-6,
+        time_1q=42.67e-9, time_2q=539.90e-9,
+        depol_1q=0.00042, depol_2q=0.07200,
+    ),
+}
 
+
+def F_avg_from_alpha(alpha: float) -> float:
+    # Corrected formula for d=4 extracting exact entanglement fidelity relation
+    return (3.0 * f4_exact(alpha) + 2.0) / 5.0
+
+
+def alpha_from_F_avg(F_avg_target: float, tol: float = 1e-12) -> float:
+    if not (0.0 < F_avg_target <= 1.0):
+        raise ValueError("F_avg_target must be in (0, 1]")
+    lo, hi = 0.0, 3.0
+    f_lo = F_avg_from_alpha(lo) - F_avg_target
+    f_hi = F_avg_from_alpha(hi) - F_avg_target
+    if f_lo * f_hi > 0:
+        raise ValueError(f"F_avg_target={F_avg_target} out of range for this model")
+    for _ in range(200):
+        mid = (lo + hi) / 2
+        f_mid = F_avg_from_alpha(mid) - F_avg_target
+        if abs(f_mid) < tol:
+            return mid
+        if f_lo * f_mid < 0:
+            hi = mid
+        else:
+            lo, f_lo = mid, f_mid
+    return (lo + hi) / 2
+
+
+def alpha_from_2q_channel(t1: float, t2: float, time_2q: float, depol_2q: float) -> float:
+    from qiskit.quantum_info import average_gate_fidelity, Kraus
+    from qiskit_aer.noise import thermal_relaxation_error, depolarizing_error
+
+    if t2 > 2 * t1:
+        t2 = 2 * t1
+
+    thermal_2q = thermal_relaxation_error(t1, t2, time_2q).tensor(
+        thermal_relaxation_error(t1, t2, time_2q)
+    )
+    combined_2q = thermal_2q.compose(depolarizing_error(depol_2q, 2))
+
+    chan = Kraus(combined_2q.to_quantumchannel())
+    F_avg = average_gate_fidelity(chan)
+
+    return alpha_from_F_avg(F_avg)
+
+
+def alpha_for_hardware(name: str) -> float:
+    if name not in HARDWARE_PRESETS:
+        raise KeyError(f"No preset for {name!r}. Add it to HARDWARE_PRESETS, "
+                        f"or call alpha_from_2q_channel(...) directly.")
+    p = HARDWARE_PRESETS[name]
+    return alpha_from_2q_channel(t1=p["t1"], t2=p["t2"], time_2q=p["time_2q"], depol_2q=p["depol_2q"])
+
+
+def fidelity_with_real_topology(circuit, coupling_map, t1, t2, time_2q, depol_2q, p=0.0):
+    alpha = alpha_from_2q_channel(t1, t2, time_2q, depol_2q)
+    return fidelity_from_circuit(circuit, alpha=alpha, p=p, coupling_map=coupling_map)
 
 
 if __name__ == "__main__":
     L, T = 6, 20
-    for p in (0.0, 0.001, 0.005):
-        Fv = average_fidelity(L, T, p=p, alpha=0.05, architecture="1d")
-        print(f"L={L} T={T} p={p:<6} alpha=0.05  ->  F = {Fv:.4f}")
+    # A quick dry-run test
+    print(f"L={L} T={T} alpha=0.05 p=0.0 -> Original Formula = {average_fidelity(L, T, alpha=0.05, architecture='1d'):.4f}")

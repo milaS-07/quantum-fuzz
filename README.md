@@ -79,7 +79,7 @@ Uz oba koeficijenta izračunata je i **p-vrednost**, koja pokazuje da li je
 dobijena korelacija statistički značajna (da li je verovatno da je nastala
 slučajno).
  
-## Rezultati
+### Rezultati
  
 Svih 456 varijanti je grupisano po
   osnovnom kolu, i unutar svake grupe je izračunata prosečna vrednost, čime

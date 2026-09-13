@@ -186,7 +186,7 @@ def run_comparison():
 
     plt.subplot(2, 2, 4)
     plt.scatter(all_th_eff, all_emp_fid, alpha=0.7, color='green')
-    plt.plot([0, 1], [0, 1], 'k--', alpha=0.5) # Diagonal line
+    plt.plot([0, 1], [0, 1], 'k--', alpha=0.5)
     plt.title(f"Normalized Formula (Effective) vs Empirical\n(r = {pearson_th_eff:.3f}, rho = {spearman_th_eff:.3f})")
     plt.xlabel("Theoretical Fidelity (Effective depth)")
     plt.ylabel("Empirical Fidelity")
