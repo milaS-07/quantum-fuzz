@@ -1,0 +1,51 @@
+{
+  "benchmark": "Quantum Approximation Optimization Algorithm (QAOA)",
+  "category": "PQC",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T15:50:35.786999",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[0], q[1];\nU(0, 0, 10.410545461930019) q[1];\ncx q[0], q[1];\nU(12.013471791158686, -pi/2, pi/2) q[0];\nU(12.013471791158686, -pi/2, pi/2) q[1];\ncx q[0], q[1];\nU(0, 0, 1.8759344847470487) q[1];\ncx q[0], q[1];\nU(2.609806595315514, -pi/2, pi/2) q[0];\nU(2.609806595315514, -pi/2, pi/2) q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 10,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 8,
+        "cx": 4,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 4
+    },
+    "true_fidelity": 0.7986336154810829
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(0.793768510704238, -pi, pi/2) q[0];\nU(1.052043582011318, 2.5339826475355736, 2.522194592162343) q[1];\ncx q[0], q[1];\nU(2.771017926379255, -pi, -pi/2) q[0];\nU(1.673073516575722, 2.015779543212669, -2.015779543212669) q[1];\ncx q[0], q[1];\nU(0.9934849695545992, -pi/2, -pi/2) q[0];\nU(1.024191318146185, 2.2640780266347083, 0.2832294669240478) q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 6,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 6,
+        "cx": 2,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8879993708996229
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.08936575541853997
+  },
+  "search_stats": {
+    "nodes_expanded": 1,
+    "nodes_evaluated": 2,
+    "verified_count": 2,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 0.1306743621826172,
+    "total_seconds": 0.2013704776763916
+  }
+}

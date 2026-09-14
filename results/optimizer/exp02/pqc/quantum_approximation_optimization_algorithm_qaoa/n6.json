@@ -1,0 +1,51 @@
+{
+  "benchmark": "Quantum Approximation Optimization Algorithm (QAOA)",
+  "category": "PQC",
+  "num_qubits": 6,
+  "timestamp": "2026-09-13T15:50:36.046559",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[6] meas;\nqubit[6] q;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[0], q[1];\nU(0, 0, 10.410545461930019) q[1];\ncx q[0], q[1];\nU(pi/2, 0, pi) q[2];\ncx q[1], q[2];\nU(0, 0, 10.410545461930019) q[2];\ncx q[1], q[2];\nU(pi/2, 0, pi) q[3];\ncx q[1], q[3];\nU(0, 0, 10.410545461930019) q[3];\ncx q[1], q[3];\nU(12.013471791158686, -pi/2, pi/2) q[1];\ncx q[2], q[3];\nU(0, 0, 10.410545461930019) q[3];\ncx q[2], q[3];\nU(12.013471791158686, -pi/2, pi/2) q[2];\nU(12.013471791158686, -pi/2, pi/2) q[3];\nU(pi/2, 0, pi) q[4];\ncx q[0], q[4];\nU(0, 0, 10.410545461930019) q[4];\ncx q[0], q[4];\nU(pi/2, 0, pi) q[5];\ncx q[0], q[5];\nU(0, 0, 10.410545461930019) q[5];\ncx q[0], q[5];\nU(12.013471791158686, -pi/2, pi/2) q[0];\ncx q[0], q[1];\nU(0, 0, 1.8759344847470487) q[1];\ncx q[0], q[1];\ncx q[1], q[2];\nU(0, 0, 1.8759344847470487) q[2];\ncx q[1], q[2];\ncx q[1], q[3];\nU(0, 0, 1.8759344847470487) q[3];\ncx q[1], q[3];\nU(2.609806595315514, -pi/2, pi/2) q[1];\ncx q[2], q[3];\nU(0, 0, 1.8759344847470487) q[3];\ncx q[2], q[3];\nU(2.609806595315514, -pi/2, pi/2) q[2];\nU(2.609806595315514, -pi/2, pi/2) q[3];\ncx q[4], q[5];\nU(0, 0, 10.410545461930019) q[5];\ncx q[4], q[5];\nU(12.013471791158686, -pi/2, pi/2) q[4];\ncx q[0], q[4];\nU(0, 0, 1.8759344847470487) q[4];\ncx q[0], q[4];\nU(12.013471791158686, -pi/2, pi/2) q[5];\ncx q[0], q[5];\nU(0, 0, 1.8759344847470487) q[5];\ncx q[0], q[5];\nU(2.609806595315514, -pi/2, pi/2) q[0];\ncx q[4], q[5];\nU(0, 0, 1.8759344847470487) q[5];\ncx q[4], q[5];\nU(2.609806595315514, -pi/2, pi/2) q[4];\nU(2.609806595315514, -pi/2, pi/2) q[5];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\n",
+    "features": {
+      "depth": 25,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 32,
+        "cx": 28,
+        "measure": 6,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 28
+    },
+    "true_fidelity": 0.06980454659212648
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[6] meas;\nqubit[6] q;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[0], q[1];\nU(0, 0, 10.410545461930019) q[1];\ncx q[0], q[1];\nU(pi/2, 0, pi) q[2];\ncx q[1], q[2];\nU(0, 0, 10.410545461930019) q[2];\ncx q[1], q[2];\nU(pi/2, 0, pi) q[3];\ncx q[1], q[3];\nU(0, 0, 10.410545461930019) q[3];\ncx q[1], q[3];\nU(12.013471791158686, -pi/2, pi/2) q[1];\ncx q[2], q[3];\nU(0, 0, 10.410545461930019) q[3];\ncx q[2], q[3];\nU(12.013471791158686, -pi/2, pi/2) q[2];\nU(12.013471791158686, -pi/2, pi/2) q[3];\nU(pi/2, 0, pi) q[4];\ncx q[0], q[4];\nU(0, 0, 10.410545461930019) q[4];\ncx q[0], q[4];\nU(pi/2, 0, pi) q[5];\ncx q[0], q[5];\nU(0, 0, 10.410545461930019) q[5];\ncx q[0], q[5];\nU(12.013471791158686, -pi/2, pi/2) q[0];\ncx q[0], q[1];\nU(0, 0, 1.8759344847470487) q[1];\ncx q[0], q[1];\ncx q[1], q[2];\nU(0, 0, 1.8759344847470487) q[2];\ncx q[1], q[2];\ncx q[1], q[3];\nU(0, 0, 1.8759344847470487) q[3];\ncx q[1], q[3];\nU(2.609806595315514, -pi/2, pi/2) q[1];\ncx q[2], q[3];\nU(0, 0, 1.8759344847470487) q[3];\ncx q[2], q[3];\nU(2.609806595315514, -pi/2, pi/2) q[2];\nU(2.609806595315514, -pi/2, pi/2) q[3];\ncx q[4], q[5];\nU(0, 0, 10.410545461930019) q[5];\ncx q[4], q[5];\nU(12.013471791158686, -pi/2, pi/2) q[4];\ncx q[0], q[4];\nU(0, 0, 1.8759344847470487) q[4];\ncx q[0], q[4];\nU(12.013471791158686, -pi/2, pi/2) q[5];\ncx q[0], q[5];\nU(0, 0, 1.8759344847470487) q[5];\ncx q[0], q[5];\nU(2.609806595315514, -pi/2, pi/2) q[0];\ncx q[4], q[5];\nU(0, 0, 1.8759344847470487) q[5];\ncx q[4], q[5];\nU(2.609806595315514, -pi/2, pi/2) q[4];\nU(2.609806595315514, -pi/2, pi/2) q[5];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\n",
+    "features": {
+      "depth": 25,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 32,
+        "cx": 28,
+        "measure": 6,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 28
+    },
+    "true_fidelity": 0.06980454659212648
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0
+  },
+  "search_stats": {
+    "nodes_expanded": 0,
+    "nodes_evaluated": 1,
+    "verified_count": 1,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 650
+  },
+  "timing": {
+    "search_seconds": 0.12080144882202148,
+    "total_seconds": 0.13916945457458496
+  }
+}

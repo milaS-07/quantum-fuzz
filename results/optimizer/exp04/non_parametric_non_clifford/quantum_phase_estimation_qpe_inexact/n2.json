@@ -1,0 +1,50 @@
+{
+  "benchmark": "Quantum Phase Estimation (QPE) inexact",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T22:55:46.641509",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[1] c;\nqubit[1] q;\nqubit[1] psi;\nU(pi/2, 0, pi) q[0];\nU(pi, 0, pi) psi[0];\nU(0, 0, pi/4) psi[0];\ncx psi[0], q[0];\nU(0, 0, -pi/4) q[0];\ncx psi[0], q[0];\nU(0, 0, pi/4) q[0];\nU(pi/2, 0, pi) q[0];\nbarrier q[0], psi[0];\nc[0] = measure q[0];\n",
+    "features": {
+      "depth": 8,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 6,
+        "cx": 2,
+        "barrier": 1,
+        "measure": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8868358870482602
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[1] c;\nqubit[1] q;\nqubit[1] psi;\nU(pi/2, 0, pi) q[0];\nU(pi, 0, pi) psi[0];\nU(0, 0, pi/4) psi[0];\nU(pi, pi/2, 0) psi[0];\nU(0.9256481719691022, -0.851966327173272, 2.6572428215254273) q[0];\ncx psi[0], q[0];\nU(pi, -pi/4, pi/4) psi[0];\nU(1.7177715174584023, 2.100699116543824, -2.1006991165438236) q[0];\nU(0.6846457510203059, -pi/2, -pi/2) q[0];\ncx psi[0], q[0];\nU(pi, 1.259001344251402, -2.6679894727358375) psi[0];\nU(0.10075241237714307, -2.910263966398486, pi/2) q[0];\nc[0] = measure q[0];\n",
+    "features": {
+      "depth": 9,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 10,
+        "cx": 2,
+        "measure": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8885107301686876
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0016748431204274272
+  },
+  "search_stats": {
+    "nodes_expanded": 249,
+    "nodes_evaluated": 250,
+    "verified_count": 250,
+    "stopped_early": false,
+    "best_candidate_index": 2,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 18.16908597946167,
+    "total_seconds": 18.16908597946167
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "benchmark": "Amplitude Estimation (AE)",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T16:55:50.785607",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[1] eval;\nqubit[1] q;\nU(pi/2, 0, pi) eval[0];\nU(0, -pi/4, -pi/4) eval[0];\nU(0.9272952180016122, 0, 0) q[0];\nU(pi/2, 0, pi/4) q[0];\ncx eval[0], q[0];\nU(pi, -pi/4, pi/4) eval[0];\nU(1.7721542475852277, 2.1862760354652835, -2.186276035465284) q[0];\ncx eval[0], q[0];\nU(pi, -pi, -pi) eval[0];\nU(pi/2, 0, pi) eval[0];\nU(2.172060543474025, 1.0303768265243125, -2.3856232431658855) q[0];\nbarrier eval[0], q[0];\nmeas[0] = measure eval[0];\nmeas[1] = measure q[0];\n",
+    "features": {
+      "depth": 8,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 9,
+        "cx": 2,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8822744581253983
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[1] eval;\nqubit[1] q;\nU(pi/2, 0, pi) eval[0];\nU(0, -pi/4, -pi/4) eval[0];\nU(0.9272952180016122, 0, 0) q[0];\nU(pi/2, 0, pi/4) q[0];\nU(pi, -3*pi/4, 3*pi/4) eval[0];\nU(2*pi/3, -2.5261129449194053, -0.6154797086703869) q[0];\ncx eval[0], q[0];\nU(pi, -pi/4, pi/4) eval[0];\nU(1.7721542475852277, 2.1862760354652835, -2.186276035465284) q[0];\nU(2.723201325724781, -pi/2, pi/2) q[0];\ncx eval[0], q[0];\nU(pi/2, 0, pi/2) eval[0];\nU(1.7877891292218944, 1.8691551633185526, -0.6107623101484627) q[0];\nmeas[0] = measure eval[0];\nmeas[1] = measure q[0];\n",
+    "features": {
+      "depth": 9,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 11,
+        "cx": 2,
+        "measure": 2
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8836792967108316
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0014048385854332768
+  },
+  "search_stats": {
+    "nodes_expanded": 249,
+    "nodes_evaluated": 250,
+    "verified_count": 250,
+    "stopped_early": false,
+    "best_candidate_index": 2,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 15.530240058898926,
+    "total_seconds": 15.597099304199219
+  }
+}

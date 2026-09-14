@@ -1,0 +1,51 @@
+{
+  "benchmark": "W-State",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-14T03:48:44.969757",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(-pi/4, 0, 0) q[0];\nU(pi/2, 0, pi) q[0];\nU(pi, 0, pi) q[1];\ncx q[1], q[0];\nU(pi/2, 0, pi) q[0];\nU(pi/4, 0, 0) q[0];\ncx q[0], q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 7,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 5,
+        "cx": 2,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8866055922375055
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(-pi/4, 0, 0) q[0];\nU(pi/2, 0, pi) q[0];\nU(pi, 0, pi) q[1];\ncx q[1], q[0];\nU(pi/2, 0, pi) q[0];\nU(pi/4, 0, 0) q[0];\ncx q[0], q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 7,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 5,
+        "cx": 2,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8866055922375055
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0
+  },
+  "search_stats": {
+    "nodes_expanded": 249,
+    "nodes_evaluated": 250,
+    "verified_count": 250,
+    "stopped_early": false,
+    "best_candidate_index": 0,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 18.112966775894165,
+    "total_seconds": 18.125967264175415
+  }
+}

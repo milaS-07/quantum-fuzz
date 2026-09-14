@@ -1,0 +1,51 @@
+{
+  "benchmark": "Random Circuit",
+  "category": "Control",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T15:50:53.319315",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[0], q[1];\nU(0, 0, 3.2220464314480877) q[1];\ncx q[0], q[1];\nU(pi/2, pi/2, -pi) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[1], q[0];\nU(-1.3367759402838328, 0, 0) q[0];\ncx q[1], q[0];\nU(1.3367759402838328, -pi/2, 0) q[0];\ncx q[0], q[1];\nU(0, 0, pi/4) q[1];\ncx q[0], q[1];\nU(0, 0, -1.8717361659524505) q[0];\nU(pi, pi/2, pi/4) q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 14,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 10,
+        "cx": 6,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 6
+    },
+    "true_fidelity": 0.717751684370597
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(2.344086938730588, -pi, 1.3367759402838333) q[0];\nU(1.5641876112603337, 3.1349837937322755, -2.3561726519959754) q[1];\ncx q[0], q[1];\nU(3.0839554816146246, -pi, -pi/2) q[0];\nU(2.0021971645444574, 2.4463885353313124, -2.446388535331312) q[1];\ncx q[0], q[1];\nU(1.8674494667060275, -0.12681098321533213, 0.051377076466447846) q[0];\nU(2.170792552956118, 2.5970420443014746, -2.4716393062399624) q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 6,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 6,
+        "cx": 2,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8875071295502144
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.16975544517961738
+  },
+  "search_stats": {
+    "nodes_expanded": 1,
+    "nodes_evaluated": 2,
+    "verified_count": 2,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 0.14238572120666504,
+    "total_seconds": 0.16955852508544922
+  }
+}

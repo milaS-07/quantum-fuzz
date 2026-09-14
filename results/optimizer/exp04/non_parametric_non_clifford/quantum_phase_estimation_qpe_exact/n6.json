@@ -1,0 +1,51 @@
+{
+  "benchmark": "Quantum Phase Estimation (QPE) exact",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 6,
+  "timestamp": "2026-09-13T22:48:56.437596",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[5] c;\nqubit[5] q;\nqubit[1] psi;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\nU(pi/2, 0, pi) q[2];\nU(pi/2, 0, pi) q[3];\nU(pi/2, 0, pi) q[4];\nU(pi, 0, pi) psi[0];\nU(0, 0, -7*pi/16) psi[0];\ncx psi[0], q[0];\nU(0, 0, 7*pi/16) q[0];\ncx psi[0], q[0];\nU(0, 0, -7*pi/16) q[0];\ncx q[0], q[4];\ncx q[4], q[0];\ncx q[0], q[4];\nU(pi/2, 0, pi) q[0];\nU(0, 0, -pi/32) q[4];\nU(0, 0, pi/8) psi[0];\ncx psi[0], q[1];\nU(0, 0, -pi/8) q[1];\ncx psi[0], q[1];\nU(0, 0, pi/8) q[1];\nU(0, 0, pi/4) psi[0];\ncx psi[0], q[2];\nU(0, 0, -pi/4) q[2];\ncx psi[0], q[2];\nU(0, 0, pi/4) q[2];\nU(0, 0, -pi/8) q[2];\nU(0, 0, pi/2) psi[0];\ncx psi[0], q[3];\nU(0, 0, -pi/2) q[3];\ncx psi[0], q[3];\nU(0, 0, pi/2) q[3];\ncx q[1], q[3];\ncx q[3], q[1];\ncx q[1], q[3];\nU(0, 0, -pi/4) q[1];\ncx q[1], q[0];\nU(0, 0, pi/4) q[0];\ncx q[1], q[0];\nU(0, 0, -pi/4) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[2], q[0];\nU(0, 0, pi/8) q[0];\ncx q[2], q[0];\nU(0, 0, -pi/8) q[0];\nU(0, 0, -pi/4) q[2];\ncx q[2], q[1];\nU(0, 0, pi/4) q[1];\ncx q[2], q[1];\nU(0, 0, -pi/4) q[1];\nU(pi/2, 0, pi) q[2];\nU(0, 0, -pi/16) q[3];\ncx q[3], q[0];\nU(0, 0, pi/16) q[0];\ncx q[3], q[0];\nU(0, 0, -pi/16) q[0];\nU(0, 0, -pi/8) q[3];\ncx q[3], q[1];\nU(0, 0, pi/8) q[1];\ncx q[3], q[1];\nU(0, 0, -pi/8) q[1];\nU(0, 0, -pi/4) q[3];\ncx q[3], q[2];\nU(0, 0, pi/4) q[2];\ncx q[3], q[2];\nU(0, 0, -pi/4) q[2];\nU(pi/2, 0, pi) q[3];\ncx q[4], q[0];\nU(0, 0, pi/32) q[0];\ncx q[4], q[0];\nU(0, 0, -pi/32) q[0];\nU(0, 0, -pi/16) q[4];\ncx q[4], q[1];\nU(0, 0, pi/16) q[1];\ncx q[4], q[1];\nU(0, 0, -pi/16) q[1];\nU(0, 0, -pi/8) q[4];\ncx q[4], q[2];\nU(0, 0, pi/8) q[2];\ncx q[4], q[2];\nU(0, 0, -pi/8) q[2];\nU(0, 0, -pi/4) q[4];\ncx q[4], q[3];\nU(0, 0, pi/4) q[3];\ncx q[4], q[3];\nU(0, 0, -pi/4) q[3];\nU(pi/2, 0, pi) q[4];\nbarrier q[0], q[1], q[2], q[3], q[4], psi[0];\nc[0] = measure q[0];\nc[1] = measure q[1];\nc[2] = measure q[2];\nc[3] = measure q[3];\nc[4] = measure q[4];\n",
+    "features": {
+      "depth": 51,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 53,
+        "cx": 34,
+        "measure": 5,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 34
+    },
+    "true_fidelity": 0.02530051168291645
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[5] c;\nqubit[5] q;\nqubit[1] psi;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\nU(pi/2, 0, pi) q[2];\nU(pi/2, 0, pi) q[3];\nU(pi/2, 0, pi) q[4];\nU(pi, 0, pi) psi[0];\nU(0, 0, -7*pi/16) psi[0];\nU(pi, -3*pi/4, 3*pi/4) psi[0];\nU(pi/4, pi/2, 0) q[0];\ncx psi[0], q[0];\nU(pi, -pi/4, pi/4) psi[0];\nU(1.9849931923490685, 2.430395673693436, -2.4303956736934365) q[0];\ncx psi[0], q[0];\nU(0, -pi/2, -pi/2) psi[0];\nU(pi/4, 0, -pi/2) q[0];\nU(0, 0, -7*pi/16) q[0];\ncx q[0], q[4];\ncx q[4], q[0];\ncx q[0], q[4];\nU(pi/2, 0, pi) q[0];\nU(0, 0, -pi/32) q[4];\nU(0, 0, pi/8) psi[0];\ncx psi[0], q[1];\nU(0, 0, -pi/8) q[1];\ncx psi[0], q[1];\nU(0, 0, pi/8) q[1];\nU(0, 0, pi/4) psi[0];\ncx psi[0], q[2];\nU(0, 0, -pi/4) q[2];\ncx psi[0], q[2];\nU(0, 0, pi/4) q[2];\nU(0, 0, -pi/8) q[2];\nU(0, 0, pi/2) psi[0];\nU(pi, pi/2, -pi/2) psi[0];\nU(pi/2, 0, 3*pi/4) q[3];\ncx psi[0], q[3];\nU(pi, -3*pi/4, 3*pi/4) psi[0];\nU(pi/2, 3*pi/4, -pi) q[3];\nU(0, 0, pi/2) q[3];\ncx q[1], q[3];\nU(pi, -pi/4, pi/4) q[3];\nU(pi/4, -pi/2, 0) q[1];\ncx q[3], q[1];\nU(pi/2, -pi, -pi/2) q[3];\nU(2*pi/3, 2.526112944919406, -2.5261129449194057) q[1];\ncx q[3], q[1];\nU(pi/2, -pi/2, -pi) q[3];\nU(pi/2, -3*pi/4, -pi) q[1];\nU(0, 0, -pi/4) q[1];\ncx q[1], q[0];\nU(0, 0, pi/4) q[0];\ncx q[1], q[0];\nU(0, 0, -pi/4) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[2], q[0];\nU(0, 0, pi/8) q[0];\ncx q[2], q[0];\nU(0, 0, -pi/8) q[0];\nU(0, 0, -pi/4) q[2];\ncx q[2], q[1];\nU(0, 0, pi/4) q[1];\ncx q[2], q[1];\nU(0, 0, -pi/4) q[1];\nU(pi/2, 0, pi) q[2];\nU(0, 0, -pi/16) q[3];\ncx q[3], q[0];\nU(0, 0, pi/16) q[0];\ncx q[3], q[0];\nU(0, 0, -pi/16) q[0];\nU(0, 0, -pi/8) q[3];\ncx q[3], q[1];\nU(0, 0, pi/8) q[1];\ncx q[3], q[1];\nU(0, 0, -pi/8) q[1];\nU(0, 0, -pi/4) q[3];\ncx q[3], q[2];\nU(0, 0, pi/4) q[2];\ncx q[3], q[2];\nU(0, 0, -pi/4) q[2];\nU(pi/2, 0, pi) q[3];\ncx q[4], q[0];\nU(0, 0, pi/32) q[0];\ncx q[4], q[0];\nU(0, 0, -pi/32) q[0];\nU(0, 0, -pi/16) q[4];\nU(pi, -3*pi/4, 3*pi/4) q[1];\nU(pi/4, pi/2, 0) q[4];\ncx q[1], q[4];\nU(pi, -pi/4, pi/4) q[1];\nU(1.5804038343948201, 1.7091937677691753, -1.7091937677691749) q[4];\ncx q[1], q[4];\nU(0, -pi/2, -pi/2) q[1];\nU(pi/4, 0, -pi/2) q[4];\nU(0, 0, -pi/16) q[1];\nU(0, 0, -pi/8) q[4];\ncx q[4], q[2];\nU(0, 0, pi/8) q[2];\ncx q[4], q[2];\nU(0, 0, -pi/8) q[2];\nU(0, 0, -pi/4) q[4];\ncx q[4], q[3];\nU(0, 0, pi/4) q[3];\ncx q[4], q[3];\nU(0, 0, -pi/4) q[3];\nU(pi/2, 0, pi) q[4];\nbarrier q[0], q[1], q[2], q[3], q[4], psi[0];\nc[0] = measure q[0];\nc[1] = measure q[1];\nc[2] = measure q[2];\nc[3] = measure q[3];\nc[4] = measure q[4];\n",
+    "features": {
+      "depth": 58,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 72,
+        "cx": 33,
+        "measure": 5,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 33
+    },
+    "true_fidelity": 0.030478188964955397
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.005177677282038946
+  },
+  "search_stats": {
+    "nodes_expanded": 649,
+    "nodes_evaluated": 650,
+    "verified_count": 650,
+    "stopped_early": false,
+    "best_candidate_index": 502,
+    "max_evaluations": 650
+  },
+  "timing": {
+    "search_seconds": 138.06049418449402,
+    "total_seconds": 138.07782983779907
+  }
+}

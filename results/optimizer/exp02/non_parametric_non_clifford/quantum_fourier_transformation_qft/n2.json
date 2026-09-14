@@ -1,0 +1,51 @@
+{
+  "benchmark": "Quantum Fourier Transformation (QFT)",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T15:50:36.485771",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, pi/4, -pi) q[1];\ncx q[1], q[0];\nU(0, 0, -pi/4) q[0];\ncx q[1], q[0];\nU(pi/2, 0, -3*pi/4) q[0];\ncx q[0], q[1];\ncx q[1], q[0];\ncx q[0], q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 9,
+      "num_qubits": 2,
+      "gate_counts": {
+        "cx": 5,
+        "u": 3,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 5
+    },
+    "true_fidelity": 0.7594326306083422
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(3*pi/4, pi/2, 0.09225123196685114) q[0];\nU(3*pi/4, pi/2, pi/2) q[1];\ncx q[1], q[0];\nU(pi/3, -0.6154797086703869, -0.6154797086703878) q[0];\nU(pi/2, -pi/2, pi/2) q[1];\ncx q[1], q[0];\nU(pi/3, 2.526112944919406, -0.6154797086703869) q[0];\nU(pi/4, 0, -pi/2) q[1];\ncx q[1], q[0];\nU(pi/2, pi/2, -pi/2) q[0];\nU(2.448445722159196, pi/2, -pi) q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 8,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 8,
+        "cx": 3,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 3
+    },
+    "true_fidelity": 0.8384240673547099
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.07899143674636766
+  },
+  "search_stats": {
+    "nodes_expanded": 1,
+    "nodes_evaluated": 2,
+    "verified_count": 2,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 0.12862896919250488,
+    "total_seconds": 0.15067028999328613
+  }
+}

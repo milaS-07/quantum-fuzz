@@ -1,0 +1,51 @@
+{
+  "benchmark": "Amplitude Estimation (AE)",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T15:50:22.017114",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[1] eval;\nqubit[1] q;\nU(pi/2, -pi/2, -pi) eval[0];\nU(2.172060543474025, 0.7559694104239076, 1.0303768265243125) q[0];\ncx eval[0], q[0];\nU(pi, -pi/4, pi/4) eval[0];\nU(1.7721542475852277, 2.1862760354652835, -2.186276035465284) q[0];\ncx eval[0], q[0];\nU(pi/2, -pi, 0) eval[0];\nU(2.172060543474025, 1.0303768265243125, -2.3856232431658855) q[0];\nbarrier eval[0], q[0];\nmeas[0] = measure eval[0];\nmeas[1] = measure q[0];\n",
+    "features": {
+      "depth": 6,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 6,
+        "cx": 2,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.88768582160532
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[1] eval;\nqubit[1] q;\nU(pi/2, -pi/2, -pi) eval[0];\nU(2.172060543474025, 0.7559694104239076, 1.0303768265243125) q[0];\ncx eval[0], q[0];\nU(pi, -pi/4, pi/4) eval[0];\nU(1.7721542475852277, 2.1862760354652835, -2.186276035465284) q[0];\ncx eval[0], q[0];\nU(pi/2, -pi, 0) eval[0];\nU(2.172060543474025, 1.0303768265243125, -2.3856232431658855) q[0];\nbarrier eval[0], q[0];\nmeas[0] = measure eval[0];\nmeas[1] = measure q[0];\n",
+    "features": {
+      "depth": 6,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 6,
+        "cx": 2,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.88768582160532
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0
+  },
+  "search_stats": {
+    "nodes_expanded": 0,
+    "nodes_evaluated": 1,
+    "verified_count": 1,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 0.13022255897521973,
+    "total_seconds": 0.21031641960144043
+  }
+}

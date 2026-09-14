@@ -1,0 +1,51 @@
+{
+  "benchmark": "Quantum Approximation Optimization Algorithm (QAOA)",
+  "category": "PQC",
+  "num_qubits": 6,
+  "timestamp": "2026-09-13T21:42:49.484546",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[6] meas;\nqubit[6] q;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[0], q[1];\nU(0, 0, 10.410545461930019) q[1];\ncx q[0], q[1];\nU(pi/2, 0, pi) q[2];\ncx q[1], q[2];\nU(0, 0, 10.410545461930019) q[2];\ncx q[1], q[2];\nU(pi/2, 0, pi) q[3];\ncx q[1], q[3];\nU(0, 0, 10.410545461930019) q[3];\ncx q[1], q[3];\nU(12.013471791158686, -pi/2, pi/2) q[1];\ncx q[2], q[3];\nU(0, 0, 10.410545461930019) q[3];\ncx q[2], q[3];\nU(12.013471791158686, -pi/2, pi/2) q[2];\nU(12.013471791158686, -pi/2, pi/2) q[3];\nU(pi/2, 0, pi) q[4];\ncx q[0], q[4];\nU(0, 0, 10.410545461930019) q[4];\ncx q[0], q[4];\nU(pi/2, 0, pi) q[5];\ncx q[0], q[5];\nU(0, 0, 10.410545461930019) q[5];\ncx q[0], q[5];\nU(12.013471791158686, -pi/2, pi/2) q[0];\ncx q[0], q[1];\nU(0, 0, 1.8759344847470487) q[1];\ncx q[0], q[1];\ncx q[1], q[2];\nU(0, 0, 1.8759344847470487) q[2];\ncx q[1], q[2];\ncx q[1], q[3];\nU(0, 0, 1.8759344847470487) q[3];\ncx q[1], q[3];\nU(2.609806595315514, -pi/2, pi/2) q[1];\ncx q[2], q[3];\nU(0, 0, 1.8759344847470487) q[3];\ncx q[2], q[3];\nU(2.609806595315514, -pi/2, pi/2) q[2];\nU(2.609806595315514, -pi/2, pi/2) q[3];\ncx q[4], q[5];\nU(0, 0, 10.410545461930019) q[5];\ncx q[4], q[5];\nU(12.013471791158686, -pi/2, pi/2) q[4];\ncx q[0], q[4];\nU(0, 0, 1.8759344847470487) q[4];\ncx q[0], q[4];\nU(12.013471791158686, -pi/2, pi/2) q[5];\ncx q[0], q[5];\nU(0, 0, 1.8759344847470487) q[5];\ncx q[0], q[5];\nU(2.609806595315514, -pi/2, pi/2) q[0];\ncx q[4], q[5];\nU(0, 0, 1.8759344847470487) q[5];\ncx q[4], q[5];\nU(2.609806595315514, -pi/2, pi/2) q[4];\nU(2.609806595315514, -pi/2, pi/2) q[5];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\n",
+    "features": {
+      "depth": 25,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 32,
+        "cx": 28,
+        "measure": 6,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 28
+    },
+    "true_fidelity": 0.028809468992268602
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[6] meas;\nqubit[6] q;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[0], q[1];\nU(0, 0, 10.410545461930019) q[1];\ncx q[0], q[1];\nU(pi/2, 0, pi) q[2];\ncx q[1], q[2];\nU(0, 0, 10.410545461930019) q[2];\ncx q[1], q[2];\nU(pi/2, 0, pi) q[3];\ncx q[1], q[3];\nU(0, 0, 10.410545461930019) q[3];\ncx q[1], q[3];\nU(12.013471791158686, -pi/2, pi/2) q[1];\ncx q[2], q[3];\nU(0, 0, 10.410545461930019) q[3];\ncx q[2], q[3];\nU(12.013471791158686, -pi/2, pi/2) q[2];\nU(12.013471791158686, -pi/2, pi/2) q[3];\nU(pi/2, 0, pi) q[4];\ncx q[0], q[4];\nU(0, 0, 10.410545461930019) q[4];\ncx q[0], q[4];\nU(pi/2, 0, pi) q[5];\ncx q[0], q[5];\nU(0, 0, 10.410545461930019) q[5];\ncx q[0], q[5];\nU(12.013471791158686, -pi/2, pi/2) q[0];\ncx q[0], q[1];\nU(0, 0, 1.8759344847470487) q[1];\ncx q[0], q[1];\ncx q[1], q[2];\nU(0, 0, 1.8759344847470487) q[2];\ncx q[1], q[2];\ncx q[1], q[3];\nU(0, 0, 1.8759344847470487) q[3];\ncx q[1], q[3];\nU(2.609806595315514, -pi/2, pi/2) q[1];\nU(pi, -3*pi/4, 3*pi/4) q[2];\nU(3*pi/4, -pi/2, 0) q[3];\nU(0, 0.46364760900080615, -2.0344439357957027) q[2];\nU(pi/3, 0.6154797086703874, 0.6154797086703874) q[3];\ncx q[2], q[3];\nU(pi, -pi/4, pi/4) q[2];\nU(1.9281406164458674, 2.374483879432935, -2.3744838794329346) q[3];\ncx q[2], q[3];\nU(0, pi/2, -pi) q[2];\nU(pi/3, -0.6154797086703869, -0.6154797086703874) q[3];\nU(0, -pi, -pi) q[2];\nU(3*pi/4, -pi, pi/2) q[3];\nU(2.609806595315514, -pi/2, pi/2) q[2];\nU(2.609806595315514, -pi/2, pi/2) q[3];\ncx q[4], q[5];\nU(0, 0, 10.410545461930019) q[5];\ncx q[4], q[5];\nU(12.013471791158686, -pi/2, pi/2) q[4];\ncx q[0], q[4];\nU(0, 0, 1.8759344847470487) q[4];\ncx q[0], q[4];\nU(12.013471791158686, -pi/2, pi/2) q[5];\ncx q[0], q[5];\nU(0, 0, 1.8759344847470487) q[5];\ncx q[0], q[5];\nU(2.609806595315514, -pi/2, pi/2) q[0];\nU(pi, -3*pi/4, 3*pi/4) q[4];\nU(3*pi/4, -pi/2, 0) q[5];\ncx q[4], q[5];\nU(pi, -pi/4, pi/4) q[4];\nU(1.9281406164458674, 2.374483879432935, -2.3744838794329346) q[5];\ncx q[4], q[5];\nU(0, -pi, -pi) q[4];\nU(3*pi/4, -pi, pi/2) q[5];\nU(2.609806595315514, -pi/2, pi/2) q[4];\nU(2.609806595315514, -pi/2, pi/2) q[5];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\n",
+    "features": {
+      "depth": 29,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 46,
+        "cx": 28,
+        "measure": 6,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 28
+    },
+    "true_fidelity": 0.04380421529731505
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.014994746305046446
+  },
+  "search_stats": {
+    "nodes_expanded": 649,
+    "nodes_evaluated": 650,
+    "verified_count": 650,
+    "stopped_early": false,
+    "best_candidate_index": 263,
+    "max_evaluations": 650
+  },
+  "timing": {
+    "search_seconds": 109.24937987327576,
+    "total_seconds": 109.25146102905273
+  }
+}

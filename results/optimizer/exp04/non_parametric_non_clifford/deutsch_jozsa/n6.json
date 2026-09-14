@@ -1,0 +1,51 @@
+{
+  "benchmark": "Deutsch-Jozsa",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 6,
+  "timestamp": "2026-09-13T17:26:43.115459",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[5] c;\nqubit[6] q;\nU(pi/2, 0, pi) q[0];\nU(pi, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\nU(pi, 0, pi) q[1];\nU(pi/2, 0, pi) q[2];\nU(pi/2, 0, pi) q[3];\nU(pi/2, 0, pi) q[4];\nU(pi, 0, pi) q[4];\nU(pi, 0, pi) q[5];\nU(pi/2, 0, pi) q[5];\ncx q[0], q[5];\nU(pi, 0, pi) q[0];\nU(pi/2, 0, pi) q[0];\ncx q[1], q[5];\nU(pi, 0, pi) q[1];\nU(pi/2, 0, pi) q[1];\ncx q[2], q[5];\nU(pi/2, 0, pi) q[2];\ncx q[3], q[5];\nU(pi/2, 0, pi) q[3];\ncx q[4], q[5];\nU(pi, 0, pi) q[4];\nU(pi/2, 0, pi) q[4];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nc[0] = measure q[0];\nc[1] = measure q[1];\nc[2] = measure q[2];\nc[3] = measure q[3];\nc[4] = measure q[4];\n",
+    "features": {
+      "depth": 10,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 18,
+        "cx": 5,
+        "measure": 5,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 5
+    },
+    "true_fidelity": 0.15492103293830684
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[5] c;\nqubit[6] q;\nU(pi/2, 0, pi) q[0];\nU(pi, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\nU(pi, 0, pi) q[1];\nU(pi/2, 0, pi) q[2];\nU(pi/2, 0, pi) q[3];\nU(pi/2, 0, pi) q[4];\nU(pi, 0, pi) q[4];\nU(pi, 0, pi) q[5];\nU(pi/2, 0, pi) q[5];\nU(pi/2, 0.7558116958178172, -pi) q[4];\nU(0.7869616823678397, pi/2, -pi/2) q[5];\ncx q[4], q[5];\nU(pi/2, 0, 2.385780957771976) q[4];\nU(2.3546309712219546, pi/2, -pi/2) q[5];\nU(pi, 0, pi) q[0];\nU(pi/2, 0, pi) q[0];\nU(pi, 0, pi) q[1];\nU(pi/2, 0, pi) q[1];\nU(pi/2, 0, pi) q[2];\nU(pi/2, 0, pi) q[3];\nU(pi, 0, pi) q[4];\nU(pi/2, 0, pi) q[4];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nc[0] = measure q[0];\nc[1] = measure q[1];\nc[2] = measure q[2];\nc[3] = measure q[3];\nc[4] = measure q[4];\n",
+    "features": {
+      "depth": 8,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 22,
+        "measure": 5,
+        "cx": 1,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 1
+    },
+    "true_fidelity": 0.9294097743145713
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.7744887413762644
+  },
+  "search_stats": {
+    "nodes_expanded": 649,
+    "nodes_evaluated": 650,
+    "verified_count": 650,
+    "stopped_early": false,
+    "best_candidate_index": 0,
+    "max_evaluations": 650
+  },
+  "timing": {
+    "search_seconds": 779.2717833518982,
+    "total_seconds": 779.2737836837769
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "benchmark": "Quantum Neural Network (QNN)",
+  "category": "PQC",
+  "num_qubits": 6,
+  "timestamp": "2026-09-13T15:50:38.397391",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[6] meas;\nqubit[6] q;\nU(1.6330941616962558, 2.677311999314325, 2.483022826496441) q[0];\nU(1.827840910167739, 0.4688883278211251, 0.727016190599167) q[1];\nU(1.390551601376142, -2.6546029332715686, 1.826815720900738) q[2];\nU(1.61708187103313, 0.2909413868051791, 1.4903047065670236) q[3];\nU(1.07831807715138, -2.961142630227227, -3.0646602699581047) q[4];\nU(2.4377753023257736, 2.930640521653137, -1.7515094406248428) q[5];\ncx q[4], q[5];\ncx q[3], q[4];\ncx q[2], q[3];\ncx q[1], q[2];\ncx q[0], q[1];\nU(3.6176102152986354, 0, 0) q[0];\nU(4.733135208207287, 0, 0) q[1];\nU(5.196847304624584, 0, 0) q[2];\nU(5.864966885210837, 0, 0) q[3];\nU(0.9110285368422897, 0, 0) q[4];\nU(4.684618627355123, 0, 0) q[5];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\n",
+    "features": {
+      "depth": 8,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 12,
+        "measure": 6,
+        "cx": 5,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 5
+    },
+    "true_fidelity": 0.7222486201207852
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[6] meas;\nqubit[6] q;\nU(1.6330941616962558, 2.677311999314325, 2.483022826496441) q[0];\nU(1.827840910167739, 0.4688883278211251, 0.727016190599167) q[1];\nU(1.390551601376142, -2.6546029332715686, 1.826815720900738) q[2];\nU(1.61708187103313, 0.2909413868051791, 1.4903047065670236) q[3];\nU(1.07831807715138, -2.961142630227227, -3.0646602699581047) q[4];\nU(2.4377753023257736, 2.930640521653137, -1.7515094406248428) q[5];\ncx q[4], q[5];\ncx q[3], q[4];\ncx q[2], q[3];\ncx q[1], q[2];\ncx q[0], q[1];\nU(3.6176102152986354, 0, 0) q[0];\nU(4.733135208207287, 0, 0) q[1];\nU(5.196847304624584, 0, 0) q[2];\nU(5.864966885210837, 0, 0) q[3];\nU(0.9110285368422897, 0, 0) q[4];\nU(4.684618627355123, 0, 0) q[5];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\n",
+    "features": {
+      "depth": 8,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 12,
+        "measure": 6,
+        "cx": 5,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 5
+    },
+    "true_fidelity": 0.7222486201207852
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0
+  },
+  "search_stats": {
+    "nodes_expanded": 0,
+    "nodes_evaluated": 1,
+    "verified_count": 1,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 650
+  },
+  "timing": {
+    "search_seconds": 0.08213138580322266,
+    "total_seconds": 0.09113240242004395
+  }
+}

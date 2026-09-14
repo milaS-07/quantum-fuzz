@@ -1,0 +1,50 @@
+{
+  "benchmark": "Entangled QFT",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T21:56:26.108066",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[1];\ncx q[1], q[0];\nU(pi/2, 0, pi) q[1];\nU(0, 0, pi/4) q[1];\ncx q[1], q[0];\nU(0, 0, -pi/4) q[0];\ncx q[1], q[0];\nU(0, 0, pi/4) q[0];\nU(pi/2, 0, pi) q[0];\ncx q[0], q[1];\ncx q[1], q[0];\ncx q[0], q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 13,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 6,
+        "cx": 6,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 6
+    },
+    "true_fidelity": 0.7127258509854073
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[1];\nU(0, -2.9441970937399127, 1.3734007669450152) q[1];\nU(pi/4, pi/2, -pi) q[0];\ncx q[1], q[0];\nU(3*pi/4, -pi, -pi/2) q[1];\nU(2*pi/3, 2.526112944919406, -2.5261129449194057) q[0];\nU(0, -pi, -pi) q[1];\nU(0.22174258900290045, -pi/2, pi/2) q[0];\ncx q[1], q[0];\nU(pi/2, -pi, -pi/2) q[1];\nU(0.22174258900290023, -pi/2, -pi/2) q[0];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 8,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 9,
+        "cx": 2,
+        "measure": 2
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8857682476784731
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.17304239669306576
+  },
+  "search_stats": {
+    "nodes_expanded": 249,
+    "nodes_evaluated": 250,
+    "verified_count": 250,
+    "stopped_early": false,
+    "best_candidate_index": 0,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 18.83217763900757,
+    "total_seconds": 18.857529401779175
+  }
+}

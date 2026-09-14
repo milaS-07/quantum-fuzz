@@ -1,0 +1,51 @@
+{
+  "benchmark": "Real Amplitudes ansatz with Random Parameters",
+  "category": "PQC",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T15:50:55.795262",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(6.006735895579343, 0, 0) q[0];\nU(1.304903297657757, 0, 0) q[1];\ncx q[0], q[1];\nU(5.205272730965009, 0, 0) q[0];\nU(0.9379672423735244, 0, 0) q[1];\ncx q[0], q[1];\nU(3.2220464314480877, 0, 0) q[0];\nU(0.8540080589393146, 0, 0) q[1];\ncx q[0], q[1];\nU(4.329343885871547, 0, 0) q[0];\nU(5.288856933750764, 0, 0) q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 8,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 8,
+        "cx": 3,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 3
+    },
+    "true_fidelity": 0.8404020478745631
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(6.006735895579343, 0, 0) q[0];\nU(1.304903297657757, 0, 0) q[1];\ncx q[0], q[1];\nU(5.205272730965009, 0, 0) q[0];\nU(0.9379672423735244, 0, 0) q[1];\ncx q[0], q[1];\nU(3.2220464314480877, 0, 0) q[0];\nU(0.8540080589393146, 0, 0) q[1];\ncx q[0], q[1];\nU(4.329343885871547, 0, 0) q[0];\nU(5.288856933750764, 0, 0) q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 8,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 8,
+        "cx": 3,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 3
+    },
+    "true_fidelity": 0.8404020478745631
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0
+  },
+  "search_stats": {
+    "nodes_expanded": 0,
+    "nodes_evaluated": 1,
+    "verified_count": 1,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 0.07022547721862793,
+    "total_seconds": 0.08070850372314453
+  }
+}

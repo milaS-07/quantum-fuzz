@@ -1,0 +1,51 @@
+{
+  "benchmark": "Random Circuit",
+  "category": "Control",
+  "num_qubits": 2,
+  "timestamp": "2026-09-14T02:24:56.859202",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[0], q[1];\nU(0, 0, 3.2220464314480877) q[1];\ncx q[0], q[1];\nU(pi/2, 0, pi) q[0];\nU(0, 0, pi/2) q[0];\nU(pi/2, 0, pi) q[1];\ncx q[1], q[0];\nU(-1.3367759402838328, 0, 0) q[0];\ncx q[1], q[0];\nU(1.3367759402838328, -pi/2, 0) q[0];\ncx q[0], q[1];\nU(0, 0, pi/4) q[1];\ncx q[0], q[1];\nU(0, 0, -pi/4) q[0];\nU(0, 0, 5.196847304624584) q[0];\nU(0, 0, -pi/4) q[1];\nU(pi, pi/2, pi/2) q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 16,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 13,
+        "cx": 6,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 6
+    },
+    "true_fidelity": 0.711556225681071
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[0];\nU(pi/2, 0, pi) q[1];\nU(pi/2, -pi, 0) q[1];\nU(pi/2, -pi, 3*pi/4) q[0];\nU(1.7375118832299143, -1.4057974862909746, -0.7836886909742913) q[0];\nU(0.7854418378826852, 1.5575791843401596, 1.5801421217927771) q[1];\nU(3*pi/4, -pi/2, -pi/2) q[1];\nU(3*pi/4, -pi/2, -pi/2) q[0];\ncx q[1], q[0];\nU(3.0839554816146255, -pi, -pi/2) q[1];\nU(2.0021971645444574, 2.4463885353313124, -2.446388535331312) q[0];\ncx q[1], q[0];\nU(pi/4, -pi/2, -pi) q[1];\nU(pi/4, 0, -pi/2) q[0];\nU(1.7372465633250473, -1.8717361659524494, -pi/2) q[0];\nU(0.787017176141251, 2.41303679210929, -1.6512268894765978) q[1];\nU(3.061138875731499, -pi, -pi/2) q[1];\nU(2*pi/3, 2.526112944919406, -2.5261129449194057) q[0];\nU(0, 3*pi/8, 3*pi/8) q[1];\nU(pi/4, pi/2, pi/2) q[0];\nU(pi, pi/8, -5*pi/8) q[1];\nU(pi/2, pi/2, 0) q[0];\nU(-1.3367759402838328, 0, 0) q[0];\nU(1.3367759402838328, -pi/2, 0) q[0];\nU(0, 0, pi/4) q[1];\nU(0, 0, -pi/4) q[0];\nU(0, 0, 5.196847304624584) q[0];\nU(0, 0, -pi/4) q[1];\nU(pi, pi/2, pi/2) q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 17,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 27,
+        "cx": 2,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8778967128811982
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.16634048720012717
+  },
+  "search_stats": {
+    "nodes_expanded": 249,
+    "nodes_evaluated": 250,
+    "verified_count": 250,
+    "stopped_early": false,
+    "best_candidate_index": 19,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 52.41843867301941,
+    "total_seconds": 52.4686758518219
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "benchmark": "Deutsch-Jozsa",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T16:15:07.869769",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[1] c;\nqubit[2] q;\nU(pi/2, 0, 0) q[0];\nU(pi/2, -pi, -pi) q[1];\ncx q[0], q[1];\nU(pi/2, -pi, -pi) q[0];\nbarrier q[0], q[1];\nc[0] = measure q[0];\n",
+    "features": {
+      "depth": 4,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 3,
+        "cx": 1,
+        "barrier": 1,
+        "measure": 1
+      },
+      "two_qubit_gate_count": 1
+    },
+    "true_fidelity": 0.9419159059583292
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[1] c;\nqubit[2] q;\nU(pi/2, pi/2, -3*pi/4) q[0];\nU(1.5361327242600742, -0.03468444661454484, 2.3567957545885765) q[1];\ncx q[0], q[1];\nU(pi/2, -pi/4, -pi/2) q[0];\nU(0.7627262774108137, -1.462668637659464, 3.0632756194359834) q[1];\nbarrier q[0], q[1];\nc[0] = measure q[0];\n",
+    "features": {
+      "depth": 4,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 4,
+        "cx": 1,
+        "barrier": 1,
+        "measure": 1
+      },
+      "two_qubit_gate_count": 1
+    },
+    "true_fidelity": 0.9429871562909009
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.001071250332571716
+  },
+  "search_stats": {
+    "nodes_expanded": 249,
+    "nodes_evaluated": 250,
+    "verified_count": 250,
+    "stopped_early": false,
+    "best_candidate_index": 21,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 19.110612630844116,
+    "total_seconds": 19.13589358329773
+  }
+}

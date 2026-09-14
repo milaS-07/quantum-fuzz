@@ -1,0 +1,51 @@
+{
+  "benchmark": "W-State",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 4,
+  "timestamp": "2026-09-14T03:48:45.060151",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[4] meas;\nqubit[4] q;\nU(-pi/4, 0, 0) q[0];\nU(pi/2, 0, pi) q[0];\nU(-0.9553166181245093, 0, 0) q[1];\nU(pi/2, 0, pi) q[1];\nU(-pi/3, 0, 0) q[2];\nU(pi/2, 0, pi) q[2];\nU(pi, 0, pi) q[3];\ncx q[3], q[2];\nU(pi/2, 0, pi) q[2];\nU(pi/3, 0, 0) q[2];\ncx q[2], q[1];\nU(pi/2, 0, pi) q[1];\nU(0.9553166181245093, 0, 0) q[1];\ncx q[1], q[0];\nU(pi/2, 0, pi) q[0];\nU(pi/4, 0, 0) q[0];\ncx q[2], q[3];\ncx q[1], q[2];\ncx q[0], q[1];\nbarrier q[0], q[1], q[2], q[3];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\n",
+    "features": {
+      "depth": 13,
+      "num_qubits": 4,
+      "gate_counts": {
+        "u": 13,
+        "cx": 6,
+        "measure": 4,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 6
+    },
+    "true_fidelity": 0.6799529941466743
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[4] meas;\nqubit[4] q;\nU(-pi/4, 0, 0) q[0];\nU(pi/2, 0, pi) q[0];\nU(-0.9553166181245093, 0, 0) q[1];\nU(pi/2, 0, pi) q[1];\nU(-pi/3, 0, 0) q[2];\nU(pi/2, 0, pi) q[2];\nU(pi, 0, pi) q[3];\ncx q[3], q[2];\nU(pi/2, 0, pi) q[2];\nU(pi/3, 0, 0) q[2];\ncx q[2], q[1];\nU(pi/2, 0, pi) q[1];\nU(0.9553166181245093, 0, 0) q[1];\ncx q[1], q[0];\nU(pi/2, 0, pi) q[0];\nU(pi/4, 0, 0) q[0];\ncx q[2], q[3];\ncx q[1], q[2];\ncx q[0], q[1];\nbarrier q[0], q[1], q[2], q[3];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\n",
+    "features": {
+      "depth": 13,
+      "num_qubits": 4,
+      "gate_counts": {
+        "u": 13,
+        "cx": 6,
+        "measure": 4,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 6
+    },
+    "true_fidelity": 0.6799529941466743
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0
+  },
+  "search_stats": {
+    "nodes_expanded": 0,
+    "nodes_evaluated": 1,
+    "verified_count": 1,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 450
+  },
+  "timing": {
+    "search_seconds": 0.09039473533630371,
+    "total_seconds": 0.09239506721496582
+  }
+}

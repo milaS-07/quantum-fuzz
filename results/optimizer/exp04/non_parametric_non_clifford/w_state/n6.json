@@ -1,0 +1,51 @@
+{
+  "benchmark": "W-State",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 6,
+  "timestamp": "2026-09-14T03:48:45.182097",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[6] meas;\nqubit[6] q;\nU(-pi/4, 0, 0) q[0];\nU(pi/2, 0, pi) q[0];\nU(-0.9553166181245093, 0, 0) q[1];\nU(pi/2, 0, pi) q[1];\nU(-pi/3, 0, 0) q[2];\nU(pi/2, 0, pi) q[2];\nU(-1.1071487177940904, 0, 0) q[3];\nU(pi/2, 0, pi) q[3];\nU(-1.1502619915109316, 0, 0) q[4];\nU(pi/2, 0, pi) q[4];\nU(pi, 0, pi) q[5];\ncx q[5], q[4];\nU(pi/2, 0, pi) q[4];\nU(1.1502619915109316, 0, 0) q[4];\ncx q[4], q[3];\nU(pi/2, 0, pi) q[3];\nU(1.1071487177940904, 0, 0) q[3];\ncx q[3], q[2];\nU(pi/2, 0, pi) q[2];\nU(pi/3, 0, 0) q[2];\ncx q[2], q[1];\nU(pi/2, 0, pi) q[1];\nU(0.9553166181245093, 0, 0) q[1];\ncx q[1], q[0];\nU(pi/2, 0, pi) q[0];\nU(pi/4, 0, 0) q[0];\ncx q[4], q[5];\ncx q[3], q[4];\ncx q[2], q[3];\ncx q[1], q[2];\ncx q[0], q[1];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\n",
+    "features": {
+      "depth": 19,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 21,
+        "cx": 10,
+        "measure": 6,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 10
+    },
+    "true_fidelity": 0.5192234744754455
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[6] meas;\nqubit[6] q;\nU(-pi/4, 0, 0) q[0];\nU(pi/2, 0, pi) q[0];\nU(-0.9553166181245093, 0, 0) q[1];\nU(pi/2, 0, pi) q[1];\nU(-pi/3, 0, 0) q[2];\nU(pi/2, 0, pi) q[2];\nU(-1.1071487177940904, 0, 0) q[3];\nU(pi/2, 0, pi) q[3];\nU(-1.1502619915109316, 0, 0) q[4];\nU(pi/2, 0, pi) q[4];\nU(pi, 0, pi) q[5];\ncx q[5], q[4];\nU(pi/2, 0, pi) q[4];\nU(1.1502619915109316, 0, 0) q[4];\ncx q[4], q[3];\nU(pi/2, 0, pi) q[3];\nU(1.1071487177940904, 0, 0) q[3];\ncx q[3], q[2];\nU(pi/2, 0, pi) q[2];\nU(pi/3, 0, 0) q[2];\ncx q[2], q[1];\nU(pi/2, 0, pi) q[1];\nU(0.9553166181245093, 0, 0) q[1];\ncx q[1], q[0];\nU(pi/2, 0, pi) q[0];\nU(pi/4, 0, 0) q[0];\ncx q[4], q[5];\ncx q[3], q[4];\ncx q[2], q[3];\ncx q[1], q[2];\ncx q[0], q[1];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\n",
+    "features": {
+      "depth": 19,
+      "num_qubits": 6,
+      "gate_counts": {
+        "u": 21,
+        "cx": 10,
+        "measure": 6,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 10
+    },
+    "true_fidelity": 0.5192234744754455
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0
+  },
+  "search_stats": {
+    "nodes_expanded": 0,
+    "nodes_evaluated": 1,
+    "verified_count": 1,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 650
+  },
+  "timing": {
+    "search_seconds": 0.11641407012939453,
+    "total_seconds": 0.13205790519714355
+  }
+}

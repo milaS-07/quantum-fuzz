@@ -1,0 +1,51 @@
+{
+  "benchmark": "Graph State",
+  "category": "Clifford",
+  "num_qubits": 8,
+  "timestamp": "2026-09-13T15:50:24.171267",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[8] meas;\nqubit[8] q;\nU(pi/2, 0, pi) q[0];\nU(0, pi/2, -pi/2) q[1];\ncx q[0], q[1];\nU(pi/2, 0, pi) q[1];\nU(pi/2, 0, pi) q[2];\nU(0, pi/2, -pi/2) q[3];\ncx q[2], q[3];\nU(pi/2, 0, pi) q[3];\nU(pi/2, 0, pi) q[4];\nU(0, pi/2, -pi/2) q[5];\ncx q[1], q[5];\nU(0, pi/2, -pi/2) q[5];\ncx q[4], q[5];\nU(pi/2, 0, pi) q[5];\nU(0, pi/2, -pi/2) q[6];\ncx q[0], q[6];\nU(0, pi/2, -pi/2) q[6];\ncx q[4], q[6];\nU(pi/2, 0, pi) q[6];\nU(0, pi/2, -pi/2) q[7];\ncx q[2], q[7];\nU(0, pi/2, -pi/2) q[7];\ncx q[3], q[7];\nU(pi/2, 0, pi) q[7];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\nmeas[6] = measure q[6];\nmeas[7] = measure q[7];\n",
+    "features": {
+      "depth": 9,
+      "num_qubits": 8,
+      "gate_counts": {
+        "u": 16,
+        "cx": 8,
+        "measure": 8,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 8
+    },
+    "true_fidelity": 0.2970466902296556
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[8] meas;\nqubit[8] q;\nU(pi/2, 0, pi) q[0];\nU(0, pi/2, -pi/2) q[1];\ncx q[0], q[1];\nU(pi/2, 0, pi) q[1];\nU(pi/2, 0, pi) q[2];\nU(0, pi/2, -pi/2) q[3];\ncx q[2], q[3];\nU(pi/2, 0, pi) q[3];\nU(pi/2, 0, pi) q[4];\nU(0, pi/2, -pi/2) q[5];\ncx q[1], q[5];\nU(0, pi/2, -pi/2) q[5];\ncx q[4], q[5];\nU(pi/2, 0, pi) q[5];\nU(0, pi/2, -pi/2) q[6];\ncx q[0], q[6];\nU(0, pi/2, -pi/2) q[6];\ncx q[4], q[6];\nU(pi/2, 0, pi) q[6];\nU(0, pi/2, -pi/2) q[7];\ncx q[2], q[7];\nU(0, pi/2, -pi/2) q[7];\ncx q[3], q[7];\nU(pi/2, 0, pi) q[7];\nbarrier q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\nmeas[4] = measure q[4];\nmeas[5] = measure q[5];\nmeas[6] = measure q[6];\nmeas[7] = measure q[7];\n",
+    "features": {
+      "depth": 9,
+      "num_qubits": 8,
+      "gate_counts": {
+        "u": 16,
+        "cx": 8,
+        "measure": 8,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 8
+    },
+    "true_fidelity": 0.2970466902296556
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0
+  },
+  "search_stats": {
+    "nodes_expanded": 0,
+    "nodes_evaluated": 1,
+    "verified_count": 1,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 850
+  },
+  "timing": {
+    "search_seconds": 0.11462020874023438,
+    "total_seconds": 0.13024663925170898
+  }
+}

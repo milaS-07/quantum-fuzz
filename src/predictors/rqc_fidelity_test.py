@@ -9,7 +9,7 @@ from datetime import datetime
 from qiskit import QuantumCircuit, qasm3
 
 from circuits import get_mqt_circuit, MQT_NAME_MAP
-from transformations import get_matrix_decompositions
+from src.optimization_search import get_matrix_decompositions
 from predictors.rqc_fidelity import average_fidelity, alpha_for_hardware, guess_architecture, Architecture
 
 
@@ -75,9 +75,6 @@ def circuit_key(base_name: str, num_qubits: int) -> str:
     return f"{base_name}__{num_qubits}q"
 
 
-# empirical base_name values are the mqt "short" ids (e.g. "qft"), but
-# get_mqt_circuit expects the long descriptive benchmark name -- invert
-# the map from circuits.py to go from one to the other.
 SHORT_TO_FULL_NAME = {v: k for k, v in MQT_NAME_MAP.items()}
 
 

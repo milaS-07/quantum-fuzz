@@ -13,7 +13,7 @@ from qiskit_aer import AerSimulator
 
 from circuits import get_mqt_circuit
 from src.noise.noise_metrics import calculate_tvd, calculate_fidelity, calculate_js_divergence
-from transformations import get_matrix_decompositions 
+from src.optimization_search import get_matrix_decompositions 
 from src.noise.noise_parametrs import get_sherbrooke_noise_model
 
 

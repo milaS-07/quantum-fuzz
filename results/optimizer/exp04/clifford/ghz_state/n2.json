@@ -1,0 +1,50 @@
+{
+  "benchmark": "GHZ State",
+  "category": "Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T18:13:47.400747",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[1];\ncx q[1], q[0];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 3,
+      "num_qubits": 2,
+      "gate_counts": {
+        "measure": 2,
+        "u": 1,
+        "cx": 1,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 1
+    },
+    "true_fidelity": 0.9418527702164259
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[1];\nU(pi/2, -pi/4, 0) q[1];\nU(pi, -pi, -pi) q[0];\nU(pi, pi/2, -pi/2) q[1];\nU(2.924703675666419, -pi/2, pi/2) q[0];\ncx q[1], q[0];\nU(0, 0.1953035218488437, 2.1608909683435016) q[1];\nU(0.21688897792337444, pi/2, pi/2) q[0];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 6,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 7,
+        "measure": 2,
+        "cx": 1
+      },
+      "two_qubit_gate_count": 1
+    },
+    "true_fidelity": 0.9421194158933357
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0002666456769098158
+  },
+  "search_stats": {
+    "nodes_expanded": 249,
+    "nodes_evaluated": 250,
+    "verified_count": 250,
+    "stopped_early": false,
+    "best_candidate_index": 4,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 34.06379294395447,
+    "total_seconds": 34.08829927444458
+  }
+}

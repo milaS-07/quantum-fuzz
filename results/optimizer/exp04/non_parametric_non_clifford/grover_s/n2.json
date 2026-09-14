@@ -1,0 +1,50 @@
+{
+  "benchmark": "Grover's",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T18:14:29.593857",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[1] q;\nqubit[1] flag;\nU(pi/2, 0, pi) q[0];\nU(0, 0, pi/2) q[0];\nU(pi, 0, pi) flag[0];\ncx q[0], flag[0];\nU(0, 0, -pi/2) flag[0];\ncx q[0], flag[0];\nU(pi/2, 0, pi) q[0];\nU(pi, 0, pi) q[0];\nU(0, 0, pi) q[0];\nU(pi, 0, pi) q[0];\nU(pi/2, 0, pi) q[0];\nU(0, 0, pi/2) flag[0];\nbarrier q[0], flag[0];\nmeas[0] = measure q[0];\nmeas[1] = measure flag[0];\n",
+    "features": {
+      "depth": 11,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 10,
+        "cx": 2,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 2
+    },
+    "true_fidelity": 0.8814423289823395
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[1] q;\nqubit[1] flag;\nU(pi/2, 0, pi) q[0];\nU(0, 0, pi/2) q[0];\nU(pi, 0, pi) flag[0];\nU(pi, 0.2690781628631509, -2.8725144907266422) flag[0];\nU(pi/2, -pi, -3*pi/4) q[0];\ncx flag[0], q[0];\nU(pi/2, pi/4, -pi/2) flag[0];\nU(pi, 0, 0) q[0];\nU(pi/2, -pi/2, -pi/4) flag[0];\nU(pi/2, 3*pi/4, 0) q[0];\nmeas[0] = measure q[0];\nmeas[1] = measure flag[0];\n",
+    "features": {
+      "depth": 7,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 9,
+        "measure": 2,
+        "cx": 1
+      },
+      "two_qubit_gate_count": 1
+    },
+    "true_fidelity": 0.939191354788119
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.05774902580577945
+  },
+  "search_stats": {
+    "nodes_expanded": 249,
+    "nodes_evaluated": 250,
+    "verified_count": 250,
+    "stopped_early": false,
+    "best_candidate_index": 0,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 41.90119695663452,
+    "total_seconds": 41.91682147979736
+  }
+}

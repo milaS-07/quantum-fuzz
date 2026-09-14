@@ -1,0 +1,51 @@
+{
+  "benchmark": "Quantum Neural Network (QNN)",
+  "category": "PQC",
+  "num_qubits": 4,
+  "timestamp": "2026-09-13T15:50:38.297916",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[4] meas;\nqubit[4] q;\nU(2.542927689311483, 2.225805777507275, 1.6924590144688487) q[0];\nU(2.4342508964488374, 2.4039130566385456, 3.136004443658205) q[1];\nU(0.5527740232086602, -1.06925592423588, -0.22165938799312856) q[2];\nU(0.9285791982706963, 0.36595305229020925, 1.2508241889150558) q[3];\ncx q[2], q[3];\ncx q[1], q[2];\ncx q[0], q[1];\nU(2.6735518805676657, 0, 0) q[0];\nU(6.012543404956273, 0, 0) q[1];\nU(5.185719590928789, 0, 0) q[2];\nU(2.125069481984559, 0, 0) q[3];\nbarrier q[0], q[1], q[2], q[3];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\n",
+    "features": {
+      "depth": 6,
+      "num_qubits": 4,
+      "gate_counts": {
+        "u": 8,
+        "measure": 4,
+        "cx": 3,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 3
+    },
+    "true_fidelity": 0.8305553310255711
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[4] meas;\nqubit[4] q;\nU(2.542927689311483, 2.225805777507275, 1.6924590144688487) q[0];\nU(2.4342508964488374, 2.4039130566385456, 3.136004443658205) q[1];\nU(0.5527740232086602, -1.06925592423588, -0.22165938799312856) q[2];\nU(0.9285791982706963, 0.36595305229020925, 1.2508241889150558) q[3];\ncx q[2], q[3];\ncx q[1], q[2];\ncx q[0], q[1];\nU(2.6735518805676657, 0, 0) q[0];\nU(6.012543404956273, 0, 0) q[1];\nU(5.185719590928789, 0, 0) q[2];\nU(2.125069481984559, 0, 0) q[3];\nbarrier q[0], q[1], q[2], q[3];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\nmeas[2] = measure q[2];\nmeas[3] = measure q[3];\n",
+    "features": {
+      "depth": 6,
+      "num_qubits": 4,
+      "gate_counts": {
+        "u": 8,
+        "measure": 4,
+        "cx": 3,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 3
+    },
+    "true_fidelity": 0.8305553310255711
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.0
+  },
+  "search_stats": {
+    "nodes_expanded": 0,
+    "nodes_evaluated": 1,
+    "verified_count": 1,
+    "stopped_early": true,
+    "best_candidate_index": 0,
+    "max_evaluations": 450
+  },
+  "timing": {
+    "search_seconds": 0.06781983375549316,
+    "total_seconds": 0.07781720161437988
+  }
+}

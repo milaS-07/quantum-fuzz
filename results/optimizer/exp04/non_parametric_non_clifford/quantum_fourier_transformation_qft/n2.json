@@ -1,0 +1,50 @@
+{
+  "benchmark": "Quantum Fourier Transformation (QFT)",
+  "category": "Non-Parametric Non-Clifford",
+  "num_qubits": 2,
+  "timestamp": "2026-09-13T21:48:33.188781",
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[1];\nU(0, 0, pi/4) q[1];\ncx q[1], q[0];\nU(0, 0, -pi/4) q[0];\ncx q[1], q[0];\nU(0, 0, pi/4) q[0];\nU(pi/2, 0, pi) q[0];\ncx q[0], q[1];\ncx q[1], q[0];\ncx q[0], q[1];\nbarrier q[0], q[1];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 11,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 5,
+        "cx": 5,
+        "measure": 2,
+        "barrier": 1
+      },
+      "two_qubit_gate_count": 5
+    },
+    "true_fidelity": 0.7572611399107758
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nbit[2] meas;\nqubit[2] q;\nU(pi/2, 0, pi) q[1];\nU(0, 0, pi/4) q[1];\ncx q[1], q[0];\nU(0, 0, -pi/4) q[0];\nU(pi/2, -pi, pi/2) q[1];\nU(pi/2, -pi, -3*pi/4) q[0];\ncx q[1], q[0];\nU(3*pi/4, -pi, -pi/2) q[1];\nU(2*pi/3, 2.526112944919406, -2.5261129449194057) q[0];\nU(pi/2, -pi/2, pi/2) q[1];\nU(2.393027811197208, -pi/2, pi/2) q[0];\nU(1.596838472551309, 3.115541672533716, -2.356533740270524) q[0];\nU(2.2510003114353365, -pi/2, -pi/2) q[0];\ncx q[1], q[0];\nU(pi/2, 0, pi/2) q[1];\nU(1.6759905055519044, 0, pi/2) q[0];\nmeas[0] = measure q[0];\nmeas[1] = measure q[1];\n",
+    "features": {
+      "depth": 13,
+      "num_qubits": 2,
+      "gate_counts": {
+        "u": 13,
+        "cx": 3,
+        "measure": 2
+      },
+      "two_qubit_gate_count": 3
+    },
+    "true_fidelity": 0.8378464033357754
+  },
+  "improvement": {
+    "true_fidelity_delta": 0.08058526342499961
+  },
+  "search_stats": {
+    "nodes_expanded": 249,
+    "nodes_evaluated": 250,
+    "verified_count": 250,
+    "stopped_early": false,
+    "best_candidate_index": 5,
+    "max_evaluations": 250
+  },
+  "timing": {
+    "search_seconds": 17.354140758514404,
+    "total_seconds": 17.37064504623413
+  }
+}
