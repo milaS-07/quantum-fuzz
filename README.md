@@ -69,19 +69,44 @@ Kola su podeljena u četiri kategorije:
    * *Kola:* Random Circuit
    * *Karakteristike:* Nasumična struktura kapija
 
----
-
-### Rezultati
-
-[rezultati testiranja MQT benchmark-a nad opisanim modelom šuma](docs/results_mqtbench.md)
-
----
 ## Transformacije kola
 
+Optimizator iz polaznog kola generiše susedna kola ekvivalentna po unitarnoj matrici (do globalne faze). Koriste se tri transformacije:
+
+- **Resinteza bloka**: blok od najviše 3 kjubita (`CollectMultiQBlocks`) zamenjuje se novim kolom iste unitarne matrice. Za 2 kjubita koristi se **KAK dekompozicija**, a za 3 kjubita **kvantna Šenonova dekompozicija** (`qs_decomposition`).
+- **Resinteza prozora**: odsečak između dve susedne 2Q kapije sa zajedničkim kjubitom (najviše 8 pozicija) zamenjuje se resintetizovanim kolom na 2 ili 3 kjubita.
+- **Peephole**: uklanja se par susednih istih samoinverznih kapija jer oni ne rade ništa (`x`, `y`, `z`, `h`, `cx`, `cz`).
 
 ### Test
 
+Svako transformisano kolo poredi se sa originalom (beam varijante) ili sa roditeljem u nasumičnom lancu od 6 koraka (random walk), a lanac se dodatno poredi sa originalom. Za kola do 6 kjubita poredi se cela unitarna matrica, a za veća dejstvo na 3 slučajna stanja. Rastojanje je $\max|b - e^{i\varphi}a|$, $\varphi = \arg\langle a|b\rangle$, a tolerancija je $10^{-7}$.
+
+Osetljivost testa proverena je mutacionim testiranjem: u optimizator je namerno ubačeno 8 grešaka (izostavljena kapija, dodatna rotacija, zamenjene kontrola i meta, `cx` → `cz`, pogrešno mesto bloka, obrnut redosled kjubita u prozoru, peephole nad različitim kjubitima, promena samo globalne faze).
+
+| | |
+| :--- | :--- |
+| **Benchmark kola** | 205 (5 slučajnih + MQT Bench, algoritamski i nativni oblik), 3-10 kjubita, 3-643 kapije |
+| **Generisana kola** | 5 familija (`random2q`, `random3q`, `staggered`, `redundant`, `structured`), 3-8 kjubita, ~150 po seedu |
+| **Seedovi** | 30 |
+| **Tolerancija** | $10^{-7}$ |
+
+Za ovaj test nije testirano više od 10 kjubita jer blok i prozor obuhvataju najviše 3 kjubita, a peephole 1 do 2. Ispravnost transformacije zavisi samo od kjubita na kojima ona deluje i od mesta na koje se rezultat vraća u kolo, dok ostali kjubiti ostaju netaknuti. Zato bi veći broj kjubita povećao samo cenu provere ($4^n$ za unitarnu matricu), a ne i raznovrsnost grešaka. Mutaciono testiranje pokazuje da se greške ovog tipa otkrivaju već na 3 do 10 kjubita.
+
 ### Rezultati
+| Transformacija | Poređenja |
+| :--- | ---: |
+| beam | 577 745 |
+| blok (1Q / 2Q / 3Q) | 12 837 / 56 948 / 286 929 |
+| prozor (2Q / 3Q) | 471 071 / 1 158 537 |
+| peephole | 16 126 |
+| kumulativno | 217 271 |
+| **Ukupno** | **2 797 464** |
+
+### Zaključak
+
+Od 4705 nezavisnih kola, 4704 su obrađena do kraja i nijedno nije pokazalo neekvivalentnost: u 2 797 464 poređenja najveće odstupanje je $9.9 \cdot 10^{-9}$, ispod tolerancije od $10^{-7}$. Sa 95% poverenja, verovatnoća neekvivalentne transformacije po kolu je manja od $1 - 0.05^{1/4704} \approx 0.064\%$ za raspodelu kola korišćenu u testu. Svih 8 namerno ubačenih grešaka otkriveno je u svih 30 seedova (240 od 240), pa je test dovoljno osetljiv da uoči greške ovog tipa. Pored toga, `best_circuit` je ekvivalentan ulaznom kolu u svih 4020 pokretanja `optimize_circuit`. Na osnovu toga, nema indicija da su transformacije neispravne, pa se mogu koristiti u pretrazi.
+
+**Jedini neuspeh (seed 10).** Kolo `staggered_081_n7` nije obrađeno do kraja jer je Qiskit u funkciji `qs_decomposition` (sinteza bloka od 3 kjubita) prijavio internu grešku (`TwoQubitWeylDecomposition: failed to diagonalize M2`). Ona je nastala pri generisanju trensformacija polaznog kola, pre bilo kakvog poređenja, pa nijedno transformisano kolo nije proizvedeno niti proglašeno neekvivalentnim. Neuspeh je nastao zbog same biblioteke i nije pogrešna transformacija.
 
 ---
 ## Prediktori šuma
