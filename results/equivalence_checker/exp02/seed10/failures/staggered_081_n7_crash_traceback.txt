@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "c:\Users\ADMIN\Desktop\petnica\quantum-fuzz\src\circuit_eqivalence_checker.py", line 1529, in run
+    check_circuit(item, opt, c, rng, m, key_fn, fail_dir)
+  File "c:\Users\ADMIN\Desktop\petnica\quantum-fuzz\src\circuit_eqivalence_checker.py", line 511, in check_circuit
+    cands = opt.collect_circuit_variants_beam(circ, cfg.variants, cfg.f1q, cfg.f2q, cfg.beam_width)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\Desktop\petnica\quantum-fuzz\src\optimization_search.py", line 410, in collect_circuit_variants_beam
+    for successor in get_matrix_decompositions(current_circuit):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\Desktop\petnica\quantum-fuzz\src\optimization_search.py", line 278, in get_matrix_decompositions
+    new_block = _synthesize_unitary(unitary, len(qubits))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\Desktop\petnica\quantum-fuzz\src\optimization_search.py", line 194, in _synthesize_unitary
+    return _cached_qs_decomposition(m)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\Desktop\petnica\quantum-fuzz\src\optimization_search.py", line 93, in _cached_qs_decomposition
+    result = _exactify(run(), m)
+                       ^^^^^
+  File "C:\Users\ADMIN\Desktop\petnica\quantum-fuzz\src\optimization_search.py", line 88, in <lambda>
+    attempts = [(label, (lambda kw=kw: qs_decomposition(m, **kw))) for label, kw in _QSD_STRATEGIES]
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\Desktop\petnica\quantum-fuzz\venv\Lib\site-packages\qiskit\utils\deprecation.py", line 184, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\Desktop\petnica\quantum-fuzz\venv\Lib\site-packages\qiskit\utils\deprecation.py", line 184, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\Desktop\petnica\quantum-fuzz\venv\Lib\site-packages\qiskit\synthesis\unitary\qsd.py", line 161, in qs_decomposition
+    qsd.qs_decomposition(array, opt_a1, opt_a2, basis_1q, two_q_decomp)
+pyo3_runtime.PanicException: called `Result::unwrap()` on an `Err` value: PyErr { type: <class 'qiskit.exceptions.QiskitError'>, value: QiskitError('TwoQubitWeylDecomposition: failed to diagonalize M2. Please report this at https://github.com/Qiskit/qiskit-terra/issues/4159. Input: [[Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }],\n [Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }],\n [Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }],\n [Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }, Complex { re: 0.0, im: 0.0 }]], shape=[4, 4], strides=[1, 4], layout=Ff (0xa), const ndim=2'), traceback: None }

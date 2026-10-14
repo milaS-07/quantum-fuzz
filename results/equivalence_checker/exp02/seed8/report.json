@@ -1,0 +1,4056 @@
+{
+  "config": {
+    "src": "C:\\Users\\ADMIN\\Desktop\\petnica\\quantum-fuzz\\src",
+    "optimizer": "optimization_search",
+    "circuits_module": "circuits",
+    "results_dir": "C:\\Users\\ADMIN\\Desktop\\petnica\\quantum-fuzz\\results\\equivalence_checker",
+    "exp": "exp02",
+    "mode": "full",
+    "seeds": "0-29",
+    "jobs": 4,
+    "rerun": false,
+    "aggregate_only": false,
+    "circuits": 150,
+    "min_qubits": 3,
+    "max_qubits": 8,
+    "only": null,
+    "mqt_sizes": "3,4,5,6,8,10",
+    "mqt_forms": "alg,native",
+    "bench_variants": 80,
+    "bench_walks": 4,
+    "bench_depth": 6,
+    "bench_max_qubits": 16,
+    "bench_max_gates": 800,
+    "variants": 30,
+    "beam_width": 10,
+    "walks": 3,
+    "depth": 6,
+    "succ_cap": 10,
+    "tol": 1e-07,
+    "strict_phase": false,
+    "max_unitary_qubits": 6,
+    "states": 3,
+    "f1q": 0.999,
+    "f2q": 0.99,
+    "max_dumps": 20,
+    "no_e2e": false,
+    "e2e_max_qubits": 6,
+    "e2e_max_gates": 150,
+    "e2e_evaluations": 15,
+    "e2e_generated": 5,
+    "no_mutation": false,
+    "mutation_circuits": 16,
+    "mutation_max_qubits": 6,
+    "mutation_max_gates": 80,
+    "no_determinism": true,
+    "min_circuits": 150,
+    "min_per_size": 10,
+    "min_per_family": 25,
+    "min_per_move": 50,
+    "min_testable": 0.8,
+    "min_transformations": 30,
+    "child_pipeline": false,
+    "print_digest": false,
+    "seed": 8,
+    "optimizer_file": "C:\\Users\\ADMIN\\Desktop\\petnica\\quantum-fuzz\\src\\optimization_search.py"
+  },
+  "environment": {
+    "qiskit": "2.5.1",
+    "numpy": "2.5.1",
+    "python": "3.12.5",
+    "platform": "Windows-10-10.0.19045-SP0"
+  },
+  "benchmark": {
+    "where": "circuits (MQT sizes 3,4,5,6,8,10; forms alg,native)",
+    "skipped": [
+      [
+        "circuits.get_empty_circuit [alg]",
+        "no gates"
+      ],
+      [
+        "circuits.get_empty_circuit [native]",
+        "no gates"
+      ],
+      [
+        "mqt:Grover's n=6 [native]",
+        "1676 gates > --bench-max-gates 800"
+      ],
+      [
+        "mqt:Grover's n=8 [native]",
+        "7582 gates > --bench-max-gates 800"
+      ],
+      [
+        "mqt:Grover's n=10 [native]",
+        "31869 gates > --bench-max-gates 800"
+      ],
+      [
+        "mqt:Quantum Walk n=5 [native]",
+        "1305 gates > --bench-max-gates 800"
+      ],
+      [
+        "mqt:Quantum Walk n=6 [native]",
+        "2619 gates > --bench-max-gates 800"
+      ],
+      [
+        "mqt:Quantum Walk n=8 [native]",
+        "6699 gates > --bench-max-gates 800"
+      ],
+      [
+        "mqt:Quantum Walk n=10 [native]",
+        "12999 gates > --bench-max-gates 800"
+      ],
+      [
+        "mqt:Random Circuit n=8 [native]",
+        "828 gates > --bench-max-gates 800"
+      ],
+      [
+        "mqt:Random Circuit n=10 [native]",
+        "1219 gates > --bench-max-gates 800"
+      ],
+      [
+        "mqt:Shor's [alg]",
+        "18 qubits > --bench-max-qubits 16"
+      ],
+      [
+        "mqt:Shor's [native]",
+        "18 qubits > --bench-max-qubits 16"
+      ]
+    ],
+    "rows": [
+      {
+        "name": "circuits.get_rnd_circuit_1 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 8,
+        "mode": "unitary",
+        "transformed": 79,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 151,
+        "fails": 0,
+        "max_err": 3.0867394805640034e-15
+      },
+      {
+        "name": "circuits.get_rnd_circuit_1 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 17,
+        "mode": "unitary",
+        "transformed": 79,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 151,
+        "fails": 0,
+        "max_err": 3.0022245318650408e-15
+      },
+      {
+        "name": "circuits.get_rnd_circuit_2 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 17,
+        "mode": "unitary",
+        "transformed": 248,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 331,
+        "fails": 0,
+        "max_err": 6.486053407561939e-15
+      },
+      {
+        "name": "circuits.get_rnd_circuit_2 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 29,
+        "mode": "unitary",
+        "transformed": 241,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 331,
+        "fails": 0,
+        "max_err": 6.105019170691978e-15
+      },
+      {
+        "name": "circuits.get_rnd_circuit_3 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 5,
+        "mode": "unitary",
+        "transformed": 216,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 307,
+        "fails": 0,
+        "max_err": 1.6449891257645088e-13
+      },
+      {
+        "name": "circuits.get_rnd_circuit_3 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 31,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 3.310055158761878e-13
+      },
+      {
+        "name": "circuits.get_rnd_circuit_4 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 18,
+        "mode": "states",
+        "transformed": 265,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.4884328613491765e-15
+      },
+      {
+        "name": "circuits.get_rnd_circuit_4 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 38,
+        "mode": "states",
+        "transformed": 265,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.3457490413666057e-14
+      },
+      {
+        "name": "circuits.get_rnd_circuit_5 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 29,
+        "mode": "states",
+        "transformed": 255,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.854151821338681e-15
+      },
+      {
+        "name": "circuits.get_rnd_circuit_5 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 49,
+        "mode": "states",
+        "transformed": 264,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.719273023799318e-15
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 7,
+        "mode": "unitary",
+        "transformed": 238,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 313,
+        "fails": 0,
+        "max_err": 3.965620088266594e-14
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 92,
+        "mode": "unitary",
+        "transformed": 198,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 305,
+        "fails": 0,
+        "max_err": 7.798577016944014e-14
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 9,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 319,
+        "fails": 0,
+        "max_err": 4.9496627800414e-14
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 140,
+        "mode": "unitary",
+        "transformed": 254,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.6675296135571156e-13
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 11,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 323,
+        "fails": 0,
+        "max_err": 5.0628254591531906e-14
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 199,
+        "mode": "unitary",
+        "transformed": 277,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.1603200630270387e-14
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 13,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 329,
+        "fails": 0,
+        "max_err": 4.463107778583598e-14
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 257,
+        "mode": "unitary",
+        "transformed": 277,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 6.099864929152869e-13
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 17,
+        "mode": "states",
+        "transformed": 264,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.1430122736081197e-13
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 394,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 5.131320912010355e-15
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 21,
+        "mode": "states",
+        "transformed": 248,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.6612373524806432e-14
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 551,
+        "mode": "states",
+        "transformed": 285,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.7222580688152957e-15
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 7,
+        "mode": "unitary",
+        "transformed": 231,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 307,
+        "fails": 0,
+        "max_err": 1.1080624592091644e-12
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 22,
+        "mode": "unitary",
+        "transformed": 229,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 307,
+        "fails": 0,
+        "max_err": 1.0390367697521305e-13
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 9,
+        "mode": "unitary",
+        "transformed": 1,
+        "beam_variants": 1,
+        "exhausted": true,
+        "tests": 9,
+        "fails": 0,
+        "max_err": 1.1916648594468846e-16
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 29,
+        "mode": "unitary",
+        "transformed": 212,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 298,
+        "fails": 0,
+        "max_err": 1.0409917463436456e-12
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 11,
+        "mode": "unitary",
+        "transformed": 1,
+        "beam_variants": 1,
+        "exhausted": true,
+        "tests": 9,
+        "fails": 0,
+        "max_err": 1.1916648594468846e-16
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 36,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 323,
+        "fails": 0,
+        "max_err": 1.0334553753325665e-13
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 13,
+        "mode": "unitary",
+        "transformed": 1,
+        "beam_variants": 1,
+        "exhausted": true,
+        "tests": 9,
+        "fails": 0,
+        "max_err": 1.1916648594468843e-16
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 45,
+        "mode": "unitary",
+        "transformed": 236,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 325,
+        "fails": 0,
+        "max_err": 1.0341852721253754e-13
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 17,
+        "mode": "states",
+        "transformed": 1,
+        "beam_variants": 1,
+        "exhausted": true,
+        "tests": 9,
+        "fails": 0,
+        "max_err": 6.206335383118183e-17
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 63,
+        "mode": "states",
+        "transformed": 257,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 9.794970752080581e-15
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 21,
+        "mode": "states",
+        "transformed": 1,
+        "beam_variants": 1,
+        "exhausted": true,
+        "tests": 9,
+        "fails": 0,
+        "max_err": 3.1031676915590914e-17
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 79,
+        "mode": "states",
+        "transformed": 272,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.5885844322431226e-13
+      },
+      {
+        "name": "mqt:Graph State n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 6,
+        "mode": "unitary",
+        "transformed": 238,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 309,
+        "fails": 0,
+        "max_err": 1.8077151751380406e-14
+      },
+      {
+        "name": "mqt:Graph State n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 30,
+        "mode": "unitary",
+        "transformed": 218,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 307,
+        "fails": 0,
+        "max_err": 1.3180216896152283e-14
+      },
+      {
+        "name": "mqt:Graph State n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 8,
+        "mode": "unitary",
+        "transformed": 237,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 316,
+        "fails": 0,
+        "max_err": 5.903424090728858e-12
+      },
+      {
+        "name": "mqt:Graph State n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 40,
+        "mode": "unitary",
+        "transformed": 237,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 311,
+        "fails": 0,
+        "max_err": 1.175223746663988e-14
+      },
+      {
+        "name": "mqt:Graph State n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 10,
+        "mode": "unitary",
+        "transformed": 238,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 313,
+        "fails": 0,
+        "max_err": 2.487260456125556e-14
+      },
+      {
+        "name": "mqt:Graph State n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 50,
+        "mode": "unitary",
+        "transformed": 238,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 323,
+        "fails": 0,
+        "max_err": 6.984668301226801e-14
+      },
+      {
+        "name": "mqt:Graph State n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 12,
+        "mode": "unitary",
+        "transformed": 231,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 322,
+        "fails": 0,
+        "max_err": 5.581776782185433e-15
+      },
+      {
+        "name": "mqt:Graph State n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 60,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 316,
+        "fails": 0,
+        "max_err": 9.397640545942333e-15
+      },
+      {
+        "name": "mqt:Graph State n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 16,
+        "mode": "states",
+        "transformed": 253,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 335,
+        "fails": 0,
+        "max_err": 1.1239200439952122e-14
+      },
+      {
+        "name": "mqt:Graph State n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 80,
+        "mode": "states",
+        "transformed": 234,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 335,
+        "fails": 0,
+        "max_err": 1.084005367592331e-14
+      },
+      {
+        "name": "mqt:Graph State n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 20,
+        "mode": "states",
+        "transformed": 249,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 5.875953104857791e-15
+      },
+      {
+        "name": "mqt:Graph State n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 100,
+        "mode": "states",
+        "transformed": 248,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 335,
+        "fails": 0,
+        "max_err": 3.50173147003649e-15
+      },
+      {
+        "name": "mqt:GHZ State n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 3,
+        "mode": "unitary",
+        "transformed": 218,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 302,
+        "fails": 0,
+        "max_err": 6.085071046999771e-14
+      },
+      {
+        "name": "mqt:GHZ State n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 5,
+        "mode": "unitary",
+        "transformed": 229,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 302,
+        "fails": 0,
+        "max_err": 1.1082469811949394e-13
+      },
+      {
+        "name": "mqt:GHZ State n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 4,
+        "mode": "unitary",
+        "transformed": 222,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 307,
+        "fails": 0,
+        "max_err": 2.6200006703821725e-14
+      },
+      {
+        "name": "mqt:GHZ State n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 6,
+        "mode": "unitary",
+        "transformed": 236,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 309,
+        "fails": 0,
+        "max_err": 1.1082469811949394e-13
+      },
+      {
+        "name": "mqt:GHZ State n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 5,
+        "mode": "unitary",
+        "transformed": 238,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 321,
+        "fails": 0,
+        "max_err": 4.246539159300255e-14
+      },
+      {
+        "name": "mqt:GHZ State n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 7,
+        "mode": "unitary",
+        "transformed": 237,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 320,
+        "fails": 0,
+        "max_err": 1.9742380652165467e-13
+      },
+      {
+        "name": "mqt:GHZ State n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 6,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 326,
+        "fails": 0,
+        "max_err": 4.2378090580646467e-14
+      },
+      {
+        "name": "mqt:GHZ State n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 8,
+        "mode": "unitary",
+        "transformed": 238,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 1.6247946369950856e-14
+      },
+      {
+        "name": "mqt:GHZ State n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 8,
+        "mode": "states",
+        "transformed": 255,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 339,
+        "fails": 0,
+        "max_err": 1.5094142670832572e-14
+      },
+      {
+        "name": "mqt:GHZ State n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 10,
+        "mode": "states",
+        "transformed": 250,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 339,
+        "fails": 0,
+        "max_err": 2.146814044632049e-15
+      },
+      {
+        "name": "mqt:GHZ State n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 10,
+        "mode": "states",
+        "transformed": 254,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.4692288586817785e-15
+      },
+      {
+        "name": "mqt:GHZ State n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 12,
+        "mode": "states",
+        "transformed": 262,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.0740553042160807e-15
+      },
+      {
+        "name": "mqt:Grover's n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 4,
+        "mode": "unitary",
+        "transformed": 228,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 307,
+        "fails": 0,
+        "max_err": 9.83367432956819e-14
+      },
+      {
+        "name": "mqt:Grover's n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 43,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 2.675122040108092e-12
+      },
+      {
+        "name": "mqt:Grover's n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 6,
+        "mode": "unitary",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Grover's n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 222,
+        "mode": "unitary",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 8.16705303212704e-14
+      },
+      {
+        "name": "mqt:Grover's n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 8,
+        "mode": "unitary",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Grover's n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 643,
+        "mode": "unitary",
+        "transformed": 299,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.2605881342022724e-13
+      },
+      {
+        "name": "mqt:Grover's n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 10,
+        "mode": "unitary",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Grover's n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 16,
+        "mode": "states",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Grover's n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 27,
+        "mode": "states",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 13,
+        "mode": "unitary",
+        "transformed": 233,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 319,
+        "fails": 0,
+        "max_err": 3.9640700850101644e-14
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 51,
+        "mode": "unitary",
+        "transformed": 226,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 310,
+        "fails": 0,
+        "max_err": 8.837447984344309e-14
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 16,
+        "mode": "unitary",
+        "transformed": 236,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 323,
+        "fails": 0,
+        "max_err": 1.5109093730402785e-14
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 64,
+        "mode": "unitary",
+        "transformed": 206,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 303,
+        "fails": 0,
+        "max_err": 6.245103199227851e-14
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 27,
+        "mode": "unitary",
+        "transformed": 249,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.778040719342497e-14
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 101,
+        "mode": "unitary",
+        "transformed": 276,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.952367864950431e-15
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 32,
+        "mode": "unitary",
+        "transformed": 264,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.495847858850841e-14
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 120,
+        "mode": "unitary",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 8.86084040818665e-13
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 52,
+        "mode": "states",
+        "transformed": 277,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.255737392306031e-15
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 188,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.7302768849377713e-15
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 82,
+        "mode": "states",
+        "transformed": 269,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 7.7418436806452e-16
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 286,
+        "mode": "states",
+        "transformed": 288,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.107199190784719e-15
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 1,
+        "mode": "unitary",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 27,
+        "mode": "unitary",
+        "transformed": 230,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 328,
+        "fails": 0,
+        "max_err": 8.598295706827477e-10
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 1,
+        "mode": "unitary",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 48,
+        "mode": "unitary",
+        "transformed": 267,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.048217627710038e-12
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 1,
+        "mode": "unitary",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 71,
+        "mode": "unitary",
+        "transformed": 276,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 9.686854946288549e-15
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 1,
+        "mode": "unitary",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 102,
+        "mode": "unitary",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 6.8515806357693846e-15
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 1,
+        "mode": "states",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 176,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 8.065995587814614e-15
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 1,
+        "mode": "states",
+        "transformed": 0,
+        "beam_variants": 0,
+        "exhausted": true,
+        "tests": 0,
+        "fails": 0,
+        "max_err": 0.0
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 270,
+        "mode": "states",
+        "transformed": 284,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 7.025404131694168e-15
+      },
+      {
+        "name": "mqt:Entangled QFT n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 4,
+        "mode": "unitary",
+        "transformed": 199,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 290,
+        "fails": 0,
+        "max_err": 7.008199300913843e-14
+      },
+      {
+        "name": "mqt:Entangled QFT n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 32,
+        "mode": "unitary",
+        "transformed": 255,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.4470703249355074e-13
+      },
+      {
+        "name": "mqt:Entangled QFT n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 5,
+        "mode": "unitary",
+        "transformed": 222,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 307,
+        "fails": 0,
+        "max_err": 5.817316602760406e-14
+      },
+      {
+        "name": "mqt:Entangled QFT n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 54,
+        "mode": "unitary",
+        "transformed": 268,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.0315867955909786e-14
+      },
+      {
+        "name": "mqt:Entangled QFT n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 6,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 321,
+        "fails": 0,
+        "max_err": 3.4368866166069734e-14
+      },
+      {
+        "name": "mqt:Entangled QFT n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 78,
+        "mode": "unitary",
+        "transformed": 277,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.1192789465498268e-15
+      },
+      {
+        "name": "mqt:Entangled QFT n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 7,
+        "mode": "unitary",
+        "transformed": 236,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 2.404810853561988e-12
+      },
+      {
+        "name": "mqt:Entangled QFT n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 110,
+        "mode": "unitary",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 9.77735053428154e-14
+      },
+      {
+        "name": "mqt:Entangled QFT n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 9,
+        "mode": "states",
+        "transformed": 240,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 339,
+        "fails": 0,
+        "max_err": 6.757408576269179e-13
+      },
+      {
+        "name": "mqt:Entangled QFT n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 186,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 9.245981741895268e-15
+      },
+      {
+        "name": "mqt:Entangled QFT n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 11,
+        "mode": "states",
+        "transformed": 266,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.233804206143635e-15
+      },
+      {
+        "name": "mqt:Entangled QFT n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 282,
+        "mode": "states",
+        "transformed": 287,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 7.60760799868168e-16
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 20,
+        "mode": "unitary",
+        "transformed": 218,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 297,
+        "fails": 0,
+        "max_err": 2.4606511298850966e-13
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 56,
+        "mode": "unitary",
+        "transformed": 228,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 299,
+        "fails": 0,
+        "max_err": 9.763578325387852e-14
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 27,
+        "mode": "unitary",
+        "transformed": 218,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 290,
+        "fails": 0,
+        "max_err": 3.066668320082703e-14
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 75,
+        "mode": "unitary",
+        "transformed": 219,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 294,
+        "fails": 0,
+        "max_err": 7.456431873244134e-13
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 34,
+        "mode": "unitary",
+        "transformed": 237,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 315,
+        "fails": 0,
+        "max_err": 1.4710455076283324e-14
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 94,
+        "mode": "unitary",
+        "transformed": 219,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 311,
+        "fails": 0,
+        "max_err": 1.780904994324016e-13
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 41,
+        "mode": "unitary",
+        "transformed": 238,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 325,
+        "fails": 0,
+        "max_err": 8.398756464091985e-15
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 113,
+        "mode": "unitary",
+        "transformed": 227,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 312,
+        "fails": 0,
+        "max_err": 1.615913981653961e-12
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 55,
+        "mode": "states",
+        "transformed": 220,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 331,
+        "fails": 0,
+        "max_err": 1.1717999966464449e-13
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 151,
+        "mode": "states",
+        "transformed": 241,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 335,
+        "fails": 0,
+        "max_err": 6.2425098683935666e-15
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 69,
+        "mode": "states",
+        "transformed": 246,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.316549761090303e-15
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 189,
+        "mode": "states",
+        "transformed": 250,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.676710701893306e-15
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 8,
+        "mode": "unitary",
+        "transformed": 209,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 291,
+        "fails": 0,
+        "max_err": 1.209607497994893e-13
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 26,
+        "mode": "unitary",
+        "transformed": 182,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 279,
+        "fails": 0,
+        "max_err": 5.643479922620847e-13
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 12,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 3.4375487645622864e-11
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 42,
+        "mode": "unitary",
+        "transformed": 243,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.5753444656666803e-13
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 21,
+        "mode": "unitary",
+        "transformed": 273,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.1306893765046096e-13
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 81,
+        "mode": "unitary",
+        "transformed": 276,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.2783824994558786e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 27,
+        "mode": "unitary",
+        "transformed": 266,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.2797689512653378e-13
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 107,
+        "mode": "unitary",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.548726314384166e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 46,
+        "mode": "states",
+        "transformed": 276,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.4784507588567857e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 192,
+        "mode": "states",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.1924876772781357e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 66,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.4448445079080612e-15
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 282,
+        "mode": "states",
+        "transformed": 283,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.6450081891849631e-15
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 9,
+        "mode": "unitary",
+        "transformed": 218,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 296,
+        "fails": 0,
+        "max_err": 2.4866409020463496e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 31,
+        "mode": "unitary",
+        "transformed": 243,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 333,
+        "fails": 0,
+        "max_err": 7.882632340137177e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 14,
+        "mode": "unitary",
+        "transformed": 248,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 339,
+        "fails": 0,
+        "max_err": 7.182261343229268e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 52,
+        "mode": "unitary",
+        "transformed": 272,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.5407193765544755e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 21,
+        "mode": "unitary",
+        "transformed": 250,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.675579066989877e-13
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 81,
+        "mode": "unitary",
+        "transformed": 268,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 8.022624313375964e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 28,
+        "mode": "unitary",
+        "transformed": 264,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.6858785663530925e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 112,
+        "mode": "unitary",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.1812553294923502e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 46,
+        "mode": "states",
+        "transformed": 277,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.2840349646235373e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 192,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.0962682283103577e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 68,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.4330314252334966e-14
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 292,
+        "mode": "states",
+        "transformed": 287,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.1588841001944713e-15
+      },
+      {
+        "name": "mqt:Quantum Walk n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 27,
+        "mode": "unitary",
+        "transformed": 234,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 307,
+        "fails": 0,
+        "max_err": 9.413217779133609e-14
+      },
+      {
+        "name": "mqt:Quantum Walk n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 141,
+        "mode": "unitary",
+        "transformed": 275,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 6.549425750243031e-14
+      },
+      {
+        "name": "mqt:Quantum Walk n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 39,
+        "mode": "unitary",
+        "transformed": 265,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 1.7034858765493293e-14
+      },
+      {
+        "name": "mqt:Quantum Walk n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 357,
+        "mode": "unitary",
+        "transformed": 294,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.4990869641079946e-14
+      },
+      {
+        "name": "mqt:Quantum Walk n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 51,
+        "mode": "unitary",
+        "transformed": 257,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 1.6151481065320543e-14
+      },
+      {
+        "name": "mqt:Quantum Walk n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 63,
+        "mode": "unitary",
+        "transformed": 247,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 4.002783287142857e-14
+      },
+      {
+        "name": "mqt:Quantum Walk n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 87,
+        "mode": "states",
+        "transformed": 255,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 1.2093322099707429e-14
+      },
+      {
+        "name": "mqt:Quantum Walk n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 111,
+        "mode": "states",
+        "transformed": 254,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 2.6193841976938275e-15
+      },
+      {
+        "name": "mqt:Random Circuit n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 7,
+        "mode": "unitary",
+        "transformed": 210,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 305,
+        "fails": 0,
+        "max_err": 2.6209553459836726e-14
+      },
+      {
+        "name": "mqt:Random Circuit n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 75,
+        "mode": "unitary",
+        "transformed": 274,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.0210044289588076e-14
+      },
+      {
+        "name": "mqt:Random Circuit n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 12,
+        "mode": "unitary",
+        "transformed": 236,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 316,
+        "fails": 0,
+        "max_err": 2.3082445161875633e-14
+      },
+      {
+        "name": "mqt:Random Circuit n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 232,
+        "mode": "unitary",
+        "transformed": 275,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 6.787188899228414e-14
+      },
+      {
+        "name": "mqt:Random Circuit n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 20,
+        "mode": "unitary",
+        "transformed": 244,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 335,
+        "fails": 0,
+        "max_err": 4.330041269568402e-13
+      },
+      {
+        "name": "mqt:Random Circuit n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 224,
+        "mode": "unitary",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.45974340772616e-14
+      },
+      {
+        "name": "mqt:Random Circuit n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 27,
+        "mode": "unitary",
+        "transformed": 245,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 331,
+        "fails": 0,
+        "max_err": 1.5214056021749564e-13
+      },
+      {
+        "name": "mqt:Random Circuit n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 374,
+        "mode": "unitary",
+        "transformed": 285,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 7.916840070408155e-14
+      },
+      {
+        "name": "mqt:Random Circuit n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 46,
+        "mode": "states",
+        "transformed": 275,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.0487075075986329e-14
+      },
+      {
+        "name": "mqt:Random Circuit n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 77,
+        "mode": "states",
+        "transformed": 262,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.347021435930336e-15
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 30,
+        "mode": "unitary",
+        "transformed": 237,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 325,
+        "fails": 0,
+        "max_err": 9.252442694014348e-14
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 78,
+        "mode": "unitary",
+        "transformed": 222,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 310,
+        "fails": 0,
+        "max_err": 4.16748743220259e-14
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 41,
+        "mode": "unitary",
+        "transformed": 255,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.6126444455275816e-13
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 105,
+        "mode": "unitary",
+        "transformed": 251,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.1765917191937343e-14
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 52,
+        "mode": "unitary",
+        "transformed": 261,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.7964721273015308e-14
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 132,
+        "mode": "unitary",
+        "transformed": 259,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.63187301486626e-15
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 63,
+        "mode": "unitary",
+        "transformed": 273,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.3876248941963683e-15
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 159,
+        "mode": "unitary",
+        "transformed": 263,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.0559689446884376e-13
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 85,
+        "mode": "states",
+        "transformed": 268,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 5.301452310923559e-15
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 213,
+        "mode": "states",
+        "transformed": 273,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.789990883437538e-15
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 107,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 6.4987652260959634e-15
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 267,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.3905747932841943e-12
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 18,
+        "mode": "unitary",
+        "transformed": 238,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 1.1515948580802865e-10
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 66,
+        "mode": "unitary",
+        "transformed": 225,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 310,
+        "fails": 0,
+        "max_err": 2.5238970673923854e-13
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 25,
+        "mode": "unitary",
+        "transformed": 255,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.07338467535917e-13
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 89,
+        "mode": "unitary",
+        "transformed": 245,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.0204646808419787e-14
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 32,
+        "mode": "unitary",
+        "transformed": 259,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.595819719077509e-14
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 112,
+        "mode": "unitary",
+        "transformed": 255,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.3593936313016782e-13
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 39,
+        "mode": "unitary",
+        "transformed": 277,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.8835971407622313e-14
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 135,
+        "mode": "unitary",
+        "transformed": 257,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.9287718560682942e-12
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 53,
+        "mode": "states",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.4839353092448622e-14
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 181,
+        "mode": "states",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.016892921601312e-14
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 67,
+        "mode": "states",
+        "transformed": 272,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.272824528239434e-15
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 227,
+        "mode": "states",
+        "transformed": 277,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.8704301146921596e-15
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 21,
+        "mode": "unitary",
+        "transformed": 246,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 339,
+        "fails": 0,
+        "max_err": 1.838080472188553e-13
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 69,
+        "mode": "unitary",
+        "transformed": 248,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 339,
+        "fails": 0,
+        "max_err": 1.7863101381428518e-13
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 34,
+        "mode": "unitary",
+        "transformed": 264,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 8.162610723947755e-14
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 98,
+        "mode": "unitary",
+        "transformed": 249,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 8.71069923563141e-14
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 50,
+        "mode": "unitary",
+        "transformed": 268,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.8628216863406956e-14
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 130,
+        "mode": "unitary",
+        "transformed": 263,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.1163687631959773e-13
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 69,
+        "mode": "unitary",
+        "transformed": 278,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 6.077454099465743e-14
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 165,
+        "mode": "unitary",
+        "transformed": 274,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.292576976889707e-14
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 116,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 5.5439018473643515e-15
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 244,
+        "mode": "states",
+        "transformed": 279,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.0986024724539098e-15
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 175,
+        "mode": "states",
+        "transformed": 293,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 1.2802682349004297e-15
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 335,
+        "mode": "states",
+        "transformed": 286,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.012436024565996e-15
+      },
+      {
+        "name": "mqt:W-State n=3 [alg]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 9,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 316,
+        "fails": 0,
+        "max_err": 1.0779011944385341e-13
+      },
+      {
+        "name": "mqt:W-State n=3 [native]",
+        "family": "benchmark",
+        "n": 3,
+        "gates": 37,
+        "mode": "unitary",
+        "transformed": 221,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 294,
+        "fails": 0,
+        "max_err": 5.696267566692454e-14
+      },
+      {
+        "name": "mqt:W-State n=4 [alg]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 13,
+        "mode": "unitary",
+        "transformed": 237,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 327,
+        "fails": 0,
+        "max_err": 1.1036609704033468e-12
+      },
+      {
+        "name": "mqt:W-State n=4 [native]",
+        "family": "benchmark",
+        "n": 4,
+        "gates": 55,
+        "mode": "unitary",
+        "transformed": 239,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 317,
+        "fails": 0,
+        "max_err": 1.3027253861563037e-12
+      },
+      {
+        "name": "mqt:W-State n=5 [alg]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 17,
+        "mode": "unitary",
+        "transformed": 233,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 3.234223370215555e-13
+      },
+      {
+        "name": "mqt:W-State n=5 [native]",
+        "family": "benchmark",
+        "n": 5,
+        "gates": 73,
+        "mode": "unitary",
+        "transformed": 237,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 326,
+        "fails": 0,
+        "max_err": 3.2264278824316293e-13
+      },
+      {
+        "name": "mqt:W-State n=6 [alg]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 21,
+        "mode": "unitary",
+        "transformed": 248,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.1370632290962277e-13
+      },
+      {
+        "name": "mqt:W-State n=6 [native]",
+        "family": "benchmark",
+        "n": 6,
+        "gates": 91,
+        "mode": "unitary",
+        "transformed": 248,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 334,
+        "fails": 0,
+        "max_err": 3.2259283751606945e-13
+      },
+      {
+        "name": "mqt:W-State n=8 [alg]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 29,
+        "mode": "states",
+        "transformed": 250,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.958580290231665e-14
+      },
+      {
+        "name": "mqt:W-State n=8 [native]",
+        "family": "benchmark",
+        "n": 8,
+        "gates": 127,
+        "mode": "states",
+        "transformed": 246,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 4.950372942868223e-14
+      },
+      {
+        "name": "mqt:W-State n=10 [alg]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 37,
+        "mode": "states",
+        "transformed": 262,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.8886648657973e-14
+      },
+      {
+        "name": "mqt:W-State n=10 [native]",
+        "family": "benchmark",
+        "n": 10,
+        "gates": 163,
+        "mode": "states",
+        "transformed": 254,
+        "beam_variants": 79,
+        "exhausted": false,
+        "tests": 343,
+        "fails": 0,
+        "max_err": 2.9080162603693645e-14
+      }
+    ]
+  },
+  "totals": {
+    "circuits": 355,
+    "comparisons": 93410,
+    "failures": 0,
+    "failed_circuits": 0,
+    "phase_only": 0,
+    "noops": 1,
+    "distinct_transformed": 69953,
+    "max_err": 8.598295706827477e-10,
+    "failure_upper_95": 0.008403176723952521,
+    "optimizer_s": 1886.049826106755,
+    "checker_s": 5115.0366367066745,
+    "runtime_s": 8841.256168000167
+  },
+  "move_totals": {
+    "block-2q": 1708,
+    "+jump-back": 2877,
+    "block-3q": 9691,
+    "window-3q": 38729,
+    "window-2q": 15904,
+    "+jump-fwd": 2525,
+    "block-1q": 331,
+    "peephole": 505
+  },
+  "per_move": {
+    "beam": {
+      "tests": 19286,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 1.7562552028825134e-10
+    },
+    "block-2q+jump-back": {
+      "tests": 359,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 1.4655364458042816e-15
+    },
+    "cumulative": {
+      "tests": 7256,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 4.675579066989877e-13
+    },
+    "block-2q": {
+      "tests": 1054,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 2.601927927616369e-15
+    },
+    "block-3q": {
+      "tests": 4943,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 2.6750200132192958e-12
+    },
+    "window-3q": {
+      "tests": 38729,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 8.598295706827477e-10
+    },
+    "window-2q": {
+      "tests": 15904,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 5.997845670726917e-14
+    },
+    "block-3q+jump-fwd": {
+      "tests": 2230,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 5.903424090728858e-12
+    },
+    "block-2q+jump-fwd": {
+      "tests": 295,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 8.131246828796541e-15
+    },
+    "block-3q+jump-back": {
+      "tests": 2518,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 1.7562554979523213e-10
+    },
+    "block-1q": {
+      "tests": 331,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 7.816041058999314e-16
+    },
+    "peephole": {
+      "tests": 505,
+      "fails": 0,
+      "phase": 0,
+      "max_err": 6.684427777288334e-16
+    }
+  },
+  "per_size": {
+    "4": {
+      "circuits": 61,
+      "tests": 15412,
+      "fails": 0
+    },
+    "6": {
+      "circuits": 59,
+      "tests": 15599,
+      "fails": 0
+    },
+    "5": {
+      "circuits": 60,
+      "tests": 16036,
+      "fails": 0
+    },
+    "8": {
+      "circuits": 58,
+      "tests": 15661,
+      "fails": 0
+    },
+    "10": {
+      "circuits": 33,
+      "tests": 10275,
+      "fails": 0
+    },
+    "3": {
+      "circuits": 59,
+      "tests": 14950,
+      "fails": 0
+    },
+    "7": {
+      "circuits": 25,
+      "tests": 5477,
+      "fails": 0
+    }
+  },
+  "per_family": {
+    "benchmark": {
+      "circuits": 205,
+      "tests": 62360,
+      "fails": 0
+    },
+    "random2q": {
+      "circuits": 30,
+      "tests": 5773,
+      "fails": 0
+    },
+    "staggered": {
+      "circuits": 30,
+      "tests": 6455,
+      "fails": 0
+    },
+    "redundant": {
+      "circuits": 30,
+      "tests": 6170,
+      "fails": 0
+    },
+    "random3q": {
+      "circuits": 30,
+      "tests": 6113,
+      "fails": 0
+    },
+    "structured": {
+      "circuits": 30,
+      "tests": 6539,
+      "fails": 0
+    }
+  },
+  "mutation": [
+    {
+      "name": "drop-a-gate",
+      "description": "one gate disappears from every successor",
+      "applied": 15,
+      "circuits_used": 1,
+      "status": "DETECTED"
+    },
+    {
+      "name": "extra-rotation",
+      "description": "successor gets an extra rz(1e-3)",
+      "applied": 18,
+      "circuits_used": 1,
+      "status": "DETECTED"
+    },
+    {
+      "name": "reversed-cx",
+      "description": "control/target of the first cx swapped",
+      "applied": 18,
+      "circuits_used": 1,
+      "status": "DETECTED"
+    },
+    {
+      "name": "cx-becomes-cz",
+      "description": "first cx replaced by cz",
+      "applied": 18,
+      "circuits_used": 1,
+      "status": "DETECTED"
+    },
+    {
+      "name": "phase-only",
+      "description": "global phase shifted by 0.4 (harmless, must show up as 'phase')",
+      "applied": 20,
+      "circuits_used": 1,
+      "status": "DETECTED"
+    },
+    {
+      "name": "emit-ignores-dependencies",
+      "description": "block always emitted at its first gate, gates on shared qubits are jumped over",
+      "applied": 15,
+      "circuits_used": 2,
+      "status": "DETECTED"
+    },
+    {
+      "name": "window-reversed-qubits",
+      "description": "window replacement uses the wrong qubit order",
+      "applied": 7,
+      "circuits_used": 1,
+      "status": "DETECTED"
+    },
+    {
+      "name": "peephole-ignores-qubits",
+      "description": "cancels adjacent equal gates even when they act on different qubits",
+      "applied": 4,
+      "circuits_used": 2,
+      "status": "DETECTED"
+    }
+  ],
+  "end_to_end": {
+    "status": "run",
+    "rows": [
+      {
+        "name": "circuits.get_rnd_circuit_1 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.47755640000104904
+      },
+      {
+        "name": "circuits.get_rnd_circuit_1 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.44718170003034174
+      },
+      {
+        "name": "circuits.get_rnd_circuit_2 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7310494999401271
+      },
+      {
+        "name": "circuits.get_rnd_circuit_2 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7843120000325143
+      },
+      {
+        "name": "circuits.get_rnd_circuit_3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.2122121001593769
+      },
+      {
+        "name": "circuits.get_rnd_circuit_3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8842162000946701
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=3 [alg]",
+        "err": 5.3010156581666e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.8330862000584602
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=3 [native]",
+        "err": 6.309737056574307e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.7821788999717683
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=4 [alg]",
+        "err": 2.0273153729587073e-15,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.042563599999994
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=4 [native]",
+        "err": 5.23691153334427e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.0965566001832485
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.3309526999946684
+      },
+      {
+        "name": "mqt:Amplitude Estimation (AE) n=6 [alg]",
+        "err": 7.251769475263206e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 2.0130863999947906
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.1993417998310179
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9739654001314193
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=4 [alg]",
+        "err": 1.1916648594468846e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.05945830000564456
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7587347999215126
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.07231389987282455
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8842180001083761
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=6 [alg]",
+        "err": 1.1916648594468843e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.09726660000160336
+      },
+      {
+        "name": "mqt:Deutsch-Jozsa n=6 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.0587134000379592
+      },
+      {
+        "name": "mqt:Graph State n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7303551000077277
+      },
+      {
+        "name": "mqt:Graph State n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9110731000546366
+      },
+      {
+        "name": "mqt:Graph State n=4 [alg]",
+        "err": 1.0513340250110747e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.5987694999203086
+      },
+      {
+        "name": "mqt:Graph State n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8252918999642134
+      },
+      {
+        "name": "mqt:Graph State n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.5890820999629796
+      },
+      {
+        "name": "mqt:Graph State n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.979867700021714
+      },
+      {
+        "name": "mqt:Graph State n=6 [alg]",
+        "err": 6.636451004952031e-17,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.7637962999287993
+      },
+      {
+        "name": "mqt:Graph State n=6 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.146228700177744
+      },
+      {
+        "name": "mqt:GHZ State n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8023604000918567
+      },
+      {
+        "name": "mqt:GHZ State n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8895855001173913
+      },
+      {
+        "name": "mqt:GHZ State n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.6977884999942034
+      },
+      {
+        "name": "mqt:GHZ State n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8112534999381751
+      },
+      {
+        "name": "mqt:GHZ State n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7193122000899166
+      },
+      {
+        "name": "mqt:GHZ State n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7210476000327617
+      },
+      {
+        "name": "mqt:GHZ State n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7185323000885546
+      },
+      {
+        "name": "mqt:GHZ State n=6 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7250506000127643
+      },
+      {
+        "name": "mqt:Grover's n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.01025339984335
+      },
+      {
+        "name": "mqt:Grover's n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8151783999055624
+      },
+      {
+        "name": "mqt:Grover's n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.14378260006196797
+      },
+      {
+        "name": "mqt:Grover's n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.3795578998979181
+      },
+      {
+        "name": "mqt:Grover's n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.3540163000579923
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8250740999355912
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.6671778000891209
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=4 [alg]",
+        "err": 1.831920557255352e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.789242000086233
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=4 [native]",
+        "err": 5.117875266520903e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.6965057000052184
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9312199999112636
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.0668146000243723
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.4520272000227123
+      },
+      {
+        "name": "mqt:Quantum Approximation Optimization Algorithm (QAOA) n=6 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.744440499925986
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.028805699897930026
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.5892101000063121
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.03703710017725825
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7445452001411468
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.0509783998131752
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8604221001733094
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.08170110010541975
+      },
+      {
+        "name": "mqt:Quantum Fourier Transformation (QFT) n=6 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.4221203001216054
+      },
+      {
+        "name": "mqt:Entangled QFT n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9271857999265194
+      },
+      {
+        "name": "mqt:Entangled QFT n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.6515841998625547
+      },
+      {
+        "name": "mqt:Entangled QFT n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8609434000682086
+      },
+      {
+        "name": "mqt:Entangled QFT n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7003697000909597
+      },
+      {
+        "name": "mqt:Entangled QFT n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.0306072998791933
+      },
+      {
+        "name": "mqt:Entangled QFT n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.0084016998298466
+      },
+      {
+        "name": "mqt:Entangled QFT n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.4654017998836935
+      },
+      {
+        "name": "mqt:Entangled QFT n=6 [native]",
+        "err": 7.412467526235184e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.6266552000306547
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9949239001143724
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9597275999840349
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8472175998613238
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9882719998713583
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9051414001733065
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.985140300123021
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.0446234000846744
+      },
+      {
+        "name": "mqt:Quantum Neural Network (QNN) n=6 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.147082099923864
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=3 [alg]",
+        "err": 7.468261590855958e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.6616223000455648
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=3 [native]",
+        "err": 6.704925035140889e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.6093419999815524
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.6687708001118153
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=4 [native]",
+        "err": 6.661338147750939e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.6967301999684423
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=5 [alg]",
+        "err": 6.131407058289218e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.8177290000021458
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=5 [native]",
+        "err": 5.978733960281817e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.1991008999757469
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.2370384999085218
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) exact n=6 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.5935269000474364
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=3 [alg]",
+        "err": 9.040822243568021e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.6669626999646425
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=3 [native]",
+        "err": 3.510833468576701e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.6220450000837445
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7031058000866324
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7277263000141829
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=5 [alg]",
+        "err": 6.497413668604471e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.8719538000877947
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=5 [native]",
+        "err": 5.661048867003677e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.0711626999545842
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=6 [alg]",
+        "err": 6.913868759218035e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.3782653999514878
+      },
+      {
+        "name": "mqt:Quantum Phase Estimation (QPE) inexact n=6 [native]",
+        "err": 5.064917260848194e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.7184670998249203
+      },
+      {
+        "name": "mqt:Quantum Walk n=3 [alg]",
+        "err": 1.7577489372763966e-15,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.175787900108844
+      },
+      {
+        "name": "mqt:Quantum Walk n=3 [native]",
+        "err": 2.487623287791207e-15,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.3663037000223994
+      },
+      {
+        "name": "mqt:Quantum Walk n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 2.7278750999830663
+      },
+      {
+        "name": "mqt:Quantum Walk n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 7.3354459998663515
+      },
+      {
+        "name": "mqt:Quantum Walk n=6 [alg]",
+        "err": 3.588143664946631e-15,
+        "ok": true,
+        "changed": true,
+        "seconds": 21.424506000010297
+      },
+      {
+        "name": "mqt:Random Circuit n=3 [alg]",
+        "err": 1.4526988846199889e-15,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.8136143998708576
+      },
+      {
+        "name": "mqt:Random Circuit n=3 [native]",
+        "err": 1.6710307540713095e-15,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.967590400017798
+      },
+      {
+        "name": "mqt:Random Circuit n=4 [alg]",
+        "err": 5.214799211354908e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 1.3404777001123875
+      },
+      {
+        "name": "mqt:Random Circuit n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.6097841998562217
+      },
+      {
+        "name": "mqt:Random Circuit n=6 [alg]",
+        "err": 2.92937222087948e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 2.8856418998911977
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8222423000261188
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8708962998352945
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8375965000595897
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9292196999303997
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9500761998351663
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.1075959999579936
+      },
+      {
+        "name": "mqt:Efficient SU2 ansatz with Random Parameters n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.3510823000688106
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.797119399998337
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7923891001846641
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7846208000555634
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8756979000754654
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8877326000947505
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9765250000637025
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.0325388999190181
+      },
+      {
+        "name": "mqt:Real Amplitudes ansatz with Random Parameters n=6 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.2116539999842644
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.720810400089249
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8381355998571962
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.943540700012818
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.229243699926883
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.418456400046125
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.5349238000344485
+      },
+      {
+        "name": "mqt:Two Local ansatz with random parameters n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 2.1875439998693764
+      },
+      {
+        "name": "mqt:W-State n=3 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7943226001225412
+      },
+      {
+        "name": "mqt:W-State n=3 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.884428899968043
+      },
+      {
+        "name": "mqt:W-State n=4 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.7190183000639081
+      },
+      {
+        "name": "mqt:W-State n=4 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8400700001511723
+      },
+      {
+        "name": "mqt:W-State n=5 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.8741467001382262
+      },
+      {
+        "name": "mqt:W-State n=5 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9372431999072433
+      },
+      {
+        "name": "mqt:W-State n=6 [alg]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9750870000571012
+      },
+      {
+        "name": "mqt:W-State n=6 [native]",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 1.1010477999225259
+      },
+      {
+        "name": "random2q_000_n3",
+        "err": 3.885780586188048e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.514255200047046
+      },
+      {
+        "name": "staggered_001_n3",
+        "err": 3.9448084808579573e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.7152153998613358
+      },
+      {
+        "name": "redundant_002_n3",
+        "err": 8.400361489980554e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.5337302000261843
+      },
+      {
+        "name": "random3q_003_n3",
+        "err": 5.79553433516819e-16,
+        "ok": true,
+        "changed": true,
+        "seconds": 0.44585009990260005
+      },
+      {
+        "name": "structured-ghz_004_n3",
+        "err": 0.0,
+        "ok": true,
+        "changed": false,
+        "seconds": 0.9355256999842823
+      }
+    ]
+  },
+  "checklist": [
+    {
+      "name": "synthesis works (2q and 3q)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "benchmark circuits found",
+      "ok": true,
+      "detail": "205 usable"
+    },
+    {
+      "name": "every benchmark circuit that could be built was loaded and checked",
+      "ok": true,
+      "detail": "13 excluded by design (empty, too large, duplicate, ...) - listed above"
+    },
+    {
+      "name": ">= 80% of benchmark circuits admit at least one transformation",
+      "ok": true,
+      "detail": "194/205; no move applies to 11"
+    },
+    {
+      "name": "every testable benchmark circuit got >= 30 distinct transformed circuits (or its search ended earlier)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no failures",
+      "ok": true,
+      "detail": "0 failing comparisons in 0 circuits"
+    },
+    {
+      "name": ">= 150 independent circuits in total",
+      "ok": true,
+      "detail": "355"
+    },
+    {
+      "name": "every size 3..8 qubits has >= 10 circuits",
+      "ok": true,
+      "detail": "3q:59  4q:61  5q:60  6q:59  7q:25  8q:58"
+    },
+    {
+      "name": "every generated family has >= 25 circuits",
+      "ok": true,
+      "detail": "random2q:30  staggered:30  redundant:30  random3q:30  structured:30"
+    },
+    {
+      "name": "move 'block-2q' exercised >= 50 times",
+      "ok": true,
+      "detail": "1708"
+    },
+    {
+      "name": "move 'block-3q' exercised >= 50 times",
+      "ok": true,
+      "detail": "9691"
+    },
+    {
+      "name": "move 'window-2q' exercised >= 50 times",
+      "ok": true,
+      "detail": "15904"
+    },
+    {
+      "name": "move 'window-3q' exercised >= 50 times",
+      "ok": true,
+      "detail": "38729"
+    },
+    {
+      "name": "move 'peephole' exercised >= 50 times",
+      "ok": true,
+      "detail": "505"
+    },
+    {
+      "name": "move '+jump-back' exercised >= 50 times",
+      "ok": true,
+      "detail": "2877"
+    },
+    {
+      "name": "move '+jump-fwd' exercised >= 50 times",
+      "ok": true,
+      "detail": "2525"
+    },
+    {
+      "name": "every injected bug detected",
+      "ok": true,
+      "detail": "8/8 detected"
+    },
+    {
+      "name": "best_circuit equivalent to the input in every end-to-end run",
+      "ok": true,
+      "detail": "134/134"
+    }
+  ],
+  "supports_claim": true,
+  "determinism": {
+    "search": null,
+    "pipeline": [
+      "skipped",
+      "not run"
+    ]
+  },
+  "failures": []
+}

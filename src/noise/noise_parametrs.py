@@ -3,10 +3,10 @@ from src.noise.noise_models import depolarizing_thermal_noise_model
 
 def get_sherbrooke_noise_model():
     return depolarizing_thermal_noise_model(
-        t1=289.55e-6,
-        t2=186.01e-6,
-        time_1q=42.67e-9,
-        time_2q=539.90e-9,
-        depol_1q=0.00042,
-        depol_2q=0.07200
+        t1=0.00027841972084544125,
+        t2=0.0001700127424244177,
+        time_1q=5.6888888888888887e-08,
+        time_2q=5.333333333333332e-07,
+        err_1q=0.0002362269001245515,
+        err_2q=0.00778809624800933,
     )

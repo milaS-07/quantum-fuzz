@@ -25,42 +25,25 @@ def safe_kendall(x, y):
     return stats.kendalltau(x, y)[0]
 
 def calculate_metrics_for_group(true_fids, pred_vals, is_cost_metric=False):
-    """
-    true_fids: The ground truth quantum fidelities (Higher is better)
-    pred_vals: The predictor values (Fidelities -> Higher better. Depths -> Lower better)
-    is_cost_metric: True if the predictor is Depth (lower is better).
-    """
-    # 1. Correlations (If it's a cost metric like Depth, it should inversely correlate with Fidelity)
-    # We take the absolute value or adjust sign so +1.0 always means "perfect prediction of reality"
     sign = -1.0 if is_cost_metric else 1.0
     
     pearson = safe_pearson(true_fids, pred_vals) * sign
     spearman = safe_spearman(true_fids, pred_vals) * sign
     kendall = safe_kendall(true_fids, pred_vals) * sign
 
-    # 2. Ranking
-    # True Ranks: Highest fidelity gets Rank 1
     true_ranks = stats.rankdata([-x for x in true_fids], method='min')
     
-    # Predictor Ranks: 
-    # If fidelity, highest gets Rank 1 (negative sort). If depth, lowest gets Rank 1 (positive sort).
     if is_cost_metric:
         pred_ranks = stats.rankdata(pred_vals, method='min')
     else:
         pred_ranks = stats.rankdata([-x for x in pred_vals], method='min')
 
-    # 3. Rank Errors
     rank_errors = np.abs(true_ranks - pred_ranks)
     avg_rank_error = np.mean(rank_errors)
 
-    # 4. Top-1 Accuracy / Mistake
-    # Find the variant(s) the predictor ranked as #1
     pred_best_indices = np.where(pred_ranks == 1)[0]
-    # What was the true rank of the variant(s) the predictor chose?
-    # (If tied, take the average true rank of the tied elements)
     top1_true_rank = np.mean(true_ranks[pred_best_indices])
 
-    # 5. MAE & RMSE (Only valid for fidelity predictors, not depth)
     if not is_cost_metric:
         mae = np.mean(np.abs(np.array(true_fids) - np.array(pred_vals)))
         rmse = np.sqrt(np.mean((np.array(true_fids) - np.array(pred_vals))**2))
@@ -90,7 +73,6 @@ def run_analysis():
         print("[!] No circuits found in the JSON.")
         return
 
-    # To aggregate results globally
     predictors = ["EPA", "Theory_Eff", "Total_Depth", "2Q_Depth", "1Q_Depth"]
     global_results = {p: {
         "pearson": [], "spearman": [], "kendall": [], 
@@ -109,7 +91,6 @@ def run_analysis():
         num_qubits = circ["num_qubits"]
         variants = circ["variants_tested"]
         
-        # We need at least 2 variants to compute correlations
         if len(variants) < 2:
             continue
 
@@ -123,7 +104,6 @@ def run_analysis():
         depth_1qs = []
 
         for v in variants:
-            # Handle key fallback if `fidelity_real_quantum` isn't present
             true_fid = v["metrics"].get("fidelity_real_quantum", v["metrics"].get("fidelity_real", 0.0))
             true_fids.append(true_fid)
             
@@ -134,9 +114,8 @@ def run_analysis():
             d2 = v["features"]["depth_2q"]
             total_depths.append(td)
             depth_2qs.append(d2)
-            depth_1qs.append(td - d2) # 1Q depth proxy
+            depth_1qs.append(td - d2)
 
-        # Calculate metrics for each predictor
         results_epa = calculate_metrics_for_group(true_fids, epa_fids, is_cost_metric=False)
         results_theff = calculate_metrics_for_group(true_fids, theff_fids, is_cost_metric=False)
         results_td = calculate_metrics_for_group(true_fids, total_depths, is_cost_metric=True)
@@ -156,11 +135,9 @@ def run_analysis():
         }
         per_group_results.append(group_dict)
 
-        # Print to console
         for p_name, res in group_dict["predictors"].items():
             print(f"{group_name[:35]:<35} | {p_name:<12} | {res['pearson']:>7.3f} | {res['spearman']:>8.3f} | {res['kendall']:>7.3f} | {res['avg_rank_error']:>9.2f} | {res['top1_true_rank']:>10.2f}")
             
-            # Aggregate for global averages
             global_results[p_name]["pearson"].append(res["pearson"])
             global_results[p_name]["spearman"].append(res["spearman"])
             global_results[p_name]["kendall"].append(res["kendall"])
@@ -171,7 +148,6 @@ def run_analysis():
                 global_results[p_name]["rmse"].append(res["rmse"])
         print("-" * 115)
 
-    # Calculate Global Averages
     print("=" * 115)
     print("GLOBAL AVERAGES ACROSS ALL CIRCUITS")
     print("=" * 115)
@@ -202,7 +178,6 @@ def run_analysis():
 
     print("=" * 115)
 
-    # Save to JSON
     output_data = {
         "timestamp": datetime.now().isoformat(),
         "global_averages": final_averages,
