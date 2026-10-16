@@ -18,7 +18,7 @@ from src.noise.noise_metrics import (
     calculate_js_divergence
 )
 
-from src.noise.noise_parametrs import get_sherbrooke_noise_model
+from src.noise.noise_parameters import get_sherbrooke_noise_model
 
 
 

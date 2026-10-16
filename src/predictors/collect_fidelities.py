@@ -21,7 +21,7 @@ from qiskit.converters import circuit_to_dag
 from qiskit.passmanager import PropertySet
 
 from circuits import get_mqt_circuit
-from noise.noise_parametrs import get_sherbrooke_noise_model
+from src.noise.noise_parameters import get_sherbrooke_noise_model
 
 # Import both predictors cleanly from their separate files
 from predictors.rqc_fidelity import fidelity_from_circuit, guess_architecture

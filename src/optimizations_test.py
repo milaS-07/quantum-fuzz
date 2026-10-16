@@ -13,7 +13,7 @@ sys.path.insert(0, str(SRC))
 
 from qiskit import transpile, qasm3
 from circuits import get_mqt_circuit, get_benchmarks, BENCHMARK_REGISTRY
-from noise.noise_parametrs import get_sherbrooke_noise_model
+from src.noise.noise_parameters import get_sherbrooke_noise_model
 from predictors.epa_fidelity import get_avg_gate_fidelities
 from optimization_search import optimize_circuit, DEFAULT_HARDWARE_BASIS
 

@@ -1,36 +1,20 @@
-import numpy as np
-from qiskit.quantum_info import Operator, Kraus, average_gate_fidelity
+from qiskit.quantum_info import average_gate_fidelity
 
-VIRTUAL_GATES = frozenset({"rz", "z", "s", "sdg", "t", "tdg", "p", "u1", "id"})
-IGNORED_OPS = frozenset({"barrier", "measure", "delay"})
-
-
-def get_avg_gate_fidelities(noise_model):
-    fids_1q, fids_2q = [], []
-    for gate_name, quantum_error in noise_model._default_quantum_errors.items():
-        if gate_name in VIRTUAL_GATES:
-            continue
-        n = quantum_error.num_qubits
-        fid = average_gate_fidelity(Kraus(quantum_error), Operator(np.eye(2 ** n)))
-        if n == 1:
-            fids_1q.append(fid)
-        elif n == 2:
-            fids_2q.append(fid)
-    f_1q = sum(fids_1q) / len(fids_1q) if fids_1q else 1.0
-    f_2q = sum(fids_2q) / len(fids_2q) if fids_2q else 1.0
-    return f_1q, f_2q
+from src.noise.noise_models import GATES_1Q, GATES_2Q, build_gate_errors
+from src.noise.noise_parameters import SHERBROOKE_PARAMS
 
 
-def predict_fidelity_epa(circuit, f_1q, f_2q):
-    n_1q = n_2q = 0
-    for instr in circuit.data:
-        op = instr.operation
-        if op.name in IGNORED_OPS or op.name in VIRTUAL_GATES:
-            continue
-        if op.num_qubits == 1:
-            n_1q += 1
-        elif op.num_qubits == 2:
-            n_2q += 1
-        else:
-            n_2q += 2 * op.num_qubits
-    return (f_1q ** n_1q) * (f_2q ** n_2q)
+def gate_errors_from_params(params=SHERBROOKE_PARAMS):
+    error_1q, error_2q, _, _ = build_gate_errors(**params)
+    eps_1q = 1.0 - average_gate_fidelity(error_1q.to_quantumchannel())
+    eps_2q = 1.0 - average_gate_fidelity(error_2q.to_quantumchannel())
+    gate_errors = {name: eps_1q for name in GATES_1Q}
+    gate_errors.update({name: eps_2q for name in GATES_2Q})
+    return gate_errors
+
+
+def predict_fidelity_esp(circuit, gate_errors):
+    value = 1.0
+    for name, count in circuit.count_ops().items():
+        value *= (1.0 - gate_errors.get(name, 0.0)) ** count
+    return value
