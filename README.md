@@ -111,35 +111,63 @@ Od 4705 nezavisnih kola, 4704 su obrađena do kraja i nijedno nije pokazalo neek
 ---
 ## Prediktori šuma
 
-Na skupu od **8 različitih kola** (za 3, 6 i 9 kubita), generisano je do 30 varijanti po svakom kolu. Na ovom uzorku testirano je **5 različitih prediktora šuma/fidelitija**:
+Na skupu od **17 kola** (scalable benchmarks) generisano je do 30 varijanti po svakom kolu, za veličine od 3 do 16 kubita. Stvarni fideliti varijanti dobijen je simulacijom sa modelom šuma: za kola od 3 do 9 kubita korišćena je egzaktna simulacija matrice gustine (bez statističkog šuma), a za kola od 10 do 16 kubita Monte Karlo simulacija trajektorija sa standardnom greškom (SE) do 0.015. Na ovom uzorku testirana su **4 različita prediktora šuma**:
 
 - **Ukupna dubina kola** (Total Depth)
-- **Dubina 1q kapija** (1Q Depth)
 - **Dubina 2q kapija** (2Q Depth)
-- **Teorijska formula** (Eff) iz rada [Fidelity decay and error accumulation in random quantum circuits](docs/paper7.md)
-- **EPA (Error Propagation Analysis)** — bazirano na nezavisnoj propagaciji greške kroz depolarizujuće kanale, opisan u radovima o proceni fidelitija velikih kola (npr. [Quantum supremacy using a programmable superconducting processor](https://www.nature.com/articles/s41586-019-1666-5))
+- **Teorijska formula** (RQC) iz rada [Fidelity decay and error accumulation in random quantum circuits](docs/paper7.md)
+- **ESP (Estimated Success Probability)** — bazirano na nezavisnoj propagaciji greške kroz depolarizujuće kanale, opisan u radovima o proceni fidelitija velikih kola (npr. [Quantum supremacy using a programmable superconducting processor](https://www.nature.com/articles/s41586-019-1666-5))
 
 Za procenu uspešnosti predviđanja, izračunato je nekoliko mera:
 
 - **Pirsonov koeficijent (r)** — meri koliko dobro se odnos dva niza podataka uklapa u *pravu liniju* (linearna veza). Vrednosti bliže 1 označavaju jaču vezu.
 - **Spirmanov koeficijent (ρ)** — meri da li je odnos *monoton*, bez obzira na oblik krive.
 - **Kendalov koeficijent (τ)** — slično Spirmanu, meri redosledno poklapanje (broj usaglašenih parova) i otporniji je na greške.
-- **Top-1 Rank i Avg Rank Error** — mere koliko dobro prediktor uspeva da identifikuje apsolutno najbolje kolo u grupi varijanti, odnosno koliko u proseku greši u pozicioniranju kola na rang listi.
-- **MAE i RMSE** — mere apsolutnu grešku predviđanja (primenjivo samo na EPA i teorijsku formulu jer oni jedini direktno računaju vrednost fidelitija, dok dubina predstavlja samo cenu).
+- **Top-1 Rank, Avg Rank Error i Regret** — mere koliko dobro prediktor uspeva da identifikuje apsolutno najbolje kolo u grupi varijanti, odnosno koliko u proseku greši u pozicioniranju kola na rang listi. Avg Rank Error je normalizovan (0 – savršen poredak), a Regret je razlika između stvarnog fidelitija najbolje varijante i varijante koju je prediktor izabrao.
+- **Pairwise Accuracy, Strict Accuracy i Tie Rate** — mere koliko često prediktor ispravno poređa par varijanti. U obzir se uzimaju samo parovi čiji se stvarni fideliti razlikuju za više od 2·SE (najmanje 10⁻⁴). Pairwise Accuracy računa izjednačenja kao pola tačnog, Strict Accuracy ih izuzima, a Tie Rate je udeo parova koje prediktor ne može da razdvoji. Uz njih je dat i 95% interval poverenja (bootstrap po osnovnim kolima).
+- **MAE i RMSE** — mere apsolutnu grešku predviđanja (primenjivo samo na ESP i teorijsku formulu jer oni jedini direktno računaju vrednost fidelitija, dok dubina predstavlja samo cenu).
 
 ### Rezultati
 
-Sve generisane varijante grupisane su po osnovnom kolu i broju kjubita (ukupno **24 nezavisne grupe**). Prikazane vrednosti u tabeli predstavljaju globalni prosek rezultata dobijenih unutar svake od grupa.
+Sve generisane varijante grupisane su po osnovnom kolu i broju kjubita (ukupno **174 grupe**, **55 005 poređenih parova**). Grupe u kojima nijedan par varijanti nema dovoljno različit stvarni fideliti odbačene su kao neinformativne (2 grupe). Prikazane vrednosti u tabelama predstavljaju globalni prosek rezultata dobijenih unutar svake od grupa, osim mera na nivou parova (Pairwise i Strict Accuracy, Tie Rate), koje su izračunate nad svim parovima zajedno.
 
-| Prediktor | Pirson r | Spirman ρ | Kendal τ | Avg Rank Err | Top-1 Rank | MAE | RMSE |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **EPA** | **0.995** | **0.926** | **0.815** | **2.25** | **1.58** | **0.020** | **0.022** |
-| Teorijska formula (Eff) | 0.956 | 0.638 | 0.558 | 7.49 | 2.40 | 0.211 | 0.215 |
-| Ukupna dubina | 0.672 | 0.812 | 0.670 | 3.57 | 5.56 | - | - |
-| Dubina 2-kubitnih gejtova | 0.939 | 0.623 | 0.544 | 7.53 | 2.40 | - | - |
-| Dubina 1-kubitnih gejtova | 0.653 | 0.808 | 0.665 | 3.61 | 5.56 | - | - |
+| Prediktor | Pirson r | Spirman ρ | Kendal τ | Avg Rank Err | Top-1 Rank | Regret | MAE | RMSE |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **ESP** | **0.889** | **0.837** | **0.754** | **0.123** | **2.02** | **0.0029** | **0.022** | **0.024** |
+| Teorijska formula (RQC) | 0.842 | 0.811 | 0.720 | 0.156 | 2.70 | 0.0034 | 0.343 | 0.347 |
+| Ukupna dubina | 0.842 | 0.784 | 0.681 | 0.135 | 2.39 | 0.0040 | - | - |
+| Dubina 2-kjubitnih kapija | 0.848 | 0.803 | 0.713 | 0.152 | 2.61 | 0.0034 | - | - |
 
-**EPA** pokazao se kao   najpouzdaniji prediktor u svim metrikama. Njegova linearna korelacija sa stvarnim kvantnim fidelitijem je gotovo savršena (Pirson r = 0.995), a greška u proceni (MAE) je izuzetno mala (0.020). Takođe, EPA najbolje pronalazi optimalno kolo, sa prosečnom pozicijom istinski najboljeg kola na procenjenom prvom mestu (Top-1 Rank = 1.58). Zbog ovih rezultata, EPA pristup je odabran kao glavni metod evaluacije u daljem algoritmu.
+| Prediktor | Pairwise Acc | 95% CI | Tie Rate | Strict Acc | 95% CI |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **ESP** | **0.935** | **[0.924, 0.945]** | 0.085 | **0.975** | **[0.968, 0.981]** |
+| Teorijska formula (RQC) | 0.901 | [0.884, 0.917] | 0.141 | 0.967 | [0.953, 0.978] |
+| Ukupna dubina | 0.905 | [0.885, 0.923] | 0.059 | 0.931 | [0.912, 0.947] |
+| Dubina 2-kjubitnih kapija | 0.901 | [0.885, 0.917] | 0.139 | 0.966 | [0.953, 0.978] |
 
- 
- 
+
+ESP je izabran jer najbolje pronalazi varijantu sa najmanje šuma (najmanja greška rangiranja i regret u oba opsega veličina kola) i jedini uz to daje i procenu apsolutne vrednosti fidelitija (MAE = 0.022). Kod većih kola izabrana varijanta je u proseku 3 – 4 najbolja, ali gubi manje od 1 procentnog poena fidelitija u odnosu na najbolju.
+
+
+
+
+
+posle će trebati:
+
+#### Koliko najboljih predloga treba proveriti
+
+
+| Kjubita | Ekvivalentnih najboljoj (od 30) | Top-1 | Top-3 | Top-5 | k za 95% |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| 3 | 1.3 | 0.65 | 1.00 | 1.00 | 3 |
+| 4 | 1.6 | 0.53 | 0.94 | 1.00 | 5 |
+| 5 | 1.5 | 0.71 | 1.00 | 1.00 | 3 |
+| 6 | 1.5 | 0.59 | 1.00 | 1.00 | 3 |
+| 7 | 1.7 | 0.71 | 1.00 | 1.00 | 3 |
+| 8 | 1.4 | 0.67 | 0.93 | 1.00 | 4 |
+| 9 | 1.5 | 0.67 | 1.00 | 1.00 | 3 |
+| 10 | 9.1 | 0.67 | 1.00 | 1.00 | 2 |
+| 12 | 9.8 | 0.67 | 1.00 | 1.00 | 2 |
+| 14 | 12.4 | 0.64 | 1.00 | 1.00 | 2 |
+| 16 | 16.5 | 0.73 | 1.00 | 1.00 | 2 |
+| **Ukupno** | **5.0** | **0.66** | **0.99** | **1.00** | **3** |

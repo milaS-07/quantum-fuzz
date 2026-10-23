@@ -1,0 +1,91 @@
+{
+ "base_name": "Quantum Fourier Transformation (QFT)",
+ "num_qubits": 3,
+ "method": "density_matrix",
+ "status": "ok",
+ "variants_tested": [
+  {
+   "variant_id": 0,
+   "opt_levels": [
+    0
+   ],
+   "fingerprint": "73b286eeb4da4d8e80e299479978949f12f0db48",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[3] q;\nrz(pi/2) q[2];\nsx q[2];\nrz(pi/2) q[2];\nrz(pi/4) q[2];\ncx q[2], q[1];\nrz(-pi/4) q[1];\ncx q[2], q[1];\nrz(pi/4) q[1];\nrz(pi/2) q[1];\nsx q[1];\nrz(pi/2) q[1];\nrz(pi/4) q[1];\nrz(pi/8) q[2];\ncx q[2], q[0];\nrz(-pi/8) q[0];\ncx q[2], q[0];\nrz(pi/8) q[0];\ncx q[1], q[0];\nrz(-pi/4) q[0];\ncx q[1], q[0];\nrz(pi/4) q[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\ncx q[0], q[2];\ncx q[2], q[0];\ncx q[0], q[2];\n",
+   "features": {
+    "total_depth": 22,
+    "depth_2q": 9,
+    "cx_count": 9
+   },
+   "metrics": {
+    "fidelity_real": 0.934581530503916,
+    "fidelity_esp": 0.9313911026686397,
+    "fidelity_rqc": 0.9326342511037532,
+    "total_depth": 22,
+    "depth_2q": 9
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   }
+  },
+  {
+   "variant_id": 1,
+   "opt_levels": [
+    1
+   ],
+   "fingerprint": "2a74e3cf6356ef7fbbd8ec53095d5fbb1b96653f",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[3] q;\nrz(pi/2) q[2];\nsx q[2];\nrz(3*pi/4) q[2];\ncx q[2], q[1];\nrz(-pi/4) q[1];\ncx q[2], q[1];\nrz(3*pi/4) q[1];\nsx q[1];\nrz(3*pi/4) q[1];\nrz(pi/8) q[2];\ncx q[2], q[0];\nrz(-pi/8) q[0];\ncx q[2], q[0];\nrz(pi/8) q[0];\ncx q[1], q[0];\nrz(-pi/4) q[0];\ncx q[1], q[0];\nrz(3*pi/4) q[0];\nsx q[0];\nrz(pi/2) q[0];\ncx q[0], q[2];\ncx q[2], q[0];\ncx q[0], q[2];\n",
+   "features": {
+    "total_depth": 20,
+    "depth_2q": 9,
+    "cx_count": 9
+   },
+   "metrics": {
+    "fidelity_real": 0.9345815305039149,
+    "fidelity_esp": 0.9313911026686397,
+    "fidelity_rqc": 0.9326342511037532,
+    "total_depth": 20,
+    "depth_2q": 9
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.03
+   }
+  },
+  {
+   "variant_id": 2,
+   "opt_levels": [
+    2,
+    3
+   ],
+   "fingerprint": "bf71b5a7ee5131233a582770853c52f09c2fbeee",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[3] q;\nrz(-pi/2) q[1];\nrz(-pi/2) q[2];\nsx q[2];\nrz(-pi/4) q[2];\ncx q[2], q[1];\nrz(pi/4) q[1];\nx q[2];\ncx q[2], q[1];\nrz(-pi/4) q[1];\nsx q[1];\nrz(-pi/4) q[1];\nrz(-3*pi/8) q[2];\ncx q[2], q[0];\nrz(-pi/8) q[0];\ncx q[2], q[0];\nrz(pi/8) q[0];\ncx q[1], q[0];\nrz(-pi/4) q[0];\ncx q[1], q[0];\nrz(3*pi/4) q[0];\nsx q[0];\nrz(pi/2) q[0];\n",
+   "features": {
+    "total_depth": 17,
+    "depth_2q": 6,
+    "cx_count": 6
+   },
+   "metrics": {
+    "fidelity_real": 0.9539873356097663,
+    "fidelity_esp": 0.9532705617138588,
+    "fidelity_rqc": 0.9544925761452799,
+    "total_depth": 17,
+    "depth_2q": 6
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   }
+  }
+ ],
+ "skipped_oversize": [],
+ "errors": [],
+ "circuit_qubits": 3,
+ "elapsed_s": 0.2
+}

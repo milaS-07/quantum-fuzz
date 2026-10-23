@@ -11,7 +11,7 @@ from qiskit.quantum_info import Operator, DensityMatrix, Statevector, state_fide
 from qiskit.synthesis import qs_decomposition, TwoQubitBasisDecomposer
 from qiskit.circuit.library import CXGate
 
-from predictors.epa_fidelity import predict_fidelity_epa
+from src.predictors.esp_fidelity import predict_fidelity_esp
 
 MAX_BLOCK_SIZE = 3
 MAX_BLOCKS_PER_NODE = 12
@@ -386,19 +386,18 @@ def _circuit_key(circuit):
 def collect_circuit_variants_beam(
     start_circuit,
     max_evaluations,
-    f_1q,
-    f_2q,
+    gate_errors,
     beam_width=10
 ):
     visited = set()
     all_candidates = []
 
     start_key = _circuit_key(start_circuit)
-    start_epa = predict_fidelity_epa(start_circuit, f_1q, f_2q)
+    start_esp = predict_fidelity_esp(start_circuit, gate_errors)
 
     visited.add(start_key)
-    all_candidates.append((start_circuit, start_epa))
-    frontier = [(start_epa, start_circuit)]
+    all_candidates.append((start_circuit, start_esp))
+    frontier = [(start_esp, start_circuit)]
 
     while frontier and len(all_candidates) < max_evaluations:
         current_batch = frontier[:beam_width]
@@ -415,14 +414,10 @@ def collect_circuit_variants_beam(
 
                 visited.add(key)
 
-                epa = predict_fidelity_epa(
-                    successor,
-                    f_1q,
-                    f_2q
-                )
+                esp = predict_fidelity_esp(successor, gate_errors)
 
-                all_candidates.append((successor, epa))
-                next_generation.append((epa, successor))
+                all_candidates.append((successor, esp))
+                next_generation.append((esp, successor))
 
                 if len(all_candidates) >= max_evaluations:
                     break
@@ -489,8 +484,7 @@ def verify_true_fidelity(
 def optimize_circuit(
     circuit,
     noise_model,
-    f_1q,
-    f_2q,
+    gate_errors,
     max_evaluations=250,
     beam_width=10,
     coupling_map=None,
@@ -504,8 +498,7 @@ def optimize_circuit(
     candidates = collect_circuit_variants_beam(
         circuit,
         max_evaluations,
-        f_1q,
-        f_2q,
+        gate_errors,
         beam_width
     )
 
@@ -540,8 +533,8 @@ def optimize_circuit(
 
     best_key = _circuit_key(best["circuit"])
 
-    best_epa = next(
-        epa for c, epa in candidates
+    best_esp = next(
+        esp for c, esp in candidates
         if _circuit_key(c) == best_key
     )
 
@@ -554,7 +547,7 @@ def optimize_circuit(
         "best_circuit": best["circuit"],
         "best_true_fidelity": best["fidelity"],
         "original_true_fidelity": original["fidelity"],
-        "best_epa_score": best_epa,
+        "best_esp_score": best_esp,
         "improvement": best["fidelity"] - original["fidelity"],
         "seed": seed,
         "search_stats": {

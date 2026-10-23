@@ -291,5 +291,4 @@ def fidelity_with_real_topology(circuit, coupling_map, t1, t2, time_2q, depol_2q
 
 if __name__ == "__main__":
     L, T = 6, 20
-    # A quick dry-run test
     print(f"L={L} T={T} alpha=0.05 p=0.0 -> Original Formula = {average_fidelity(L, T, alpha=0.05, architecture='1d'):.4f}")

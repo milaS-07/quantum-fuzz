@@ -1,0 +1,793 @@
+{
+ "base_name": "Amplitude Estimation (AE)",
+ "num_qubits": 3,
+ "method": "density_matrix",
+ "status": "ok",
+ "variants_tested": [
+  {
+   "variant_id": 0,
+   "opt_levels": [
+    0
+   ],
+   "fingerprint": "dbe64795337df119e238b92f4d060f715f92125b",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-pi/4) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(0) q[0];\nsx q[0];\nrz(4.068887871591405) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.313653197063818) q[0];\nsx q[0];\nrz(10.455154787293692) q[0];\nrz(-pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx eval[1], q[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\ncx eval[1], q[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[1];\ncx eval[1], eval[0];\nrz(pi/4) eval[0];\ncx eval[1], eval[0];\nrz(-pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 54,
+    "depth_2q": 12,
+    "cx_count": 12
+   },
+   "metrics": {
+    "fidelity_real": 0.8902290455460722,
+    "fidelity_esp": 0.904013824196059,
+    "fidelity_rqc": 0.9113519244344377,
+    "total_depth": 54,
+    "depth_2q": 12
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.16
+   }
+  },
+  {
+   "variant_id": 1,
+   "opt_levels": [
+    1
+   ],
+   "fingerprint": "384b0861e5ee874bf2727f01ddb94d1321e85a06",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(1.0303768265243125) q[0];\nsx q[0];\nrz(-0.9695321101157681) q[0];\nsx q[0];\nrz(-2.3856232431658864) q[0];\ncx eval[0], q[0];\nx eval[0];\nrz(pi/2) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nx eval[0];\nrz(0.3398369094541227) q[0];\nsx q[0];\nrz(-0.6435011087932843) q[0];\nsx q[0];\nrz(2.8017557441356704) q[0];\ncx eval[1], q[0];\nx eval[1];\nrz(pi/2) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\ncx eval[1], q[0];\nx eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[1];\ncx eval[1], eval[0];\nrz(pi/4) eval[0];\ncx eval[1], eval[0];\nrz(-pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 40,
+    "depth_2q": 12,
+    "cx_count": 12
+   },
+   "metrics": {
+    "fidelity_real": 0.8933644661835621,
+    "fidelity_esp": 0.9065803919897364,
+    "fidelity_rqc": 0.9113519244344377,
+    "total_depth": 40,
+    "depth_2q": 12
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   }
+  },
+  {
+   "variant_id": 2,
+   "opt_levels": [
+    2,
+    3
+   ],
+   "fingerprint": "ef9f69de4f289f1245f51dc836aea2468e59518c",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(1.053187860046088) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(-1.7356248713330968) eval[1];\nrz(-pi) q[0];\nsx q[0];\nrz(pi/2) q[0];\ncx eval[0], q[0];\nx eval[0];\nrz(0.9272952180016104) q[0];\ncx eval[0], q[0];\nrz(1.0531878600460889) eval[0];\nsx eval[0];\nrz(-pi) eval[0];\nrz(-2.857798544381465) q[0];\ncx eval[1], q[0];\nx eval[1];\nrz(1.2870022175865685) q[0];\ncx eval[1], q[0];\nx eval[1];\nrz(0.1648285445381994) eval[1];\nsx eval[1];\ncx eval[1], eval[0];\nrz(pi/2) eval[0];\nsx eval[1];\nrz(pi) eval[1];\ncx eval[1], eval[0];\nrz(pi/4) eval[0];\nsx eval[1];\ncx eval[1], eval[0];\nx eval[0];\nrz(-pi/4) eval[0];\nrz(-3*pi/4) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-1.8545904360032237) q[0];\nsx q[0];\n",
+   "features": {
+    "total_depth": 22,
+    "depth_2q": 7,
+    "cx_count": 7
+   },
+   "metrics": {
+    "fidelity_real": 0.9368271543587293,
+    "fidelity_esp": 0.9438373886402115,
+    "fidelity_rqc": 0.9471415142569723,
+    "total_depth": 22,
+    "depth_2q": 7
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   }
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "296cc762d0f331cdcc58d64e93ae0ea4e775a820",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 79,
+    "depth_2q": 18,
+    "cx_count": 18
+   },
+   "metrics": {
+    "fidelity_real": 0.8439564160279742,
+    "fidelity_esp": 0.8585183591606211,
+    "fidelity_rqc": 0.8704549526353375,
+    "total_depth": 79,
+    "depth_2q": 18
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.14
+   },
+   "variant_id": 3,
+   "origin": "bfs",
+   "bfs_index": 1
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "ceefc41c1757b4cc41dd7ee13d1b19d15bebe7ad",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-pi/4) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(0) q[0];\nsx q[0];\nrz(4.068887871591405) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/2) eval[0];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.313653197063818) q[0];\nsx q[0];\nrz(10.455154787293692) q[0];\nrz(-pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx eval[1], q[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(3*pi) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\nrz(0) q[0];\nsx q[0];\nrz(5*pi/4) q[0];\nsx q[0];\nrz(5*pi/2) q[0];\ncx eval[1], q[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(4.748996543996931) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nrz(-2.5261129449194057) q[0];\nsx q[0];\nrz(5*pi/3) q[0];\nsx q[0];\nrz(11.950890905688786) q[0];\ncx eval[1], q[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\ncx eval[1], eval[0];\nrz(pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(7*pi/4) q[0];\nsx q[0];\nrz(7*pi/2) q[0];\ncx q[0], eval[0];\ncx eval[1], eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx q[0], eval[0];\nrz(3*pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[1], q[0];\nrz(0) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[1];\ncx eval[1], eval[0];\nrz(pi/4) eval[0];\ncx eval[1], eval[0];\nrz(-pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(3.1157014147663684) q[0];\nsx q[0];\nrz(4.738271545391667) q[0];\nsx q[0];\nrz(8.639044694112494) q[0];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 80,
+    "depth_2q": 17,
+    "cx_count": 17
+   },
+   "metrics": {
+    "fidelity_real": 0.848626882895956,
+    "fidelity_esp": 0.8656660033440283,
+    "fidelity_rqc": 0.87712033249603,
+    "total_depth": 80,
+    "depth_2q": 17
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 4,
+   "origin": "bfs",
+   "bfs_index": 2
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "5a22e255c0ab49f4ef128d24ab855be6cc9a8ea6",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-pi/4) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(0) q[0];\nsx q[0];\nrz(4.068887871591405) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.313653197063818) q[0];\nsx q[0];\nrz(10.455154787293692) q[0];\nrz(-pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx eval[1], q[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\ncx eval[1], q[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(9*pi/4) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[1];\ncx eval[1], eval[0];\nrz(pi/4) eval[0];\ncx eval[1], eval[0];\nrz(-pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 69,
+    "depth_2q": 12,
+    "cx_count": 12
+   },
+   "metrics": {
+    "fidelity_real": 0.8867736764224727,
+    "fidelity_esp": 0.9014545224653783,
+    "fidelity_rqc": 0.9113519244344377,
+    "total_depth": 69,
+    "depth_2q": 12
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 5,
+   "origin": "bfs",
+   "bfs_index": 3
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "69894a7158337f71d9970b9452ac8a1aae59bf32",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-pi/4) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(0) q[0];\nsx q[0];\nrz(4.068887871591405) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.313653197063818) q[0];\nsx q[0];\nrz(10.455154787293692) q[0];\nrz(-pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx eval[1], q[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\ncx eval[1], q[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(0) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(3*pi) eval[1];\nrz(-pi/4) eval[1];\ncx eval[1], eval[0];\nrz(pi/4) eval[0];\ncx eval[1], eval[0];\nrz(-pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 69,
+    "depth_2q": 12,
+    "cx_count": 12
+   },
+   "metrics": {
+    "fidelity_real": 0.8869557998458565,
+    "fidelity_esp": 0.9014545224653783,
+    "fidelity_rqc": 0.9113519244344377,
+    "total_depth": 69,
+    "depth_2q": 12
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 6,
+   "origin": "bfs",
+   "bfs_index": 4
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "67baa9e287efe21b1b7de74ac8c182133bf8c645",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-pi/4) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(0) q[0];\nsx q[0];\nrz(4.068887871591405) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.313653197063818) q[0];\nsx q[0];\nrz(10.455154787293692) q[0];\nrz(-pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx eval[1], q[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\ncx eval[1], q[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(-pi) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(15*pi/4) eval[1];\ncx eval[1], eval[0];\nrz(-pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 60,
+    "depth_2q": 11,
+    "cx_count": 11
+   },
+   "metrics": {
+    "fidelity_real": 0.8962407439039458,
+    "fidelity_esp": 0.9096041007630458,
+    "fidelity_rqc": 0.9183829787751634,
+    "total_depth": 60,
+    "depth_2q": 11
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   },
+   "variant_id": 7,
+   "origin": "bfs",
+   "bfs_index": 5
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "3f24a2104234d4a927600756a1a9cb16bff21946",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-pi/4) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(0) q[0];\nsx q[0];\nrz(4.068887871591405) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.313653197063818) q[0];\nsx q[0];\nrz(10.455154787293692) q[0];\nrz(-pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx eval[1], q[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\ncx eval[1], q[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(3*pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(9*pi/4) eval[0];\nrz(-pi/4) eval[1];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.1006991165438236) eval[1];\nsx eval[1];\nrz(4.859364171048195) eval[1];\nsx eval[1];\nrz(11.525477077313203) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/4) eval[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(3*pi) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 68,
+    "depth_2q": 12,
+    "cx_count": 12
+   },
+   "metrics": {
+    "fidelity_real": 0.8871969434916069,
+    "fidelity_esp": 0.9014545224653783,
+    "fidelity_rqc": 0.9113519244344377,
+    "total_depth": 68,
+    "depth_2q": 12
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   },
+   "variant_id": 8,
+   "origin": "bfs",
+   "bfs_index": 6
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "f8a32343ea771df1036397cebc3f77551fdc74c9",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-pi/4) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(0) q[0];\nsx q[0];\nrz(4.068887871591405) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.313653197063818) q[0];\nsx q[0];\nrz(10.455154787293692) q[0];\nrz(-pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx eval[1], q[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\ncx eval[1], q[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[1];\ncx eval[1], eval[0];\nrz(pi/4) eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-3*pi/4) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(13*pi/4) eval[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 60,
+    "depth_2q": 11,
+    "cx_count": 11
+   },
+   "metrics": {
+    "fidelity_real": 0.8968327904408457,
+    "fidelity_esp": 0.9096041007630458,
+    "fidelity_rqc": 0.9183829787751634,
+    "total_depth": 60,
+    "depth_2q": 11
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   },
+   "variant_id": 9,
+   "origin": "bfs",
+   "bfs_index": 7
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "45c32e2ea6398763aa9466e9debc79b889d03837",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-pi/4) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(0) q[0];\nsx q[0];\nrz(4.068887871591405) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.313653197063818) q[0];\nsx q[0];\nrz(10.455154787293692) q[0];\nrz(-pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx eval[1], q[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\ncx eval[1], q[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[1];\ncx eval[1], eval[0];\nrz(pi/4) eval[0];\ncx eval[1], eval[0];\nrz(-pi/4) eval[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(9*pi/4) eval[1];\ncx eval[0], eval[1];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 69,
+    "depth_2q": 12,
+    "cx_count": 12
+   },
+   "metrics": {
+    "fidelity_real": 0.8867159992025845,
+    "fidelity_esp": 0.9014545224653783,
+    "fidelity_rqc": 0.9113519244344377,
+    "total_depth": 69,
+    "depth_2q": 12
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 10,
+   "origin": "bfs",
+   "bfs_index": 8
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "567c25455696a7029d23af1e966488f5c888ba7c",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-pi/4) eval[1];\nsx eval[1];\nrz(pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(0) q[0];\nsx q[0];\nrz(4.068887871591405) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.186276035465284) q[0];\nsx q[0];\nrz(4.9137469011750206) q[0];\nsx q[0];\nrz(11.611053996234663) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.313653197063818) q[0];\nsx q[0];\nrz(10.455154787293692) q[0];\nrz(-pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx eval[1], q[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(11*pi/4) eval[1];\nrz(-2.3856232431658855) q[0];\nsx q[0];\nrz(5.080656873821329) q[0];\nsx q[0];\nrz(11.810401203935264) q[0];\ncx eval[1], q[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\ncx eval[1], eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(pi/2) eval[0];\nrz(-pi/4) eval[1];\ncx eval[1], eval[0];\nrz(pi/4) eval[0];\ncx eval[1], eval[0];\nrz(-pi/4) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(0) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(3*pi) eval[1];\nrz(1.1795787319873066) q[0];\nsx q[0];\nrz(3.9662310859944516) q[0];\nsx q[0];\nrz(8.126990337061194) q[0];\n",
+   "features": {
+    "total_depth": 69,
+    "depth_2q": 12,
+    "cx_count": 12
+   },
+   "metrics": {
+    "fidelity_real": 0.8865378216562103,
+    "fidelity_esp": 0.9014545224653783,
+    "fidelity_rqc": 0.9113519244344377,
+    "total_depth": 69,
+    "depth_2q": 12
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   },
+   "variant_id": 11,
+   "origin": "bfs",
+   "bfs_index": 9
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "5327903aba93de4eb2b2c450bd0a1758ba08778a",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(0.7963849600240307) eval[0];\nsx eval[0];\nrz(5.565597392666488) eval[0];\nsx eval[0];\nrz(10.742938186897145) eval[0];\nrz(0) q[0];\nsx q[0];\nrz(4.546967827624139) q[0];\nsx q[0];\nrz(7*pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(5.2666852210816355) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) q[0];\nsx q[0];\nrz(5*pi/3) q[0];\nsx q[0];\nrz(11.950890905688786) q[0];\ncx eval[0], q[0];\nrz(1.4366145043275313) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(10.704850184054354) eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[1];\nrz(-pi/2) q[0];\nsx q[0];\nrz(7*pi/4) q[0];\nsx q[0];\nrz(6.456953582723131) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.6119721155859552) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-0.283794109208329) eval[1];\nrz(-0.650507336236041) q[0];\nsx q[0];\nrz(5.418678417663177) q[0];\nsx q[0];\nrz(5*pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) q[0];\nsx q[0];\nrz(5*pi/3) q[0];\nsx q[0];\nrz(11.950890905688786) q[0];\ncx eval[0], q[0];\nrz(0.14427884259330437) eval[0];\nsx eval[0];\nrz(4.018268016212874) eval[0];\nsx eval[0];\nrz(12.422643434636718) eval[0];\ncx eval[0], eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(5*pi/4) q[0];\nsx q[0];\nrz(7.608087967466165) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.07960036298441775) eval[0];\nsx eval[0];\nrz(5.576672434785081) eval[0];\nsx eval[0];\nrz(9.253715014520223) eval[0];\nrz(-pi/2) eval[1];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(-0.33328394904369096) q[0];\nsx q[0];\nrz(4.3945937069471706) q[0];\nsx q[0];\nrz(6.618370794538578) q[0];\ncx eval[0], q[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(4.783383351418058) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.526112944919405) q[0];\nsx q[0];\nrz(5*pi/3) q[0];\nsx q[0];\nrz(11.950890905688784) q[0];\ncx eval[0], q[0];\nrz(-0.8447261339529986) eval[0];\nsx eval[0];\nrz(4.439369338995399) eval[0];\nsx eval[0];\nrz(12.532992488316172) eval[0];\ncx eval[0], eval[1];\nrz(pi/4) eval[1];\nrz(1.5214192213438036) q[0];\nsx q[0];\nrz(3.92760058931311) q[0];\nsx q[0];\nrz(7.30682048389774) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-2.7354281883045726) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/4) eval[1];\nrz(3*pi/4) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(3*pi) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(5.169769718408248) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(6.132244875323907) q[0];\nsx q[0];\nrz(2*pi) q[0];\n",
+   "features": {
+    "total_depth": 75,
+    "depth_2q": 17,
+    "cx_count": 17
+   },
+   "metrics": {
+    "fidelity_real": 0.8512267237284203,
+    "fidelity_esp": 0.8660751355033787,
+    "fidelity_rqc": 0.87712033249603,
+    "total_depth": 75,
+    "depth_2q": 17
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 12,
+   "origin": "bfs",
+   "bfs_index": 10
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "e948f8feacfaed2992c545f5c1b6bf90dcc59788",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(7*pi/4) q[0];\nsx q[0];\nrz(5*pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) q[0];\nsx q[0];\nrz(5*pi/3) q[0];\nsx q[0];\nrz(11.950890905688786) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(7*pi/4) q[0];\nsx q[0];\nrz(2*pi) q[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 89,
+    "depth_2q": 18,
+    "cx_count": 18
+   },
+   "metrics": {
+    "fidelity_real": 0.8434679634398449,
+    "fidelity_esp": 0.8568972589063371,
+    "fidelity_rqc": 0.8704549526353375,
+    "total_depth": 89,
+    "depth_2q": 18
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.14
+   },
+   "variant_id": 13,
+   "origin": "bfs",
+   "bfs_index": 11
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "884cc7506b756bcadd52a99f6c85d9c14883e04a",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7.558540796830762) eval[0];\ncx eval[0], eval[1];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-1.7431663181024668) eval[1];\nsx eval[1];\nrz(4.727318284890026) eval[1];\nsx eval[1];\nrz(11.167944278871847) eval[1];\ncx eval[0], eval[1];\nrz(2.893935470104805) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(8.14674395076008) eval[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(3*pi) eval[1];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\nrz(0.6238045688404781) q[0];\ncx eval[0], q[0];\nrz(-pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(-0.6811522758046737) eval[0];\nsx eval[0];\nrz(5.389237645874894) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/4) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(6.090710316577809) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-0.9085626724264575) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7.834172458025946) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(12.50496181636887) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\nrz(-0.09827391488753878) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\nrz(0.21534114798140713) q[0];\ncx eval[0], q[0];\nrz(-1.4984729288246705) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(7.906495855996171) eval[0];\nrz(pi/2) q[0];\ncx eval[1], q[0];\nrz(1.4797050692046971) eval[1];\nsx eval[1];\nrz(5.506859024318091) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(2.439492019084158) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(10.247819484015869) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(9.271301813059406) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\nrz(-2.9881165058798196) eval[1];\nsx eval[1];\nrz(5.53923756162216) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(1.6177845531939878) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.496859787570283) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0.41633476023466187) eval[0];\nsx eval[0];\nrz(3.8940234425164415) eval[0];\nsx eval[0];\nrz(7.347579791110769) eval[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(5.329858028642192) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\nrz(-1.238821321572833) q[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 160,
+    "depth_2q": 35,
+    "cx_count": 35
+   },
+   "metrics": {
+    "fidelity_real": 0.7243015853613052,
+    "fidelity_esp": 0.7428390752305238,
+    "fidelity_rqc": 0.7657678020993169,
+    "total_depth": 160,
+    "depth_2q": 35
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 14,
+   "origin": "bfs",
+   "bfs_index": 12
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "1278e03505c06e034b7f7989aa7d78c48665e633",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-pi) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx eval[1], q[0];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 122,
+    "depth_2q": 25,
+    "cx_count": 25
+   },
+   "metrics": {
+    "fidelity_real": 0.7862617036748802,
+    "fidelity_esp": 0.8074352432046301,
+    "fidelity_rqc": 0.8254222440799726,
+    "total_depth": 122,
+    "depth_2q": 25
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.09
+   },
+   "variant_id": 15,
+   "origin": "bfs",
+   "bfs_index": 13
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "d91a879b435b4297ac53a4f76fd38aa76c11ec13",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\nrz(-pi) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx eval[1], q[0];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 122,
+    "depth_2q": 25,
+    "cx_count": 25
+   },
+   "metrics": {
+    "fidelity_real": 0.7867674292588157,
+    "fidelity_esp": 0.8074352432046301,
+    "fidelity_rqc": 0.8254222440799726,
+    "total_depth": 122,
+    "depth_2q": 25
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 16,
+   "origin": "bfs",
+   "bfs_index": 14
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "f117539c3e1d051e6d59ed7c3c5d2059f84714fa",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.9725827597140704) eval[0];\nsx eval[0];\nrz(4.604551164939292) eval[0];\nsx eval[0];\nrz(11.122627193765783) eval[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(5.261145545117982) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(5.004216713398368) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(1.363427978255273) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(10.1551039407335) eval[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(7.626867907323825) eval[1];\nrz(-1.1524467165671763) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\nrz(0.8143617233100482) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\nrz(pi/2) q[0];\ncx eval[0], q[0];\nrz(-2.5051319972954227) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(6.104140947669831) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7.765326753858598) eval[0];\nrz(0) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(7.807995632962265) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\nrz(0.7489282422973178) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\nrz(0.1649345879436902) q[0];\ncx eval[0], q[0];\nrz(-0.569529729513857) eval[0];\nsx eval[0];\nrz(4.071062716143612) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-1.5573666756057172) q[0];\ncx eval[1], q[0];\nrz(1.6056993240166015) eval[1];\nsx eval[1];\nrz(4.564598055926566) eval[1];\nsx eval[1];\nrz(9.574209907347855) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(6.135985302748804) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-1.9036174912293702) eval[1];\nsx eval[1];\nrz(4.768797760123803) eval[1];\nsx eval[1];\nrz(11.32839545199875) eval[1];\ncx eval[0], eval[1];\nrz(1.1255400624018694) eval[0];\nsx eval[0];\nrz(5.90465908177138) eval[0];\nsx eval[0];\nrz(11.358911711701907) eval[0];\nrz(1.8946803826679135) eval[1];\nsx eval[1];\nrz(5.4711028423901995) eval[1];\nsx eval[1];\nrz(7.053267743784021) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\nrz(pi/2) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(-2.1343368576963586) eval[0];\nsx eval[0];\nrz(5.354732078930359) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-2.76805547998441) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(4.080964471645448) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3.844242446779738) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(0.46071267207963906) eval[1];\nsx eval[1];\nrz(3.7366025852346842) eval[1];\nsx eval[1];\nrz(7.79837686721354) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(0.9676495771177314) q[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 159,
+    "depth_2q": 35,
+    "cx_count": 35
+   },
+   "metrics": {
+    "fidelity_real": 0.7187945780561719,
+    "fidelity_esp": 0.7430145952651106,
+    "fidelity_rqc": 0.7657678020993169,
+    "total_depth": 159,
+    "depth_2q": 35
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.09
+   },
+   "variant_id": 17,
+   "origin": "bfs",
+   "bfs_index": 15
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "9e88ee4d827b7c10c7a5366bc18f7662b731e366",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5*pi/4) q[0];\nsx q[0];\nrz(7*pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(5.411204619459795) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.3454005506300613) q[0];\nsx q[0];\nrz(5.042140562089704) q[0];\nsx q[0];\nrz(11.77017851139944) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(7*pi/4) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 89,
+    "depth_2q": 18,
+    "cx_count": 18
+   },
+   "metrics": {
+    "fidelity_real": 0.8425416509214247,
+    "fidelity_esp": 0.8568972589063371,
+    "fidelity_rqc": 0.8704549526353375,
+    "total_depth": 89,
+    "depth_2q": 18
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.09
+   },
+   "variant_id": 18,
+   "origin": "bfs",
+   "bfs_index": 16
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "e71a8883a42003f1df60dfd8dc71d1b66ec76e9d",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(-3*pi/4) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3.490363657173701) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7.505210630390575) eval[0];\nrz(0) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(9*pi/4) eval[1];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\nrz(0.7011553742015888) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\nrz(-2.4648291711324375) eval[1];\nsx eval[1];\nrz(5.242324536999217) eval[1];\nsx eval[1];\nrz(6.909089683179166) eval[1];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(-2.7928216500058856) eval[0];\nsx eval[0];\nrz(4.8002531305704315) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(5.584156196314291) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.483093510666269) eval[1];\nsx eval[1];\nrz(5.18489376492056) eval[1];\nsx eval[1];\nrz(11.907871471435648) eval[1];\ncx eval[0], eval[1];\nrz(-pi) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(8.913569646196873) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(9.66129581852335) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\nrz(-0.6782922107593725) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(2.514525200797185) eval[0];\nsx eval[0];\nrz(4.213749331866602) eval[0];\nsx eval[0];\nrz(7.196502380504254) eval[0];\ncx eval[1], q[0];\nrz(2.992349061818949) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(5.483525971846644) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.4410833275851) eval[1];\nsx eval[1];\nrz(5.1380357633645595) eval[1];\nsx eval[1];\nrz(11.865861288354479) eval[1];\ncx eval[0], eval[1];\nrz(0.019975150743287706) eval[0];\nsx eval[0];\nrz(4.446911602869461) eval[0];\nsx eval[0];\nrz(7.048594206824427) eval[0];\nrz(0.713236824118892) eval[1];\nsx eval[1];\nrz(5.2917706329355845) eval[1];\nsx eval[1];\nrz(6.941768474065482) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\nrz(pi/2) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(-1.7443029031436987) eval[0];\nsx eval[0];\nrz(5.6536130972046585) eval[0];\nsx eval[0];\nrz(9.28404816270248) eval[0];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.1802051619669065) eval[1];\nsx eval[1];\nrz(4.909566111935485) eval[1];\nsx eval[1];\nrz(11.604983122736286) eval[1];\ncx eval[0], eval[1];\nrz(0.3483950558165567) eval[0];\nsx eval[0];\nrz(3.9137010530312057) eval[0];\nsx eval[0];\nrz(10.94736604265493) eval[0];\nrz(-1.096778407507244) eval[1];\nsx eval[1];\nrz(5.439507369938713) eval[1];\nsx eval[1];\nrz(6.611839351954843) eval[1];\ncx eval[0], eval[1];\nrz(0.9414993424459522) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 146,
+    "depth_2q": 33,
+    "cx_count": 33
+   },
+   "metrics": {
+    "fidelity_real": 0.7352544261407185,
+    "fidelity_esp": 0.7559737365584815,
+    "fidelity_rqc": 0.7772776991999669,
+    "total_depth": 146,
+    "depth_2q": 33
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.11
+   },
+   "variant_id": 19,
+   "origin": "bfs",
+   "bfs_index": 17
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "d2d0a2cd74e4f541eac94f03d0a7997ccda4bd2d",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-pi) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx eval[1], q[0];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 122,
+    "depth_2q": 25,
+    "cx_count": 25
+   },
+   "metrics": {
+    "fidelity_real": 0.7904149071330783,
+    "fidelity_esp": 0.8074352432046301,
+    "fidelity_rqc": 0.8254222440799726,
+    "total_depth": 122,
+    "depth_2q": 25
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 20,
+   "origin": "bfs",
+   "bfs_index": 18
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "bcc957c7efbf7f20528fd578bcc7dec09ba72686",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\nrz(-pi) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx eval[1], q[0];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 122,
+    "depth_2q": 25,
+    "cx_count": 25
+   },
+   "metrics": {
+    "fidelity_real": 0.7888497967692453,
+    "fidelity_esp": 0.8074352432046301,
+    "fidelity_rqc": 0.8254222440799726,
+    "total_depth": 122,
+    "depth_2q": 25
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.16
+   },
+   "variant_id": 21,
+   "origin": "bfs",
+   "bfs_index": 19
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "5afccc1a4a03921653cbad80c53492270fa29c38",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx eval[1], q[0];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 122,
+    "depth_2q": 25,
+    "cx_count": 25
+   },
+   "metrics": {
+    "fidelity_real": 0.7905970078293724,
+    "fidelity_esp": 0.8074352432046301,
+    "fidelity_rqc": 0.8254222440799726,
+    "total_depth": 122,
+    "depth_2q": 25
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   },
+   "variant_id": 22,
+   "origin": "bfs",
+   "bfs_index": 20
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "81d49dd40059514705dc4cfb2655eae28afa8810",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-2.926741872794156) eval[0];\nsx eval[0];\nrz(3.3607674060810786) eval[0];\nsx eval[0];\nrz(9.44437939378438) eval[0];\ncx q[0], eval[1];\nrz(-1.7121299920611444) eval[1];\nsx eval[1];\nrz(5.473802293922656) eval[1];\nsx eval[1];\nrz(10.901495473212552) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(4.81259035318174) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.4931485463503686) eval[1];\nsx eval[1];\nrz(5.196551923646297) eval[1];\nsx eval[1];\nrz(11.917926507119748) eval[1];\ncx eval[0], eval[1];\nrz(-0.011338278939498903) eval[0];\nsx eval[0];\nrz(4.780358137135942) eval[0];\nsx eval[0];\nrz(6.877254869494454) eval[0];\nrz(-2.9779775625716596) eval[1];\nsx eval[1];\nrz(4.562366160038954) eval[1];\nsx eval[1];\nrz(7.872241676580993) eval[1];\nrz(1.7849428221496835) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(3.110172918954869) eval[0];\nsx eval[0];\nrz(4.729093120655419) eval[0];\nsx eval[0];\nrz(8.124643231742265) eval[0];\nrz(-1.6189182794905732) eval[1];\nsx eval[1];\nrz(4.28955037373461) eval[1];\nsx eval[1];\nrz(9.89152267174683) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(5.300937283467178) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.455035657688804) eval[1];\nsx eval[1];\nrz(5.153269216742282) eval[1];\nsx eval[1];\nrz(11.879813618458183) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5.7433820407889655) eval[0];\nsx eval[0];\nrz(11.479201758799615) eval[0];\nrz(2.8854353102137003) eval[1];\nsx eval[1];\nrz(4.960532334805361) eval[1];\nsx eval[1];\nrz(11.453482869580188) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\nrz(-0.9397491095341558) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\nrz(0.06718524881741861) q[0];\ncx eval[0], q[0];\nrz(1.9268382877922692) eval[0];\nsx eval[0];\nrz(3.656477195241105) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(0.19151043696833803) q[0];\ncx eval[1], q[0];\nrz(-0.4911098694992915) eval[1];\nsx eval[1];\nrz(4.665898327899214) eval[1];\nsx eval[1];\nrz(9.471318936862733) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(5.350290664828572) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.513033316368632) eval[1];\nsx eval[1];\nrz(5.220116469615457) eval[1];\nsx eval[1];\nrz(11.93781127713801) eval[1];\ncx eval[0], eval[1];\nrz(1.33287483030068) eval[0];\nsx eval[0];\nrz(4.756851104200226) eval[0];\nsx eval[0];\nrz(9.437038440279201) eval[0];\nrz(-0.4619006244910864) eval[1];\nsx eval[1];\nrz(4.293158097139788) eval[1];\nsx eval[1];\nrz(11.7969808993033) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\ncx eval[0], q[0];\nrz(pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(0.3327330328405842) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(-2.0378198687971243) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(6.222291601128118) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3.476929457725711) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(1.4401933311809492) eval[1];\nsx eval[1];\nrz(5.569911486279447) eval[1];\nsx eval[1];\nrz(11.36685576542554) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(-0.6357789751143234) q[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 153,
+    "depth_2q": 34,
+    "cx_count": 34
+   },
+   "metrics": {
+    "fidelity_real": 0.7281794111534217,
+    "fidelity_esp": 0.749377629345623,
+    "fidelity_rqc": 0.771497136633073,
+    "total_depth": 153,
+    "depth_2q": 34
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.09
+   },
+   "variant_id": 23,
+   "origin": "bfs",
+   "bfs_index": 21
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "332530d807f8db8be4d5ce7dc312d813974da32c",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(7*pi/4) q[0];\nsx q[0];\nrz(5*pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(5.250272715293772) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.31199981674145) q[0];\nsx q[0];\nrz(5.0120765712606055) q[0];\nsx q[0];\nrz(11.736777777510829) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5*pi/4) q[0];\nsx q[0];\nrz(3*pi) q[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 89,
+    "depth_2q": 18,
+    "cx_count": 18
+   },
+   "metrics": {
+    "fidelity_real": 0.8426453028996557,
+    "fidelity_esp": 0.8568972589063371,
+    "fidelity_rqc": 0.8704549526353375,
+    "total_depth": 89,
+    "depth_2q": 18
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   },
+   "variant_id": 24,
+   "origin": "bfs",
+   "bfs_index": 22
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "7581c67a54b55172f7f03057ce09a1d447bf5f7a",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(2.565097129613637) eval[1];\nsx eval[1];\nrz(5.4094245223090525) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-1.845804286406143) eval[0];\nsx eval[0];\nrz(4.523596803762311) eval[0];\nsx eval[0];\nrz(8.659531264410138) eval[0];\nrz(-pi/2) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(12.355038631205712) eval[1];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\nrz(0.676745122230248) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(-0.44982439198977353) eval[0];\nsx eval[0];\nrz(6.000974939945184) eval[0];\nsx eval[0];\nrz(11.287096537364139) eval[0];\nrz(2.309572549887278) eval[1];\nsx eval[1];\nrz(4.09826906525209) eval[1];\nsx eval[1];\nrz(8.620380381539043) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(5.742565215486559) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5233396524662197) eval[1];\nsx eval[1];\nrz(5.232597838815464) eval[1];\nsx eval[1];\nrz(11.948117613235599) eval[1];\ncx eval[0], eval[1];\nrz(-pi) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(10.879817972445384) eval[0];\nrz(-0.6322906346583759) eval[1];\nsx eval[1];\nrz(3.6027426303206176) eval[1];\nsx eval[1];\nrz(11.786115086069335) eval[1];\nrz(pi/2) q[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\nrz(-1.3135886525766436) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(0.066506987657172) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\ncx eval[1], q[0];\nrz(1.8002470657964285) eval[1];\nsx eval[1];\nrz(5.185958490909449) eval[1];\nsx eval[1];\nrz(6.908213711799888) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(6.122279953612478) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.363064644688262) eval[1];\nsx eval[1];\nrz(5.0587402788359945) eval[1];\nsx eval[1];\nrz(11.78784260545764) eval[1];\ncx eval[0], eval[1];\nrz(2.8533600595678585) eval[0];\nsx eval[0];\nrz(4.472611132530004) eval[0];\nsx eval[0];\nrz(12.47054655302104) eval[0];\nrz(0.1729876542930504) eval[1];\nsx eval[1];\nrz(4.968196764522977) eval[1];\nsx eval[1];\nrz(12.449516316813638) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(-2.1503209044690936) eval[0];\nsx eval[0];\nrz(3.5143719094722363) eval[0];\nsx eval[0];\nrz(11.542977532328068) eval[0];\nrz(-3*pi/4) eval[1];\nsx eval[1];\nrz(3*pi/2) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\ncx eval[0], eval[1];\nrz(-0.48581276266042206) eval[0];\nsx eval[0];\nrz(4.071590459222452) eval[0];\nsx eval[0];\nrz(11.549112572515886) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(4.065111374026995) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(-1.5282971040619753) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 145,
+    "depth_2q": 33,
+    "cx_count": 33
+   },
+   "metrics": {
+    "fidelity_real": 0.7342164140178203,
+    "fidelity_esp": 0.7561523600865266,
+    "fidelity_rqc": 0.7772776991999669,
+    "total_depth": 145,
+    "depth_2q": 33
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 25,
+   "origin": "bfs",
+   "bfs_index": 23
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "954285299173cd98dcceca7a93fc2c665819cd18",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(-pi) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(4.800377259098752) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3.923099741913946) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(15*pi/4) eval[0];\nrz(-3.0532617830976196) eval[1];\nsx eval[1];\nrz(4.624400701670627) eval[1];\nsx eval[1];\nrz(11.777081375888429) eval[1];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(-pi/4) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(8.808685375455827) eval[0];\ncx eval[1], q[0];\nrz(-1.612411835965644) eval[1];\nsx eval[1];\nrz(3.9278577434742563) eval[1];\nsx eval[1];\nrz(7.912851863996173) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.661413235183861) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3.665942535172878) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-1.5291447348202887) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(13*pi/4) eval[0];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(2.3568444032016593) eval[1];\nsx eval[1];\nrz(4.097215809600626) eval[1];\nsx eval[1];\nrz(7.330007712248936) eval[1];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 127,
+    "depth_2q": 26,
+    "cx_count": 26
+   },
+   "metrics": {
+    "fidelity_real": 0.7820642261610723,
+    "fidelity_esp": 0.8003901182564221,
+    "fidelity_rqc": 0.8192150188289566,
+    "total_depth": 127,
+    "depth_2q": 26
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.08
+   },
+   "variant_id": 26,
+   "origin": "bfs",
+   "bfs_index": 24
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "bd319a5dfc5f7b02847342fa367c18c8b2db6ee2",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(-pi) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(2*pi) eval[1];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx eval[1], q[0];\nrz(0) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(7*pi/2) eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 122,
+    "depth_2q": 25,
+    "cx_count": 25
+   },
+   "metrics": {
+    "fidelity_real": 0.7885771033207425,
+    "fidelity_esp": 0.8074352432046301,
+    "fidelity_rqc": 0.8254222440799726,
+    "total_depth": 122,
+    "depth_2q": 25
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   },
+   "variant_id": 27,
+   "origin": "bfs",
+   "bfs_index": 25
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "7bbd3f3b435189e2bf022143d71baf7a3ee63d88",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(2.1318082474193476) eval[0];\nsx eval[0];\nrz(4.8118933332776805) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(0) eval[1];\nsx eval[1];\nrz(7*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) eval[1];\nsx eval[1];\nrz(5*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(0) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(6.834278331373102) eval[0];\nrz(1.295075331323135) eval[1];\nsx eval[1];\nrz(3.802339811413117) eval[1];\nsx eval[1];\nrz(10.084110099244509) eval[1];\nrz(-0.9256539521932078) q[0];\ncx eval[0], q[0];\nrz(-pi/2) q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(-1.6539375586833378) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(9.341636728880939) eval[0];\nrz(0.36438380726702624) eval[1];\nsx eval[1];\nrz(4.306527019209263) eval[1];\nsx eval[1];\nrz(10.227430689849314) eval[1];\ncx eval[0], eval[1];\nrz(pi/4) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nsx eval[0];\nrz(11*pi/4) eval[0];\nrz(-2.520672528283472) eval[1];\nsx eval[1];\nrz(5.229350249706321) eval[1];\nsx eval[1];\nrz(11.94545048905285) eval[1];\ncx eval[0], eval[1];\nrz(-2.173336166552623) eval[0];\nsx eval[0];\nrz(pi) eval[0];\nsx eval[0];\nrz(8.087890453375215) eval[0];\nrz(-0.21262655313446732) eval[1];\nsx eval[1];\nrz(4.906155445525123) eval[1];\nsx eval[1];\nrz(8.445804686254919) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\nrz(0.15849318154080416) q[0];\ncx eval[0], q[0];\nrz(-0.7985811966665768) eval[0];\nsx eval[0];\nrz(6.267721868536148) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-1.6689310969194517) q[0];\ncx eval[1], q[0];\nrz(2.703664420820882) eval[1];\nsx eval[1];\nrz(5.2434662684254985) eval[1];\nsx eval[1];\nrz(6.910984533328778) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(6.263434781916125) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.166488816160996) eval[1];\nsx eval[1];\nrz(4.9003049895475685) eval[1];\nsx eval[1];\nrz(11.591266776930375) eval[1];\ncx eval[0], eval[1];\nrz(0.029256324924115784) eval[0];\nsx eval[0];\nrz(4.592485780108039) eval[0];\nsx eval[0];\nrz(11.444243610054153) eval[0];\nrz(-0.40746578214883034) eval[1];\nsx eval[1];\nrz(4.335090266005374) eval[1];\nsx eval[1];\nrz(6.692970600739407) eval[1];\nrz(pi/2) q[0];\nsx q[0];\nrz(pi/2) q[0];\nrz(-pi/2) q[0];\ncx eval[0], q[0];\ncx eval[1], q[0];\ncx eval[0], q[0];\nrz(1.164382170849466) eval[0];\nsx eval[0];\nrz(6.164615665079859) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(2.2699447704712963) eval[1];\nsx eval[1];\nrz(5*pi/4) eval[1];\nsx eval[1];\nrz(5*pi/2) eval[1];\ncx eval[0], eval[1];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-0.6154797086703878) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(8.809298252098992) eval[1];\ncx eval[0], eval[1];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(4.291106510323104) eval[0];\nsx eval[0];\nrz(3*pi) eval[0];\nrz(-0.6154797086703869) eval[1];\nsx eval[1];\nrz(4*pi/3) eval[1];\nsx eval[1];\nrz(11.950890905688786) eval[1];\ncx eval[0], eval[1];\nrz(-pi) eval[0];\nsx eval[0];\nrz(3.673576325882854) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-1.6041889731863552) eval[1];\nsx eval[1];\nrz(4.508181533363326) eval[1];\nsx eval[1];\nrz(8.599940952402886) eval[1];\nrz(0.9256539521932077) q[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 159,
+    "depth_2q": 35,
+    "cx_count": 35
+   },
+   "metrics": {
+    "fidelity_real": 0.7165121379935147,
+    "fidelity_esp": 0.7428390752305238,
+    "fidelity_rqc": 0.7657678020993169,
+    "total_depth": 159,
+    "depth_2q": 35
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.09
+   },
+   "variant_id": 28,
+   "origin": "bfs",
+   "bfs_index": 26
+  },
+  {
+   "opt_levels": [],
+   "fingerprint": "ff250e00f21c084e39483c80560018d9ad2567b4",
+   "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] eval;\nqubit[1] q;\nrz(2.1896013526840035) eval[0];\nsx eval[0];\nrz(5.799123097769069) eval[0];\nsx eval[0];\nrz(5*pi/2) eval[0];\nrz(-pi/2) eval[1];\nrz(-1.6539375586833378) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(10.912433055675834) q[0];\ncx q[0], eval[0];\nrz(-2.5261129449194057) eval[0];\nsx eval[0];\nrz(5*pi/3) eval[0];\nsx eval[0];\nrz(11.950890905688786) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(3*pi/2) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(5*pi/4) eval[0];\nsx eval[0];\nrz(8.562542486883526) eval[0];\nrz(0.6238045688404781) q[0];\nsx q[0];\nrz(4.810662895272229) q[0];\nsx q[0];\nrz(8.185956639196547) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(-0.37471155966852043) eval[0];\nsx eval[0];\nrz(4.33724041615878) eval[0];\nsx eval[0];\nrz(7.913838599191546) eval[0];\ncx q[0], eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(1.2870022175865683) eval[1];\nrz(-1.1524467165671761) q[0];\nsx q[0];\nrz(5.534257064882269) q[0];\nsx q[0];\nrz(10.39242753788711) q[0];\ncx q[0], eval[0];\nrz(-2.3454005506300613) eval[0];\nsx eval[0];\nrz(5.042140562089704) eval[0];\nsx eval[0];\nrz(11.77017851139944) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.411204619459795) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(2.2827110408055633) eval[0];\nsx eval[0];\nrz(5.595546847084858) eval[0];\nsx eval[0];\nrz(8.148613194822092) eval[0];\nrz(-2.4404372793882043) q[0];\nsx q[0];\nrz(3.8198848643491656) q[0];\nsx q[0];\nrz(10.36627730321533) q[0];\ncx q[0], eval[1];\ncx eval[0], eval[1];\ncx q[0], eval[1];\ncx eval[0], eval[1];\nrz(1.649964871212143) eval[0];\nsx eval[0];\nrz(3.5950683247766433) eval[0];\nsx eval[0];\nrz(6.924347356283501) eval[0];\nrz(pi/2) eval[1];\nsx eval[1];\nrz(pi/2) eval[1];\nrz(pi/2) eval[1];\nrz(0.21414649535478691) q[0];\nsx q[0];\nrz(4.08134176312395) q[0];\nsx q[0];\nrz(11.930591639244849) q[0];\ncx q[0], eval[0];\nrz(-2.31199981674145) eval[0];\nsx eval[0];\nrz(5.0120765712606055) eval[0];\nsx eval[0];\nrz(11.736777777510829) eval[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(5.250272715293772) q[0];\nsx q[0];\nrz(2*pi) q[0];\ncx q[0], eval[0];\nrz(1.6283029216098193) eval[0];\nsx eval[0];\nrz(4.50289412613043) eval[0];\nsx eval[0];\nrz(10.435469398667628) eval[0];\nrz(-2.4648475313595455) q[0];\nsx q[0];\nrz(6.025977632961333) q[0];\nsx q[0];\nrz(11.038073510297197) q[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\ncx eval[0], eval[1];\nrz(0.6239407821156266) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\ncx q[0], eval[1];\nrz(pi/4) eval[1];\nrz(2.2159387013965857) q[0];\nsx q[0];\nrz(2*pi) q[0];\nsx q[0];\nrz(7.208839259372794) q[0];\nrz(-pi/2) q[0];\nsx q[0];\nrz(7*pi/4) q[0];\nsx q[0];\nrz(5*pi/2) q[0];\ncx eval[0], q[0];\nrz(-pi/2) eval[0];\nsx eval[0];\nrz(3*pi/2) eval[0];\nsx eval[0];\nrz(2*pi) eval[0];\nrz(-2.5261129449194057) q[0];\nsx q[0];\nrz(5*pi/3) q[0];\nsx q[0];\nrz(11.950890905688786) q[0];\ncx eval[0], q[0];\nrz(-pi) eval[0];\nsx eval[0];\nrz(7*pi/4) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) eval[0];\nsx eval[0];\nrz(4.708288180945346) eval[0];\nsx eval[0];\nrz(7*pi/2) eval[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(7*pi/4) q[0];\nsx q[0];\nrz(2*pi) q[0];\nrz(pi/2) q[0];\nsx q[0];\nrz(4.7464899462991905) q[0];\nsx q[0];\nrz(3*pi) q[0];\n",
+   "features": {
+    "total_depth": 89,
+    "depth_2q": 18,
+    "cx_count": 18
+   },
+   "metrics": {
+    "fidelity_real": 0.8416903388566302,
+    "fidelity_esp": 0.8568972589063371,
+    "fidelity_rqc": 0.8704549526353375,
+    "total_depth": 89,
+    "depth_2q": 18
+   },
+   "simulation": {
+    "method": "density_matrix",
+    "fidelity_real_se": 0.0,
+    "shots": 0,
+    "seconds": 0.06
+   },
+   "variant_id": 29,
+   "origin": "bfs",
+   "bfs_index": 27
+  }
+ ],
+ "skipped_oversize": [],
+ "errors": [],
+ "circuit_qubits": 3,
+ "elapsed_s": 13.7
+}
