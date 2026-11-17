@@ -1,15 +1,17 @@
-from collections import Counter
 import hashlib
-from pathlib import Path
+import time
 import traceback
+from collections import Counter
+from pathlib import Path
+
 import numpy as np
-from qiskit import QuantumCircuit, qasm3
+from qiskit import QuantumCircuit, qasm3, transpile
+from qiskit.circuit.library import CXGate
 from qiskit.converters import circuit_to_dag
 from qiskit.passmanager import PropertySet
+from qiskit.quantum_info import DensityMatrix, Operator, Statevector, state_fidelity
+from qiskit.synthesis import TwoQubitBasisDecomposer, qs_decomposition
 from qiskit.transpiler.passes import CollectMultiQBlocks
-from qiskit.quantum_info import Operator, DensityMatrix, Statevector, state_fidelity
-from qiskit.synthesis import qs_decomposition, TwoQubitBasisDecomposer
-from qiskit.circuit.library import CXGate
 
 from src.predictors.esp_fidelity import predict_fidelity_esp
 
@@ -383,30 +385,76 @@ def _circuit_key(circuit):
         return _structural_key(circuit)
 
 
+def hardware_transpile(circuit, coupling_map=None, hardware_basis=DEFAULT_HARDWARE_BASIS,
+                       seed=DEFAULT_SEED, optimization_level=0):
+    return transpile(
+        circuit,
+        basis_gates=list(hardware_basis),
+        coupling_map=coupling_map,
+        optimization_level=optimization_level,
+        seed_transpiler=seed
+    )
+
+
+class CandidateScorer:
+
+    def __init__(self, gate_errors, coupling_map=None, hardware_basis=DEFAULT_HARDWARE_BASIS,
+                 seed=DEFAULT_SEED):
+        self.gate_errors = gate_errors
+        self.coupling_map = coupling_map
+        self.hardware_basis = hardware_basis
+        self.seed = seed
+        self.cache = {}
+        self.transpile_seconds = 0.0
+        self.transpile_calls = 0
+
+    def __call__(self, circuit):
+        key = _circuit_key(circuit)
+        hit = self.cache.get(key)
+        if hit is None:
+            t = time.perf_counter()
+            routed = hardware_transpile(circuit, self.coupling_map, self.hardware_basis, self.seed)
+            hit = (predict_fidelity_esp(routed, self.gate_errors), routed)
+            self.transpile_seconds += time.perf_counter() - t
+            self.transpile_calls += 1
+            self.cache[key] = hit
+        return hit
+
+
 def collect_circuit_variants_beam(
     start_circuit,
     max_evaluations,
-    gate_errors,
-    beam_width=10
+    scorer,
+    beam_width=10,
+    seed=DEFAULT_SEED,
+    patience=5,
+    min_improvement=1e-9
 ):
-    visited = set()
-    all_candidates = []
+    rng = np.random.default_rng(seed)
 
-    start_key = _circuit_key(start_circuit)
-    start_esp = predict_fidelity_esp(start_circuit, gate_errors)
+    start_esp, _ = scorer(start_circuit)
+    visited = {_circuit_key(start_circuit)}
+    candidates = [dict(circuit=start_circuit, esp=start_esp, depth=0, parent=None)]
+    frontier = [(start_esp, 0)]
+    expansions = 0
+    generations = 0
+    best_esp = start_esp
+    stale = 0
+    plateau = False
 
-    visited.add(start_key)
-    all_candidates.append((start_circuit, start_esp))
-    frontier = [(start_esp, start_circuit)]
-
-    while frontier and len(all_candidates) < max_evaluations:
-        current_batch = frontier[:beam_width]
+    while frontier and len(candidates) < max_evaluations:
+        batch = frontier[:beam_width]
         frontier = frontier[beam_width:]
 
         next_generation = []
 
-        for _, current_circuit in current_batch:
-            for successor in get_matrix_decompositions(current_circuit):
+        for _, parent_idx in batch:
+            parent = candidates[parent_idx]
+            successors = get_matrix_decompositions(parent["circuit"])
+            expansions += 1
+
+            for i in rng.permutation(len(successors)):
+                successor = successors[int(i)]
                 key = _circuit_key(successor)
 
                 if key in visited:
@@ -414,16 +462,30 @@ def collect_circuit_variants_beam(
 
                 visited.add(key)
 
-                esp = predict_fidelity_esp(successor, gate_errors)
+                esp, _ = scorer(successor)
 
-                all_candidates.append((successor, esp))
-                next_generation.append((esp, successor))
+                candidates.append(dict(
+                    circuit=successor,
+                    esp=esp,
+                    depth=parent["depth"] + 1,
+                    parent=parent_idx
+                ))
+                next_generation.append((esp, len(candidates) - 1))
 
-                if len(all_candidates) >= max_evaluations:
+                if len(candidates) >= max_evaluations:
                     break
 
-            if len(all_candidates) >= max_evaluations:
+            if len(candidates) >= max_evaluations:
                 break
+
+        generations += 1
+
+        generation_best = max((e for e, _ in next_generation), default=best_esp)
+        if generation_best > best_esp + min_improvement:
+            best_esp = generation_best
+            stale = 0
+        else:
+            stale += 1
 
         next_generation.sort(key=lambda x: x[0], reverse=True)
         frontier.extend(next_generation)
@@ -431,17 +493,27 @@ def collect_circuit_variants_beam(
 
         frontier = frontier[:max_evaluations * 2]
 
-    return all_candidates
+        if patience is not None and stale >= patience:
+            plateau = True
+            break
+
+    if plateau:
+        stop_reason = "plateau"
+    elif len(candidates) >= max_evaluations:
+        stop_reason = "budget"
+    else:
+        stop_reason = "exhausted"
+
+    return candidates, dict(
+        expansions=expansions,
+        generations=generations,
+        frontier_left=len(frontier),
+        stop_reason=stop_reason,
+        best_esp_found=best_esp
+    )
 
 
-def verify_true_fidelity(
-    circuits,
-    noise_model,
-    coupling_map,
-    hardware_basis=DEFAULT_HARDWARE_BASIS,
-    seed=DEFAULT_SEED
-):
-    from qiskit import transpile
+def verify_true_fidelity(routed_circuits, noise_model, seed=DEFAULT_SEED):
     from qiskit_aer import AerSimulator
 
     simulator = AerSimulator(
@@ -452,30 +524,19 @@ def verify_true_fidelity(
 
     results = []
 
-    for circuit in circuits:
-        routed = transpile(
-            circuit,
-            basis_gates=list(hardware_basis),
-            coupling_map=coupling_map,
-            optimization_level=0,
-            seed_transpiler=seed
-        )
-
+    for routed in routed_circuits:
         clean = routed.remove_final_measurements(inplace=False)
         ideal = Statevector.from_instruction(clean)
 
-        clean.save_density_matrix()
-        result = simulator.run(clean, seed_simulator=seed).result()
-        noisy = DensityMatrix(
-            result.data(0)["density_matrix"]
-        )
+        sim_circuit = clean.copy()
+        sim_circuit.save_density_matrix()
+        result = simulator.run(sim_circuit, seed_simulator=seed).result()
+        noisy = DensityMatrix(result.data(0)["density_matrix"])
 
         results.append({
-            "circuit": circuit,
-            "routed": routed,
-            "fidelity": float(
-                state_fidelity(ideal, noisy)
-            )
+            "fidelity": float(state_fidelity(ideal, noisy)),
+            "p_ideal": np.asarray(ideal.probabilities(), dtype=float),
+            "p_noisy": np.asarray(noisy.probabilities(), dtype=float)
         })
 
     return results
@@ -485,76 +546,90 @@ def optimize_circuit(
     circuit,
     noise_model,
     gate_errors,
-    max_evaluations=250,
+    max_evaluations=1000,
     beam_width=10,
+    top_k=5,
+    patience=5,
+    min_improvement=1e-9,
     coupling_map=None,
     hardware_basis=DEFAULT_HARDWARE_BASIS,
     seed=DEFAULT_SEED,
+    beam_seed=None,
+    sim_seed=None,
     **kwargs
 ):
-    if coupling_map is None:
-        raise ValueError("coupling_map is required")
+    if top_k < 1:
+        raise ValueError("top_k must be at least 1")
 
-    candidates = collect_circuit_variants_beam(
+    beam_seed = seed if beam_seed is None else beam_seed
+    sim_seed = seed if sim_seed is None else sim_seed
+
+    scorer = CandidateScorer(gate_errors, coupling_map, hardware_basis, seed)
+
+    t = time.perf_counter()
+    candidates, search_info = collect_circuit_variants_beam(
         circuit,
         max_evaluations,
-        gate_errors,
-        beam_width
+        scorer,
+        beam_width,
+        beam_seed,
+        patience,
+        min_improvement
     )
+    search_seconds = time.perf_counter() - t
 
-    candidates.sort(key=lambda x: x[1], reverse=True)
+    ranked = sorted(range(len(candidates)), key=lambda i: candidates[i]["esp"], reverse=True)
+    esp_rank = [0] * len(candidates)
+    for position, i in enumerate(ranked):
+        esp_rank[i] = position
 
-    top_candidates = [
-        circuit for circuit, _ in candidates[:max_evaluations]
-    ]
+    chosen = [0] + [i for i in ranked[:top_k] if i != 0]
 
-    original_key = _circuit_key(circuit)
+    t = time.perf_counter()
+    routed_chosen = [scorer(candidates[i]["circuit"])[1] for i in chosen]
+    sims = verify_true_fidelity(routed_chosen, noise_model, sim_seed)
+    simulation_seconds = time.perf_counter() - t
 
-    if not any(_circuit_key(c) == original_key for c in top_candidates):
-        top_candidates.append(circuit)
+    verified = []
+    for i, routed, sim in zip(chosen, routed_chosen, sims):
+        verified.append(dict(index=i, routed=routed, **sim))
 
-    verified = verify_true_fidelity(
-        top_candidates,
-        noise_model,
-        coupling_map,
-        hardware_basis,
-        seed=seed
-    )
-
-    original = next(
-        x for x in verified
-        if _circuit_key(x["circuit"]) == original_key
-    )
-
-    best = max(
-        verified,
-        key=lambda x: x["fidelity"]
-    )
-
-    best_key = _circuit_key(best["circuit"])
-
-    best_esp = next(
-        esp for c, esp in candidates
-        if _circuit_key(c) == best_key
-    )
-
-    best_index = next(
-        i for i, (c, _) in enumerate(candidates)
-        if _circuit_key(c) == best_key
-    )
+    original = verified[0]
+    best = max(verified, key=lambda v: v["fidelity"])
+    esp_selected = next(v for v in verified if v["index"] == ranked[0])
 
     return {
-        "best_circuit": best["circuit"],
+        "best_circuit": candidates[best["index"]]["circuit"],
+        "best_routed": best["routed"],
+        "best_index": best["index"],
         "best_true_fidelity": best["fidelity"],
         "original_true_fidelity": original["fidelity"],
-        "best_esp_score": best_esp,
+        "best_esp_score": candidates[best["index"]]["esp"],
         "improvement": best["fidelity"] - original["fidelity"],
+        "esp_selected_index": esp_selected["index"],
+        "esp_selected_true_fidelity": esp_selected["fidelity"],
         "seed": seed,
+        "beam_seed": beam_seed,
+        "sim_seed": sim_seed,
+        "candidates": candidates,
+        "esp_rank": esp_rank,
+        "verified": verified,
         "search_stats": {
-            "nodes_expanded": max(0, len(candidates) - 1),
+            "nodes_expanded": search_info["expansions"],
+            "generations": search_info["generations"],
             "nodes_evaluated": len(candidates),
+            "frontier_left": search_info["frontier_left"],
             "verified_count": len(verified),
-            "stopped_early": len(candidates) < max_evaluations,
-            "best_candidate_index": best_index
+            "transpile_calls": scorer.transpile_calls,
+            "stop_reason": search_info["stop_reason"],
+            "stopped_early": search_info["stop_reason"] != "budget",
+            "max_evaluations": max_evaluations,
+            "patience": patience,
+            "best_candidate_index": best["index"]
+        },
+        "timing": {
+            "search_seconds": search_seconds,
+            "transpile_seconds": scorer.transpile_seconds,
+            "simulation_seconds": simulation_seconds
         }
     }

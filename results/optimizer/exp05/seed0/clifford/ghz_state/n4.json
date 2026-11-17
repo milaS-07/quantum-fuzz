@@ -1,0 +1,2200 @@
+{
+  "experiment": "exp05",
+  "benchmark": "GHZ State",
+  "category": "Clifford",
+  "requested_qubits": 4,
+  "num_qubits": 4,
+  "seed": 0,
+  "task_seeds": {
+    "params": 545702427,
+    "transpile": 1572748404,
+    "beam": 2457143623,
+    "simulator": 471003814,
+    "shots": 458921287
+  },
+  "parameters_bound": false,
+  "physical_qubits": null,
+  "timestamp": "2026-10-24T01:28:01.325018",
+  "settings": {
+    "max_evaluations": 1000,
+    "patience": 5,
+    "top_k": 5,
+    "beam_width": 10,
+    "shots": 8192,
+    "baseline_levels": [
+      1,
+      3
+    ],
+    "max_qubits": 10,
+    "coupling": "none"
+  },
+  "max_evaluations": 1000,
+  "summary": {
+    "original_fidelity": 0.9724839401157568,
+    "optimized_fidelity": 0.9724839401157568,
+    "esp_selected_fidelity": 0.9724839401157568,
+    "improvement": 0.0,
+    "esp_selected_improvement": 0.0,
+    "original_esp": 0.9763557557129772,
+    "best_esp": 0.9763557557129772,
+    "max_esp": 0.9763557557129772,
+    "esp_spearman": 0.9486832980505138,
+    "esp_selected_is_sim_best": true,
+    "optimized_is_original": true,
+    "original_two_qubit_routed": 3,
+    "optimized_two_qubit_routed": 3,
+    "original_depth_routed": 8,
+    "optimized_depth_routed": 8,
+    "original_hellinger": 0.9823131535448111,
+    "optimized_hellinger": 0.9823131535448111,
+    "original_tvd": 0.017678184392385193,
+    "optimized_tvd": 0.017678184392385193,
+    "original_js": 0.00890225819751403,
+    "optimized_js": 0.00890225819751403,
+    "nodes_evaluated": 308,
+    "generations": 5,
+    "stop_reason": "plateau",
+    "best_depth_in_graph": 0,
+    "baseline_fidelity": {
+      "1": 0.9727323652236982,
+      "3": 0.9727323652236982
+    }
+  },
+  "original": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[4] q;\nU(pi/2, 0, pi) q[3];\ncx q[3], q[2];\ncx q[2], q[1];\ncx q[1], q[0];\n",
+    "features": {
+      "depth": 4,
+      "size": 4,
+      "num_qubits": 4,
+      "gate_counts": {
+        "cx": 3,
+        "u": 1
+      },
+      "two_qubit_gate_count": 3
+    }
+  },
+  "optimized": {
+    "qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[4] q;\nU(pi/2, 0, pi) q[3];\ncx q[3], q[2];\ncx q[2], q[1];\ncx q[1], q[0];\n",
+    "routed_qasm": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[4] q;\nrz(pi) q[3];\nsx q[3];\nrz(3*pi/2) q[3];\nsx q[3];\nrz(3*pi) q[3];\ncx q[3], q[2];\ncx q[2], q[1];\ncx q[1], q[0];\n",
+    "index": 0,
+    "features": {
+      "depth": 4,
+      "size": 4,
+      "num_qubits": 4,
+      "gate_counts": {
+        "cx": 3,
+        "u": 1
+      },
+      "two_qubit_gate_count": 3
+    },
+    "routed_features": {
+      "depth": 8,
+      "size": 8,
+      "num_qubits": 4,
+      "gate_counts": {
+        "rz": 3,
+        "cx": 3,
+        "sx": 2
+      },
+      "two_qubit_gate_count": 3
+    }
+  },
+  "verified": [
+    {
+      "index": 0,
+      "depth": 0,
+      "parent": null,
+      "esp": 0.9763557557129772,
+      "esp_rank": 0,
+      "fidelity": 0.9724839401157568,
+      "features": {
+        "depth": 4,
+        "size": 4,
+        "num_qubits": 4,
+        "gate_counts": {
+          "cx": 3,
+          "u": 1
+        },
+        "two_qubit_gate_count": 3
+      },
+      "routed_features": {
+        "depth": 8,
+        "size": 8,
+        "num_qubits": 4,
+        "gate_counts": {
+          "rz": 3,
+          "cx": 3,
+          "sx": 2
+        },
+        "two_qubit_gate_count": 3
+      },
+      "hellinger_fidelity": 0.9823131535448111,
+      "tvd": 0.017678184392385193,
+      "js_divergence": 0.00890225819751403,
+      "shot_fidelity": 0.9825436350763321,
+      "shot_tvd": 0.0174560546875,
+      "shot_js_divergence": 0.008783688800805132
+    },
+    {
+      "index": 1,
+      "depth": 1,
+      "parent": 0,
+      "esp": 0.9344975623642222,
+      "esp_rank": 1,
+      "fidelity": 0.9295824156152989,
+      "features": {
+        "depth": 13,
+        "size": 21,
+        "num_qubits": 4,
+        "gate_counts": {
+          "u": 11,
+          "cx": 8,
+          "rz": 2
+        },
+        "two_qubit_gate_count": 8
+      },
+      "routed_features": {
+        "depth": 33,
+        "size": 65,
+        "num_qubits": 4,
+        "gate_counts": {
+          "rz": 35,
+          "sx": 22,
+          "cx": 8
+        },
+        "two_qubit_gate_count": 8
+      },
+      "hellinger_fidelity": 0.9414891632806728,
+      "tvd": 0.05850713462406158,
+      "js_divergence": 0.029892325671255125,
+      "shot_fidelity": 0.9415141619564579,
+      "shot_tvd": 0.0584716796875,
+      "shot_js_divergence": 0.029881585606677613
+    },
+    {
+      "index": 3,
+      "depth": 1,
+      "parent": 0,
+      "esp": 0.9344975623642222,
+      "esp_rank": 2,
+      "fidelity": 0.930412565100208,
+      "features": {
+        "depth": 14,
+        "size": 21,
+        "num_qubits": 4,
+        "gate_counts": {
+          "u": 11,
+          "cx": 8,
+          "rz": 2
+        },
+        "two_qubit_gate_count": 8
+      },
+      "routed_features": {
+        "depth": 34,
+        "size": 65,
+        "num_qubits": 4,
+        "gate_counts": {
+          "rz": 35,
+          "sx": 22,
+          "cx": 8
+        },
+        "two_qubit_gate_count": 8
+      },
+      "hellinger_fidelity": 0.9451507103747967,
+      "tvd": 0.054845514821034086,
+      "js_divergence": 0.027983385048190545,
+      "shot_fidelity": 0.9455017707574626,
+      "shot_tvd": 0.054443359375,
+      "shot_js_divergence": 0.027811930579548637
+    },
+    {
+      "index": 7,
+      "depth": 2,
+      "parent": 1,
+      "esp": 0.9331738235624955,
+      "esp_rank": 3,
+      "fidelity": 0.9278912030878287,
+      "features": {
+        "depth": 13,
+        "size": 23,
+        "num_qubits": 4,
+        "gate_counts": {
+          "u": 14,
+          "cx": 8,
+          "rz": 1
+        },
+        "two_qubit_gate_count": 8
+      },
+      "routed_features": {
+        "depth": 33,
+        "size": 79,
+        "num_qubits": 4,
+        "gate_counts": {
+          "rz": 43,
+          "sx": 28,
+          "cx": 8
+        },
+        "two_qubit_gate_count": 8
+      },
+      "hellinger_fidelity": 0.9399803091233723,
+      "tvd": 0.06001967965229615,
+      "js_divergence": 0.030679692484412546,
+      "shot_fidelity": 0.9434814212332219,
+      "shot_tvd": 0.0565185546875,
+      "shot_js_divergence": 0.02885218979071548
+    },
+    {
+      "index": 42,
+      "depth": 3,
+      "parent": 7,
+      "esp": 0.9331738235624955,
+      "esp_rank": 4,
+      "fidelity": 0.9279024905093802,
+      "features": {
+        "depth": 13,
+        "size": 23,
+        "num_qubits": 4,
+        "gate_counts": {
+          "u": 14,
+          "cx": 8,
+          "rz": 1
+        },
+        "two_qubit_gate_count": 8
+      },
+      "routed_features": {
+        "depth": 33,
+        "size": 79,
+        "num_qubits": 4,
+        "gate_counts": {
+          "rz": 43,
+          "sx": 28,
+          "cx": 8
+        },
+        "two_qubit_gate_count": 8
+      },
+      "hellinger_fidelity": 0.9390342171023162,
+      "tvd": 0.06096458362719043,
+      "js_divergence": 0.03117462586089314,
+      "shot_fidelity": 0.9390704540949759,
+      "shot_tvd": 0.0609130859375,
+      "shot_js_divergence": 0.03115904490871703
+    }
+  ],
+  "baselines": {
+    "1": {
+      "level": 1,
+      "esp": 0.9765864517031666,
+      "fidelity": 0.9727323652236982,
+      "routed_features": {
+        "depth": 6,
+        "size": 6,
+        "num_qubits": 4,
+        "gate_counts": {
+          "cx": 3,
+          "rz": 2,
+          "sx": 1
+        },
+        "two_qubit_gate_count": 3
+      },
+      "transpile_seconds": 0.009275800082832575,
+      "hellinger_fidelity": 0.9823131535448111,
+      "tvd": 0.017678184392385193,
+      "js_divergence": 0.008902258197514069,
+      "shot_fidelity": 0.9798356432865137,
+      "shot_tvd": 0.0201416015625,
+      "shot_js_divergence": 0.010161287556384097
+    },
+    "3": {
+      "level": 3,
+      "esp": 0.9765864517031666,
+      "fidelity": 0.9727323652236982,
+      "routed_features": {
+        "depth": 6,
+        "size": 6,
+        "num_qubits": 4,
+        "gate_counts": {
+          "cx": 3,
+          "rz": 2,
+          "sx": 1
+        },
+        "two_qubit_gate_count": 3
+      },
+      "transpile_seconds": 0.014861099887639284,
+      "hellinger_fidelity": 0.9823131535448111,
+      "tvd": 0.017678184392385193,
+      "js_divergence": 0.008902258197514069,
+      "shot_fidelity": 0.9834492729858147,
+      "shot_tvd": 0.0166015625,
+      "shot_js_divergence": 0.008340940886506828
+    }
+  },
+  "candidate_graph": [
+    {
+      "index": 0,
+      "esp": 0.9763557557129772,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "index": 1,
+      "esp": 0.9344975623642222,
+      "depth": 1,
+      "parent": 0
+    },
+    {
+      "index": 2,
+      "esp": 0.8518321355487938,
+      "depth": 1,
+      "parent": 0
+    },
+    {
+      "index": 3,
+      "esp": 0.9344975623642222,
+      "depth": 1,
+      "parent": 0
+    },
+    {
+      "index": 4,
+      "esp": 0.918261139853919,
+      "depth": 2,
+      "parent": 1
+    },
+    {
+      "index": 5,
+      "esp": 0.8788935711047746,
+      "depth": 2,
+      "parent": 1
+    },
+    {
+      "index": 6,
+      "esp": 0.8788935711047746,
+      "depth": 2,
+      "parent": 1
+    },
+    {
+      "index": 7,
+      "esp": 0.9331738235624955,
+      "depth": 2,
+      "parent": 1
+    },
+    {
+      "index": 8,
+      "esp": 0.8085806175543212,
+      "depth": 2,
+      "parent": 1
+    },
+    {
+      "index": 9,
+      "esp": 0.8156978362098674,
+      "depth": 2,
+      "parent": 1
+    },
+    {
+      "index": 10,
+      "esp": 0.8788935711047746,
+      "depth": 2,
+      "parent": 1
+    },
+    {
+      "index": 11,
+      "esp": 0.9327329941172978,
+      "depth": 2,
+      "parent": 1
+    },
+    {
+      "index": 12,
+      "esp": 0.8156978362098674,
+      "depth": 2,
+      "parent": 3
+    },
+    {
+      "index": 13,
+      "esp": 0.8443996338338307,
+      "depth": 2,
+      "parent": 3
+    },
+    {
+      "index": 14,
+      "esp": 0.8085806175543212,
+      "depth": 2,
+      "parent": 3
+    },
+    {
+      "index": 15,
+      "esp": 0.8788935711047746,
+      "depth": 2,
+      "parent": 3
+    },
+    {
+      "index": 16,
+      "esp": 0.8788935711047746,
+      "depth": 2,
+      "parent": 3
+    },
+    {
+      "index": 17,
+      "esp": 0.9327329941172978,
+      "depth": 2,
+      "parent": 3
+    },
+    {
+      "index": 18,
+      "esp": 0.8788935711047746,
+      "depth": 2,
+      "parent": 3
+    },
+    {
+      "index": 19,
+      "esp": 0.8156978362098674,
+      "depth": 2,
+      "parent": 3
+    },
+    {
+      "index": 20,
+      "esp": 0.8301207646499736,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 21,
+      "esp": 0.8297286172634013,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 22,
+      "esp": 0.7502633727280122,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 23,
+      "esp": 0.8297286172634013,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 24,
+      "esp": 0.8301207646499736,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 25,
+      "esp": 0.8502236605793178,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 26,
+      "esp": 0.7435414042421732,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 27,
+      "esp": 0.7370537730158452,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 28,
+      "esp": 0.7435414042421732,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 29,
+      "esp": 0.7435414042421732,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 30,
+      "esp": 0.8297286172634013,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 31,
+      "esp": 0.8502236605793178,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 32,
+      "esp": 0.7437170902249667,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 33,
+      "esp": 0.8297286172634013,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 34,
+      "esp": 0.8502236605793178,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 35,
+      "esp": 0.8301207646499736,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 36,
+      "esp": 0.8443996338338307,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 37,
+      "esp": 0.8502236605793178,
+      "depth": 2,
+      "parent": 2
+    },
+    {
+      "index": 38,
+      "esp": 0.8776485967254769,
+      "depth": 3,
+      "parent": 7
+    },
+    {
+      "index": 39,
+      "esp": 0.8145423801447452,
+      "depth": 3,
+      "parent": 7
+    },
+    {
+      "index": 40,
+      "esp": 0.8074352432046301,
+      "depth": 3,
+      "parent": 7
+    },
+    {
+      "index": 41,
+      "esp": 0.8776485967254769,
+      "depth": 3,
+      "parent": 7
+    },
+    {
+      "index": 42,
+      "esp": 0.9331738235624955,
+      "depth": 3,
+      "parent": 7
+    },
+    {
+      "index": 43,
+      "esp": 0.9314117548699314,
+      "depth": 3,
+      "parent": 7
+    },
+    {
+      "index": 44,
+      "esp": 0.8776485967254769,
+      "depth": 3,
+      "parent": 7
+    },
+    {
+      "index": 45,
+      "esp": 0.9169604003443721,
+      "depth": 3,
+      "parent": 7
+    },
+    {
+      "index": 46,
+      "esp": 0.930971757822455,
+      "depth": 3,
+      "parent": 11
+    },
+    {
+      "index": 47,
+      "esp": 0.9263437789542711,
+      "depth": 3,
+      "parent": 11
+    },
+    {
+      "index": 48,
+      "esp": 0.8141575919558113,
+      "depth": 3,
+      "parent": 11
+    },
+    {
+      "index": 49,
+      "esp": 0.8078168542686108,
+      "depth": 3,
+      "parent": 11
+    },
+    {
+      "index": 50,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 11
+    },
+    {
+      "index": 51,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 11
+    },
+    {
+      "index": 52,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 11
+    },
+    {
+      "index": 53,
+      "esp": 0.8078168542686108,
+      "depth": 3,
+      "parent": 17
+    },
+    {
+      "index": 54,
+      "esp": 0.8443996338338307,
+      "depth": 3,
+      "parent": 17
+    },
+    {
+      "index": 55,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 17
+    },
+    {
+      "index": 56,
+      "esp": 0.8141575919558113,
+      "depth": 3,
+      "parent": 17
+    },
+    {
+      "index": 57,
+      "esp": 0.930971757822455,
+      "depth": 3,
+      "parent": 17
+    },
+    {
+      "index": 58,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 17
+    },
+    {
+      "index": 59,
+      "esp": 0.8141575919558113,
+      "depth": 3,
+      "parent": 17
+    },
+    {
+      "index": 60,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 17
+    },
+    {
+      "index": 61,
+      "esp": 0.8636232398200747,
+      "depth": 3,
+      "parent": 4
+    },
+    {
+      "index": 62,
+      "esp": 0.8640314065259496,
+      "depth": 3,
+      "parent": 4
+    },
+    {
+      "index": 63,
+      "esp": 0.8636232398200747,
+      "depth": 3,
+      "parent": 4
+    },
+    {
+      "index": 64,
+      "esp": 0.8015254988568016,
+      "depth": 3,
+      "parent": 4
+    },
+    {
+      "index": 65,
+      "esp": 0.918261139853919,
+      "depth": 3,
+      "parent": 4
+    },
+    {
+      "index": 66,
+      "esp": 0.9165272300878288,
+      "depth": 3,
+      "parent": 4
+    },
+    {
+      "index": 67,
+      "esp": 0.9165272300878288,
+      "depth": 3,
+      "parent": 4
+    },
+    {
+      "index": 68,
+      "esp": 0.9165272300878288,
+      "depth": 3,
+      "parent": 4
+    },
+    {
+      "index": 69,
+      "esp": 0.7945319382757583,
+      "depth": 3,
+      "parent": 4
+    },
+    {
+      "index": 70,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 71,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 72,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 73,
+      "esp": 0.8849555108066081,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 74,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 75,
+      "esp": 0.7671626048923926,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 76,
+      "esp": 0.8780633921132387,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 77,
+      "esp": 0.761187868687616,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 78,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 79,
+      "esp": 0.851027518054142,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 80,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 81,
+      "esp": 0.7671626048923926,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 82,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 83,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 5
+    },
+    {
+      "index": 84,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 85,
+      "esp": 0.7671626048923926,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 86,
+      "esp": 0.8849555108066081,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 87,
+      "esp": 0.8346623097414566,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 88,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 89,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 90,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 91,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 92,
+      "esp": 0.9263437789542711,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 93,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 94,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 95,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 96,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 6
+    },
+    {
+      "index": 97,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 98,
+      "esp": 0.8346623097414566,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 99,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 100,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 101,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 102,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 103,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 104,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 105,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 106,
+      "esp": 0.8354514544897722,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 107,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 10
+    },
+    {
+      "index": 108,
+      "esp": 0.7671626048923926,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 109,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 110,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 111,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 112,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 113,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 114,
+      "esp": 0.8354514544897722,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 115,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 116,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 117,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 118,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 119,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 120,
+      "esp": 0.8443996338338307,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 121,
+      "esp": 0.8346623097414566,
+      "depth": 3,
+      "parent": 15
+    },
+    {
+      "index": 122,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 123,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 124,
+      "esp": 0.8849555108066081,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 125,
+      "esp": 0.7671626048923926,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 126,
+      "esp": 0.761187868687616,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 127,
+      "esp": 0.7671626048923926,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 128,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 129,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 130,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 131,
+      "esp": 0.7671626048923926,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 132,
+      "esp": 0.8443996338338307,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 133,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 134,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 16
+    },
+    {
+      "index": 135,
+      "esp": 0.7671626048923926,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 136,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 137,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 138,
+      "esp": 0.7671626048923926,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 139,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 140,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 141,
+      "esp": 0.8772339972862256,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 142,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 143,
+      "esp": 0.8849555108066081,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 144,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 145,
+      "esp": 0.826598099812098,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 146,
+      "esp": 0.7604688713050295,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 147,
+      "esp": 0.8346623097414566,
+      "depth": 3,
+      "parent": 18
+    },
+    {
+      "index": 148,
+      "esp": 0.9331738235624955,
+      "depth": 4,
+      "parent": 42
+    },
+    {
+      "index": 149,
+      "esp": 0.8074352432046301,
+      "depth": 4,
+      "parent": 42
+    },
+    {
+      "index": 150,
+      "esp": 0.9314117548699314,
+      "depth": 4,
+      "parent": 42
+    },
+    {
+      "index": 151,
+      "esp": 0.8776485967254769,
+      "depth": 4,
+      "parent": 42
+    },
+    {
+      "index": 152,
+      "esp": 0.9169604003443721,
+      "depth": 4,
+      "parent": 42
+    },
+    {
+      "index": 153,
+      "esp": 0.8145423801447452,
+      "depth": 4,
+      "parent": 42
+    },
+    {
+      "index": 154,
+      "esp": 0.8776485967254769,
+      "depth": 4,
+      "parent": 42
+    },
+    {
+      "index": 155,
+      "esp": 0.8776485967254769,
+      "depth": 4,
+      "parent": 42
+    },
+    {
+      "index": 156,
+      "esp": 0.8066725618084155,
+      "depth": 4,
+      "parent": 43
+    },
+    {
+      "index": 157,
+      "esp": 0.9296530134096568,
+      "depth": 4,
+      "parent": 43
+    },
+    {
+      "index": 158,
+      "esp": 0.8130043176845915,
+      "depth": 4,
+      "parent": 43
+    },
+    {
+      "index": 159,
+      "esp": 0.875991373734096,
+      "depth": 4,
+      "parent": 43
+    },
+    {
+      "index": 160,
+      "esp": 0.875991373734096,
+      "depth": 4,
+      "parent": 43
+    },
+    {
+      "index": 161,
+      "esp": 0.9250315901874673,
+      "depth": 4,
+      "parent": 43
+    },
+    {
+      "index": 162,
+      "esp": 0.875991373734096,
+      "depth": 4,
+      "parent": 43
+    },
+    {
+      "index": 163,
+      "esp": 0.8755775571636666,
+      "depth": 4,
+      "parent": 46
+    },
+    {
+      "index": 164,
+      "esp": 0.8070538124129518,
+      "depth": 4,
+      "parent": 46
+    },
+    {
+      "index": 165,
+      "esp": 0.9292138471881234,
+      "depth": 4,
+      "parent": 46
+    },
+    {
+      "index": 166,
+      "esp": 0.8755775571636666,
+      "depth": 4,
+      "parent": 46
+    },
+    {
+      "index": 167,
+      "esp": 0.812620256073283,
+      "depth": 4,
+      "parent": 46
+    },
+    {
+      "index": 168,
+      "esp": 0.8755775571636666,
+      "depth": 4,
+      "parent": 46
+    },
+    {
+      "index": 169,
+      "esp": 0.918261139853919,
+      "depth": 4,
+      "parent": 46
+    },
+    {
+      "index": 170,
+      "esp": 0.8518321355487938,
+      "depth": 4,
+      "parent": 57
+    },
+    {
+      "index": 171,
+      "esp": 0.8755775571636666,
+      "depth": 4,
+      "parent": 57
+    },
+    {
+      "index": 172,
+      "esp": 0.8755775571636666,
+      "depth": 4,
+      "parent": 57
+    },
+    {
+      "index": 173,
+      "esp": 0.8755775571636666,
+      "depth": 4,
+      "parent": 57
+    },
+    {
+      "index": 174,
+      "esp": 0.9292138471881234,
+      "depth": 4,
+      "parent": 57
+    },
+    {
+      "index": 175,
+      "esp": 0.812620256073283,
+      "depth": 4,
+      "parent": 57
+    },
+    {
+      "index": 176,
+      "esp": 0.812620256073283,
+      "depth": 4,
+      "parent": 57
+    },
+    {
+      "index": 177,
+      "esp": 0.8070538124129518,
+      "depth": 4,
+      "parent": 57
+    },
+    {
+      "index": 178,
+      "esp": 0.9245946071170078,
+      "depth": 4,
+      "parent": 47
+    },
+    {
+      "index": 179,
+      "esp": 0.871224949903606,
+      "depth": 4,
+      "parent": 47
+    },
+    {
+      "index": 180,
+      "esp": 0.871224949903606,
+      "depth": 4,
+      "parent": 47
+    },
+    {
+      "index": 181,
+      "esp": 0.9245946071170078,
+      "depth": 4,
+      "parent": 47
+    },
+    {
+      "index": 182,
+      "esp": 0.9263437789542711,
+      "depth": 4,
+      "parent": 47
+    },
+    {
+      "index": 183,
+      "esp": 0.8015254988568016,
+      "depth": 4,
+      "parent": 47
+    },
+    {
+      "index": 184,
+      "esp": 0.8015254988568016,
+      "depth": 4,
+      "parent": 47
+    },
+    {
+      "index": 185,
+      "esp": 0.871224949903606,
+      "depth": 4,
+      "parent": 47
+    },
+    {
+      "index": 186,
+      "esp": 0.9250315901874673,
+      "depth": 4,
+      "parent": 92
+    },
+    {
+      "index": 187,
+      "esp": 0.871224949903606,
+      "depth": 4,
+      "parent": 92
+    },
+    {
+      "index": 188,
+      "esp": 0.918261139853919,
+      "depth": 4,
+      "parent": 92
+    },
+    {
+      "index": 189,
+      "esp": 0.8015254988568016,
+      "depth": 4,
+      "parent": 92
+    },
+    {
+      "index": 190,
+      "esp": 0.871224949903606,
+      "depth": 4,
+      "parent": 92
+    },
+    {
+      "index": 191,
+      "esp": 0.8085806175543212,
+      "depth": 4,
+      "parent": 92
+    },
+    {
+      "index": 192,
+      "esp": 0.9245946071170078,
+      "depth": 4,
+      "parent": 92
+    },
+    {
+      "index": 193,
+      "esp": 0.871224949903606,
+      "depth": 4,
+      "parent": 92
+    },
+    {
+      "index": 194,
+      "esp": 0.9245946071170078,
+      "depth": 4,
+      "parent": 92
+    },
+    {
+      "index": 195,
+      "esp": 0.9169604003443721,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 196,
+      "esp": 0.7945319382757583,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 197,
+      "esp": 0.8636232398200747,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 198,
+      "esp": 0.8636232398200747,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 199,
+      "esp": 0.9165272300878288,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 200,
+      "esp": 0.8636232398200747,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 201,
+      "esp": 0.9165272300878288,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 202,
+      "esp": 0.9263437789542711,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 203,
+      "esp": 0.9165272300878288,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 204,
+      "esp": 0.8568972589063371,
+      "depth": 4,
+      "parent": 65
+    },
+    {
+      "index": 205,
+      "esp": 0.9152289467041493,
+      "depth": 4,
+      "parent": 45
+    },
+    {
+      "index": 206,
+      "esp": 0.7934064642261034,
+      "depth": 4,
+      "parent": 45
+    },
+    {
+      "index": 207,
+      "esp": 0.8628074847686414,
+      "depth": 4,
+      "parent": 45
+    },
+    {
+      "index": 208,
+      "esp": 0.8623998962409534,
+      "depth": 4,
+      "parent": 45
+    },
+    {
+      "index": 209,
+      "esp": 0.9152289467041493,
+      "depth": 4,
+      "parent": 45
+    },
+    {
+      "index": 210,
+      "esp": 0.8003901182564221,
+      "depth": 4,
+      "parent": 45
+    },
+    {
+      "index": 211,
+      "esp": 0.9152289467041493,
+      "depth": 4,
+      "parent": 45
+    },
+    {
+      "index": 212,
+      "esp": 0.8623998962409534,
+      "depth": 4,
+      "parent": 45
+    },
+    {
+      "index": 213,
+      "esp": 0.8623998962409534,
+      "depth": 4,
+      "parent": 66
+    },
+    {
+      "index": 214,
+      "esp": 0.8619925002572695,
+      "depth": 4,
+      "parent": 66
+    },
+    {
+      "index": 215,
+      "esp": 0.8619925002572695,
+      "depth": 4,
+      "parent": 66
+    },
+    {
+      "index": 216,
+      "esp": 0.8560878570337591,
+      "depth": 4,
+      "parent": 66
+    },
+    {
+      "index": 217,
+      "esp": 0.9147965943828378,
+      "depth": 4,
+      "parent": 66
+    },
+    {
+      "index": 218,
+      "esp": 0.9263437789542711,
+      "depth": 4,
+      "parent": 66
+    },
+    {
+      "index": 219,
+      "esp": 0.8000120155676587,
+      "depth": 4,
+      "parent": 66
+    },
+    {
+      "index": 220,
+      "esp": 0.9147965943828378,
+      "depth": 4,
+      "parent": 66
+    },
+    {
+      "index": 221,
+      "esp": 0.9147965943828378,
+      "depth": 4,
+      "parent": 66
+    },
+    {
+      "index": 222,
+      "esp": 0.8619925002572695,
+      "depth": 4,
+      "parent": 67
+    },
+    {
+      "index": 223,
+      "esp": 0.8619925002572695,
+      "depth": 4,
+      "parent": 67
+    },
+    {
+      "index": 224,
+      "esp": 0.9156615033643608,
+      "depth": 4,
+      "parent": 67
+    },
+    {
+      "index": 225,
+      "esp": 0.9147965943828378,
+      "depth": 4,
+      "parent": 67
+    },
+    {
+      "index": 226,
+      "esp": 0.8000120155676587,
+      "depth": 4,
+      "parent": 67
+    },
+    {
+      "index": 227,
+      "esp": 0.7930316606015162,
+      "depth": 4,
+      "parent": 67
+    },
+    {
+      "index": 228,
+      "esp": 0.918261139853919,
+      "depth": 4,
+      "parent": 67
+    },
+    {
+      "index": 229,
+      "esp": 0.8623998962409534,
+      "depth": 4,
+      "parent": 67
+    },
+    {
+      "index": 230,
+      "esp": 0.9314117548699314,
+      "depth": 5,
+      "parent": 148
+    },
+    {
+      "index": 231,
+      "esp": 0.8776485967254769,
+      "depth": 5,
+      "parent": 148
+    },
+    {
+      "index": 232,
+      "esp": 0.8145423801447452,
+      "depth": 5,
+      "parent": 148
+    },
+    {
+      "index": 233,
+      "esp": 0.8776485967254769,
+      "depth": 5,
+      "parent": 148
+    },
+    {
+      "index": 234,
+      "esp": 0.9331738235624955,
+      "depth": 5,
+      "parent": 148
+    },
+    {
+      "index": 235,
+      "esp": 0.8074352432046301,
+      "depth": 5,
+      "parent": 148
+    },
+    {
+      "index": 236,
+      "esp": 0.9169604003443721,
+      "depth": 5,
+      "parent": 148
+    },
+    {
+      "index": 237,
+      "esp": 0.8776485967254769,
+      "depth": 5,
+      "parent": 148
+    },
+    {
+      "index": 238,
+      "esp": 0.875991373734096,
+      "depth": 5,
+      "parent": 150
+    },
+    {
+      "index": 239,
+      "esp": 0.875991373734096,
+      "depth": 5,
+      "parent": 150
+    },
+    {
+      "index": 240,
+      "esp": 0.875991373734096,
+      "depth": 5,
+      "parent": 150
+    },
+    {
+      "index": 241,
+      "esp": 0.9296530134096568,
+      "depth": 5,
+      "parent": 150
+    },
+    {
+      "index": 242,
+      "esp": 0.9250315901874673,
+      "depth": 5,
+      "parent": 150
+    },
+    {
+      "index": 243,
+      "esp": 0.8130043176845915,
+      "depth": 5,
+      "parent": 150
+    },
+    {
+      "index": 244,
+      "esp": 0.8066725618084155,
+      "depth": 5,
+      "parent": 150
+    },
+    {
+      "index": 245,
+      "esp": 0.805910600820329,
+      "depth": 5,
+      "parent": 157
+    },
+    {
+      "index": 246,
+      "esp": 0.8743372799997472,
+      "depth": 5,
+      "parent": 157
+    },
+    {
+      "index": 247,
+      "esp": 0.9278975928990135,
+      "depth": 5,
+      "parent": 157
+    },
+    {
+      "index": 248,
+      "esp": 0.8114691594761856,
+      "depth": 5,
+      "parent": 157
+    },
+    {
+      "index": 249,
+      "esp": 0.8743372799997472,
+      "depth": 5,
+      "parent": 157
+    },
+    {
+      "index": 250,
+      "esp": 0.8743372799997472,
+      "depth": 5,
+      "parent": 157
+    },
+    {
+      "index": 251,
+      "esp": 0.9169604003443721,
+      "depth": 5,
+      "parent": 157
+    },
+    {
+      "index": 252,
+      "esp": 0.8739242448198848,
+      "depth": 5,
+      "parent": 165
+    },
+    {
+      "index": 253,
+      "esp": 0.9274592559346135,
+      "depth": 5,
+      "parent": 165
+    },
+    {
+      "index": 254,
+      "esp": 0.8739242448198848,
+      "depth": 5,
+      "parent": 165
+    },
+    {
+      "index": 255,
+      "esp": 0.8110858230705401,
+      "depth": 5,
+      "parent": 165
+    },
+    {
+      "index": 256,
+      "esp": 0.9263437789542711,
+      "depth": 5,
+      "parent": 165
+    },
+    {
+      "index": 257,
+      "esp": 0.8739242448198848,
+      "depth": 5,
+      "parent": 165
+    },
+    {
+      "index": 258,
+      "esp": 0.9274592559346135,
+      "depth": 5,
+      "parent": 174
+    },
+    {
+      "index": 259,
+      "esp": 0.8739242448198848,
+      "depth": 5,
+      "parent": 174
+    },
+    {
+      "index": 260,
+      "esp": 0.8739242448198848,
+      "depth": 5,
+      "parent": 174
+    },
+    {
+      "index": 261,
+      "esp": 0.8110858230705401,
+      "depth": 5,
+      "parent": 174
+    },
+    {
+      "index": 262,
+      "esp": 0.8739242448198848,
+      "depth": 5,
+      "parent": 174
+    },
+    {
+      "index": 263,
+      "esp": 0.8110858230705401,
+      "depth": 5,
+      "parent": 174
+    },
+    {
+      "index": 264,
+      "esp": 0.8518321355487938,
+      "depth": 5,
+      "parent": 174
+    },
+    {
+      "index": 265,
+      "esp": 0.871224949903606,
+      "depth": 5,
+      "parent": 182
+    },
+    {
+      "index": 266,
+      "esp": 0.8085806175543212,
+      "depth": 5,
+      "parent": 182
+    },
+    {
+      "index": 267,
+      "esp": 0.871224949903606,
+      "depth": 5,
+      "parent": 182
+    },
+    {
+      "index": 268,
+      "esp": 0.918261139853919,
+      "depth": 5,
+      "parent": 182
+    },
+    {
+      "index": 269,
+      "esp": 0.9245946071170078,
+      "depth": 5,
+      "parent": 182
+    },
+    {
+      "index": 270,
+      "esp": 0.9250315901874673,
+      "depth": 5,
+      "parent": 182
+    },
+    {
+      "index": 271,
+      "esp": 0.9245946071170078,
+      "depth": 5,
+      "parent": 182
+    },
+    {
+      "index": 272,
+      "esp": 0.8015254988568016,
+      "depth": 5,
+      "parent": 182
+    },
+    {
+      "index": 273,
+      "esp": 0.871224949903606,
+      "depth": 5,
+      "parent": 182
+    },
+    {
+      "index": 274,
+      "esp": 0.9245946071170078,
+      "depth": 5,
+      "parent": 202
+    },
+    {
+      "index": 275,
+      "esp": 0.8015254988568016,
+      "depth": 5,
+      "parent": 202
+    },
+    {
+      "index": 276,
+      "esp": 0.8085806175543212,
+      "depth": 5,
+      "parent": 202
+    },
+    {
+      "index": 277,
+      "esp": 0.9250315901874673,
+      "depth": 5,
+      "parent": 202
+    },
+    {
+      "index": 278,
+      "esp": 0.871224949903606,
+      "depth": 5,
+      "parent": 202
+    },
+    {
+      "index": 279,
+      "esp": 0.871224949903606,
+      "depth": 5,
+      "parent": 202
+    },
+    {
+      "index": 280,
+      "esp": 0.918261139853919,
+      "depth": 5,
+      "parent": 202
+    },
+    {
+      "index": 281,
+      "esp": 0.9245946071170078,
+      "depth": 5,
+      "parent": 202
+    },
+    {
+      "index": 282,
+      "esp": 0.871224949903606,
+      "depth": 5,
+      "parent": 202
+    },
+    {
+      "index": 283,
+      "esp": 0.8015254988568016,
+      "depth": 5,
+      "parent": 218
+    },
+    {
+      "index": 284,
+      "esp": 0.9245946071170078,
+      "depth": 5,
+      "parent": 218
+    },
+    {
+      "index": 285,
+      "esp": 0.9250315901874673,
+      "depth": 5,
+      "parent": 218
+    },
+    {
+      "index": 286,
+      "esp": 0.871224949903606,
+      "depth": 5,
+      "parent": 218
+    },
+    {
+      "index": 287,
+      "esp": 0.918261139853919,
+      "depth": 5,
+      "parent": 218
+    },
+    {
+      "index": 288,
+      "esp": 0.871224949903606,
+      "depth": 5,
+      "parent": 218
+    },
+    {
+      "index": 289,
+      "esp": 0.9245946071170078,
+      "depth": 5,
+      "parent": 218
+    },
+    {
+      "index": 290,
+      "esp": 0.871224949903606,
+      "depth": 5,
+      "parent": 218
+    },
+    {
+      "index": 291,
+      "esp": 0.8085806175543212,
+      "depth": 5,
+      "parent": 218
+    },
+    {
+      "index": 292,
+      "esp": 0.8003901182564221,
+      "depth": 5,
+      "parent": 161
+    },
+    {
+      "index": 293,
+      "esp": 0.9232848960951711,
+      "depth": 5,
+      "parent": 161
+    },
+    {
+      "index": 294,
+      "esp": 0.8699908383150191,
+      "depth": 5,
+      "parent": 161
+    },
+    {
+      "index": 295,
+      "esp": 0.8699908383150191,
+      "depth": 5,
+      "parent": 161
+    },
+    {
+      "index": 296,
+      "esp": 0.8003901182564221,
+      "depth": 5,
+      "parent": 161
+    },
+    {
+      "index": 297,
+      "esp": 0.8699908383150191,
+      "depth": 5,
+      "parent": 161
+    },
+    {
+      "index": 298,
+      "esp": 0.9232848960951711,
+      "depth": 5,
+      "parent": 161
+    },
+    {
+      "index": 299,
+      "esp": 0.9232848960951711,
+      "depth": 5,
+      "parent": 186
+    },
+    {
+      "index": 300,
+      "esp": 0.9169604003443721,
+      "depth": 5,
+      "parent": 186
+    },
+    {
+      "index": 301,
+      "esp": 0.8003901182564221,
+      "depth": 5,
+      "parent": 186
+    },
+    {
+      "index": 302,
+      "esp": 0.8699908383150191,
+      "depth": 5,
+      "parent": 186
+    },
+    {
+      "index": 303,
+      "esp": 0.8699908383150191,
+      "depth": 5,
+      "parent": 186
+    },
+    {
+      "index": 304,
+      "esp": 0.9250315901874673,
+      "depth": 5,
+      "parent": 186
+    },
+    {
+      "index": 305,
+      "esp": 0.8074352432046301,
+      "depth": 5,
+      "parent": 186
+    },
+    {
+      "index": 306,
+      "esp": 0.8699908383150191,
+      "depth": 5,
+      "parent": 186
+    },
+    {
+      "index": 307,
+      "esp": 0.9232848960951711,
+      "depth": 5,
+      "parent": 186
+    }
+  ],
+  "search_stats": {
+    "nodes_expanded": 34,
+    "generations": 5,
+    "nodes_evaluated": 308,
+    "frontier_left": 274,
+    "verified_count": 5,
+    "transpile_calls": 308,
+    "stop_reason": "plateau",
+    "stopped_early": true,
+    "max_evaluations": 1000,
+    "patience": 5,
+    "best_candidate_index": 0
+  },
+  "timing": {
+    "search_seconds": 7.684977799886838,
+    "transpile_seconds": 2.07630680128932,
+    "simulation_seconds": 0.32992349984124303,
+    "total_seconds": 8.17359000002034
+  }
+}

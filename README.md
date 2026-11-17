@@ -116,7 +116,8 @@ Na skupu od **17 kola** (scalable benchmarks) generisano je do 30 varijanti po s
 - **Ukupna dubina kola** (Total Depth)
 - **Dubina 2q kapija** (2Q Depth)
 - **Teorijska formula** (RQC) iz rada [Fidelity decay and error accumulation in random quantum circuits](docs/paper7.md)
-- **ESP (Estimated Success Probability)** — bazirano na nezavisnoj propagaciji greške kroz depolarizujuće kanale, opisan u radovima o proceni fidelitija velikih kola (npr. [Quantum supremacy using a programmable superconducting processor](https://www.nature.com/articles/s41586-019-1666-5))
+- **ESP (Estimated Success Probability)** — bazirano na nezavisnoj propagaciji greške kroz depolarizujuće kanale, opisan u radovima o proceni fidelitija velikih kola [Extracting Success from IBM's 20-Qubit Machines Using Error-Aware Compilation
+](docs/paper9)
 
 Za procenu uspešnosti predviđanja, izračunato je nekoliko mera:
 
